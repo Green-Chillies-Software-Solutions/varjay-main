@@ -1,0 +1,513 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================================
+   VARJAY MUSIC ACADEMY — ARTISTIC COLOR SYSTEM
+   Light: warm cream  |  Dark: deep concert-hall brown
+   5 accent colours: coral · amber · teal · violet · sky
+   Each section of the site has its own colour personality.
+   ============================================================ */
+
+
+@theme inline {
+  /* ── Typefaces (unchanged) ── */
+  --font-display:   "Fraunces",              serif;
+  --font-body:      "Plus Jakarta Sans",     sans-serif;
+  --font-mono:      "DM Mono",               monospace;
+  --font-sanskrit:  "Tiro Devanagari Hindi", serif;
+
+  /* ── Logo palette ── */
+  --color-sky:        #4DBDE8;   /* swan / wordmark blue  */
+  --color-sky-light:  #6ECEF5;   /* hover lighter         */
+  --color-sky-dim:    #2A8CB8;   /* darker shade          */
+  --color-rose:       #C4859A;   /* swan belly rose       */
+  --color-rose-dark:  #8B5A6B;   /* swan shadow           */
+  --color-rose-light: #E8B4D3;   /* lightest rose tint    */
+  --color-gold:       #C8963C;   /* tabla gold            */
+  --color-gold-light: #E9B949;   /* bright gold           */
+  --color-gold-dim:   #8B6914;   /* deep gold             */
+  --color-black:      #0A0A0F;   /* logo black            */
+  --color-night:      #060810;   /* slightly bluer black  */
+  --color-panel:      #0D0F1E;   /* stats / marquee panel */
+
+  /* ── Instrument family colours (logo-derived) ── */
+  --color-percussion:       #C8963C;   /* gold  — Tabla, Dholak */
+  --color-percussion-bg:    #2A1F08;
+  --color-percussion-light: #F5E6C8;
+  --color-strings:          #C4859A;   /* rose  — Guitar, Violin, Ukulele, Mandolin */
+  --color-strings-bg:       #2A1520;
+  --color-strings-light:    #F5D8E4;
+  --color-keys:             #4DBDE8;   /* sky   — Piano, Harmonium */
+  --color-keys-bg:          #082030;
+  --color-keys-light:       #D0EEFA;
+  --color-wind:             #6ECEF5;   /* sky light — Flute */
+  --color-wind-bg:          #082030;
+  --color-wind-light:       #D0EEFA;
+
+  /* ── Semantic aliases ── */
+  --color-background:             var(--background);
+  --color-foreground:             var(--foreground);
+  --color-primary:                var(--primary);
+  --color-primary-foreground:     var(--primary-foreground);
+  --color-border:                 var(--border);
+  --color-muted:                  var(--muted);
+  --color-muted-foreground:       var(--muted-foreground);
+  --color-card:                   var(--card);
+  --color-card-foreground:        var(--card-foreground);
+  --color-accent:                 var(--accent);
+  --color-accent-foreground:      var(--accent-foreground);
+  --color-ring:                   var(--ring);
+  --color-input:                  var(--input);
+  --color-secondary:              var(--secondary);
+  --color-secondary-foreground:   var(--secondary-foreground);
+  --color-popover:                var(--popover);
+  --color-popover-foreground:     var(--popover-foreground);
+  --color-destructive:            var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  /* ── Legacy aliases kept so existing component classes don't break ── */
+  --color-cream:       #EDF7FB;
+  --color-amber-tint:  #F5E6C8;
+  --color-amber:       #C8963C;
+  --color-coral:       #C4859A;
+  --color-teal:        #4DBDE8;
+  --color-violet:      #8B5A6B;
+  --color-sky:         #4DBDE8;
+  --color-lime:        #5ABFA8;
+  --color-orange:      #C8963C;
+  --color-rose:        #C4859A;
+  --color-indigo:      #2A4A8B;
+  --color-deep-brown:  #0A0A0F;
+  --color-taupe:       #8A8090;
+}
+
+/* ============================================================
+   LIGHT MODE  (default / :root)
+   "Light" for Varjay = deep dark. The logo is on black.
+   We keep it dark as primary and offer a genuine light variant.
+   ============================================================ */
+:root {
+  --radius: 0.625rem;
+
+  /* Page — deep dark (matches logo bg) */
+  --background:          #0A0A0F;
+  --foreground:          #EDF7FB;
+
+  /* Cards */
+  --card:                #0D0F1E;
+  --card-foreground:     #EDF7FB;
+
+  /* Popover */
+  --popover:             #0D0F1E;
+  --popover-foreground:  #EDF7FB;
+
+  /* Primary = sky blue */
+  --primary:             #4DBDE8;
+  --primary-foreground:  #0A0A0F;
+
+  /* Secondary = rose */
+  --secondary:           #2A1520;
+  --secondary-foreground:#C4859A;
+
+  /* Muted */
+  --muted:               #141620;
+  --muted-foreground:    #8A8090;
+
+  /* Accent = gold */
+  --accent:              #C8963C;
+  --accent-foreground:   #0A0A0F;
+
+  /* Destructive */
+  --destructive:         #E05555;
+  --destructive-foreground:#fff;
+
+  /* Borders & inputs */
+  --border: rgba(77,189,232,0.15);
+  --input:  rgba(77,189,232,0.15);
+  --ring:   #4DBDE8;
+
+  /* ── Section tokens ── */
+  --section-hero:         #0A0A0F;
+  --section-marquee:      #060810;
+  --section-stats:        #0D0F1E;
+  --section-instruments:  #0D0F1E;
+  --section-story:        #060810;
+  --section-teacher:      #0A0A0F;
+  --section-features:     #0D0F1E;
+  --section-testimonials: #060810;
+  --section-youtube:      #0D0F1E;
+  --section-gallery:      #0A0A0F;
+  --section-cta:          #0A2030;   /* dark teal-blue CTA */
+  --section-footer:       #060810;
+}
+
+/* ============================================================
+   LIGHT THEME  (.light class on <html> — optional toggle)
+   ============================================================ */
+.light {
+  --background:          #EDF7FB;
+  --foreground:          #0A0A0F;
+  --card:                #FFFFFF;
+  --card-foreground:     #0A0A0F;
+  --popover:             #FFFFFF;
+  --popover-foreground:  #0A0A0F;
+  --primary:             #2A8CB8;
+  --primary-foreground:  #FFFFFF;
+  --secondary:           #D0EEFA;
+  --secondary-foreground:#082030;
+  --muted:               #E8F6FB;
+  --muted-foreground:    #5A7080;
+  --accent:              #C8963C;
+  --accent-foreground:   #FFFFFF;
+  --border: rgba(77,189,232,0.25);
+  --input:  rgba(77,189,232,0.25);
+  --ring:   #4DBDE8;
+
+  --section-instruments: #EDF7FB;
+  --section-story:       #FFFFFF;
+  --section-features:    #EDF7FB;
+}
+
+/* ============================================================
+   BASE LAYER
+   ============================================================ */
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+/* ============================================================
+   COMPONENT LAYER
+   ============================================================ */
+@layer components {
+
+  /* ── Navbar ── */
+  .navbar {
+    background: rgba(10,10,15,0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(77,189,232,0.1);
+  }
+
+  /* Sky-blue logo text colour */
+  .nav-logo-text { color: #4DBDE8; }
+
+  /* Pill nav links — sky/rose/gold variants */
+  .nav-pill {
+    border-radius: 9999px;
+    padding: 4px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    transition: opacity 0.15s;
+  }
+  .nav-pill:hover { opacity: 0.8; }
+  .nav-pill-about   { background: rgba(77,189,232,0.12);  color: #4DBDE8; }
+  .nav-pill-courses { background: rgba(200,150,60,0.12);  color: #E9B949; }
+  .nav-pill-gallery { background: rgba(196,133,154,0.12); color: #C4859A; }
+  .nav-pill-faqs    { background: rgba(77,189,232,0.08);  color: #6ECEF5; }
+  .nav-pill-contact { background: rgba(200,150,60,0.12);  color: #C8963C; }
+
+  .btn-register {
+    background: #4DBDE8;
+    color: #0A0A0F;
+    border-radius: 9999px;
+    padding: 7px 20px;
+    font-weight: 700;
+    font-size: 13px;
+    transition: background 0.15s;
+  }
+  .btn-register:hover { background: #6ECEF5; }
+
+  /* ── Section label pill — used above h2 headings ── */
+  .section-label-pill {
+    display: inline-block;
+    border-radius: 9999px;
+    padding: 4px 14px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .section-label-sky  { background: rgba(77,189,232,0.12);  color: #4DBDE8; }
+  .section-label-rose { background: rgba(196,133,154,0.12); color: #C4859A; }
+  .section-label-gold { background: rgba(200,150,60,0.12);  color: #E9B949; }
+
+  /* ── Ticker strip ── */
+  .ticker-section { background: var(--section-marquee); border-top: 1px solid rgba(77,189,232,0.1); }
+  .ticker-item:nth-child(3n+1) { color: rgba(77,189,232,0.85); }
+  .ticker-item:nth-child(3n+2) { color: rgba(196,133,154,0.85); }
+  .ticker-item:nth-child(3n+0) { color: rgba(200,150,60,0.85); }
+
+  /* ── Stats ── */
+  .stats-section { background: var(--section-stats); border-bottom: 1px solid rgba(77,189,232,0.08); }
+  .stat-item:nth-child(1) .stat-number { color: #4DBDE8; }
+  .stat-item:nth-child(2) .stat-number { color: #C4859A; }
+  .stat-item:nth-child(3) .stat-number { color: #C8963C; }
+  .stat-item:nth-child(4) .stat-number { color: #4DBDE8; }
+  .stat-item .stat-label { color: rgba(255,255,255,0.35); }
+
+  /* ── Instruments section ── */
+  .instruments-section { background: var(--section-instruments); }
+
+  /* Instrument cards */
+  .instrument-card {
+    background: rgba(255,255,255,0.04);
+    border: 0.5px solid rgba(77,189,232,0.12);
+    border-radius: 14px;
+    transition: transform 0.2s, border-color 0.2s;
+    overflow: hidden;
+  }
+  .instrument-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(77,189,232,0.3);
+  }
+
+  /* Percussion — gold (Tabla, Dholak) */
+  .instrument-card[data-family="percussion"] { border-top: 3px solid #C8963C; }
+  .instrument-card[data-family="percussion"] .family-badge { background: rgba(200,150,60,0.15); color: #E9B949; }
+
+  /* Strings — rose (Guitar, Violin, Ukulele, Mandolin) */
+  .instrument-card[data-family="strings"] { border-top: 3px solid #C4859A; }
+  .instrument-card[data-family="strings"] .family-badge { background: rgba(196,133,154,0.15); color: #E8B4D3; }
+
+  /* Keys — sky blue (Piano, Harmonium) */
+  .instrument-card[data-family="keys"] { border-top: 3px solid #4DBDE8; }
+  .instrument-card[data-family="keys"] .family-badge { background: rgba(77,189,232,0.12); color: #4DBDE8; }
+
+  /* Wind — sky light (Flute) */
+  .instrument-card[data-family="wind"] { border-top: 3px solid #6ECEF5; }
+  .instrument-card[data-family="wind"] .family-badge { background: rgba(110,206,245,0.12); color: #6ECEF5; }
+
+  .family-badge {
+    display: inline-block;
+    border-radius: 9999px;
+    padding: 3px 10px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  /* ── Story section ── */
+  .story-section { background: var(--section-story); }
+
+  .feature-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    border-radius: 9999px;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .feature-chip-certified  { background: rgba(200,150,60,0.12);  color: #E9B949; }
+  .feature-chip-batch      { background: rgba(77,189,232,0.12);  color: #4DBDE8; }
+  .feature-chip-experience { background: rgba(196,133,154,0.12); color: #C4859A; }
+  .feature-chip-online     { background: rgba(110,206,245,0.10); color: #6ECEF5; }
+
+  /* ── Teacher section ── */
+  .teacher-section { background: var(--section-teacher); }
+  .teacher-avatar { background: #4DBDE8; color: #0A0A0F; border-radius: 9999px; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+  .teacher-quote-block { background: rgba(77,189,232,0.06); border-left: 3px solid #4DBDE8; border-radius: 0 8px 8px 0; padding: 12px 16px; color: rgba(77,189,232,0.9); font-style: italic; }
+  .teacher-badge { background: rgba(77,189,232,0.1); color: #4DBDE8; border-radius: 8px; padding: 3px 10px; font-size: 12px; }
+
+  /* ── Feature cards ── */
+  .features-section { background: var(--section-features); }
+  .feature-card {
+    background: rgba(255,255,255,0.03);
+    border: 0.5px solid rgba(77,189,232,0.1);
+    border-radius: 0 14px 14px 0;
+    padding: 20px 20px 20px 24px;
+    transition: transform 0.18s, border-color 0.18s;
+  }
+  .feature-card:hover { transform: translateX(4px); border-color: rgba(77,189,232,0.25); }
+  .feature-card-curriculum { border-left: 3px solid #4DBDE8; }
+  .feature-card-batch      { border-left: 3px solid #C4859A; }
+  .feature-card-fee        { border-left: 3px solid #C8963C; }
+  .feature-card-stage      { border-left: 3px solid #6ECEF5; }
+  .feature-icon-curriculum { color: #4DBDE8; }
+  .feature-icon-batch      { color: #C4859A; }
+  .feature-icon-fee        { color: #C8963C; }
+  .feature-icon-stage      { color: #6ECEF5; }
+
+  /* ── Testimonials ── */
+  .testimonials-section { background: var(--section-testimonials); }
+  .testimonial-card {
+    background: rgba(255,255,255,0.03);
+    border: 0.5px solid rgba(77,189,232,0.08);
+    border-radius: 14px;
+    padding: 20px;
+    transition: transform 0.18s;
+  }
+  .testimonial-card:hover { transform: translateY(-2px); }
+
+  /* Cycle sky / rose / gold for top border + stars */
+  .testimonial-card:nth-child(3n+1) { border-top: 2px solid #4DBDE8; }
+  .testimonial-card:nth-child(3n+1) .stars,
+  .testimonial-card:nth-child(3n+1) .reviewer-name { color: #4DBDE8; }
+
+  .testimonial-card:nth-child(3n+2) { border-top: 2px solid #C4859A; }
+  .testimonial-card:nth-child(3n+2) .stars,
+  .testimonial-card:nth-child(3n+2) .reviewer-name { color: #C4859A; }
+
+  .testimonial-card:nth-child(3n+0) { border-top: 2px solid #C8963C; }
+  .testimonial-card:nth-child(3n+0) .stars,
+  .testimonial-card:nth-child(3n+0) .reviewer-name { color: #C8963C; }
+
+  .testimonial-text { color: rgba(237,247,251,0.8); line-height: 1.65; }
+  .reviewer-instrument { font-size: 11px; color: rgba(237,247,251,0.35); font-weight: 500; }
+
+  /* ── YouTube section ── */
+  .youtube-section { background: var(--section-youtube); }
+  .performance-link {
+    display: block;
+    background: rgba(255,255,255,0.03);
+    border: 0.5px solid rgba(77,189,232,0.1);
+    border-radius: 10px;
+    padding: 12px 16px;
+    color: rgba(237,247,251,0.7);
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+  }
+  .performance-link:hover { background: rgba(77,189,232,0.08); border-color: #4DBDE8; color: #4DBDE8; }
+
+  /* ── Gallery ── */
+  .gallery-section { background: var(--section-gallery); }
+  .gallery-img { border-radius: 12px; overflow: hidden; display: block; transition: transform 0.2s; }
+  .gallery-img:hover { transform: scale(1.03); }
+  .gallery-img:nth-child(3n+1) { outline: 2px solid rgba(77,189,232,0.6);  outline-offset: 3px; }
+  .gallery-img:nth-child(3n+2) { outline: 2px solid rgba(196,133,154,0.6); outline-offset: 3px; }
+  .gallery-img:nth-child(3n+0) { outline: 2px solid rgba(200,150,60,0.6);  outline-offset: 3px; }
+
+  /* ── CTA section — deep blue-teal ── */
+  .cta-section { background: #0A2030; border-top: 1px solid rgba(77,189,232,0.2); border-bottom: 1px solid rgba(77,189,232,0.2); }
+  .cta-section h2 { color: #EDF7FB; }
+  .cta-section p  { color: rgba(77,189,232,0.7); }
+  .btn-cta-primary {
+    background: #4DBDE8; color: #0A0A0F;
+    border-radius: 9999px; font-weight: 700;
+    padding: 14px 32px; font-size: 15px;
+    transition: background 0.15s;
+    box-shadow: 0 8px 32px rgba(77,189,232,0.35);
+  }
+  .btn-cta-primary:hover { background: #6ECEF5; }
+  .btn-cta-secondary {
+    border: 2px solid rgba(77,189,232,0.4); color: #4DBDE8;
+    border-radius: 9999px; font-weight: 600;
+    padding: 14px 28px; font-size: 15px;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .btn-cta-secondary:hover { border-color: #4DBDE8; background: rgba(77,189,232,0.08); }
+
+  /* CTA avatars */
+  .cta-avatar {
+    width: 36px; height: 36px; border-radius: 9999px;
+    border: 2px solid rgba(77,189,232,0.4);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700;
+  }
+  .cta-avatar:nth-child(1) { background: rgba(77,189,232,0.2);  color: #4DBDE8; }
+  .cta-avatar:nth-child(2) { background: rgba(196,133,154,0.2); color: #C4859A; }
+  .cta-avatar:nth-child(3) { background: rgba(200,150,60,0.2);  color: #C8963C; }
+  .cta-avatar:nth-child(4) { background: rgba(77,189,232,0.15); color: #6ECEF5; }
+  .cta-avatar:nth-child(5) { background: rgba(196,133,154,0.15);color: #E8B4D3; }
+
+  /* ── Footer ── */
+  .footer { background: var(--section-footer); border-top: 1px solid rgba(77,189,232,0.08); }
+  .footer-heading { color: #4DBDE8; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+  .footer-link    { color: rgba(237,247,251,0.45); font-size: 14px; transition: color 0.15s; }
+  .footer-link:hover { color: #4DBDE8; }
+  .footer-brand   { color: rgba(237,247,251,0.25); font-size: 13px; }
+
+  .footer-social {
+    width: 34px; height: 34px; border-radius: 9999px;
+    border: 0.5px solid rgba(77,189,232,0.15);
+    background: rgba(77,189,232,0.05);
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(237,247,251,0.45);
+    transition: background 0.15s, color 0.15s;
+  }
+  .footer-social:hover { background: rgba(77,189,232,0.12); color: #4DBDE8; }
+}
+
+/* ============================================================
+   UTILITIES LAYER
+   ============================================================ */
+@layer utilities {
+  .font-display  { font-family: var(--font-display); }
+  .font-body     { font-family: var(--font-body); }
+  .font-mono     { font-family: var(--font-mono); }
+  .font-sanskrit { font-family: var(--font-sanskrit); }
+
+  /* Marquee */
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  .animate-marquee      { animation: marquee 40s linear infinite; }
+  .animate-marquee-slow { animation: marquee 60s linear infinite; }
+  .pause-on-hover:hover { animation-play-state: paused; }
+
+  /* Pulse ring for live/record indicator */
+  @keyframes pulse-ring {
+    0%        { transform: scale(0.9); opacity: 0.7; }
+    80%, 100% { transform: scale(1.6); opacity: 0; }
+  }
+  .pulse-ring::before {
+    content: "";
+    position: absolute; inset: 0; border-radius: 9999px;
+    background: #4DBDE8;
+    animation: pulse-ring 3s ease-out infinite;
+  }
+
+  /* Staff line draw */
+  @keyframes draw {
+    to { stroke-dashoffset: 0; }
+  }
+  .staff-line {
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 2000;
+    animation: draw 1.5s ease-out forwards;
+  }
+
+  /* Fade up */
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-up { animation: fade-up 0.6s ease-out forwards; }
+
+  /* Coloured text helpers */
+  .text-sky        { color: #4DBDE8; }
+  .text-sky-light  { color: #6ECEF5; }
+  .text-rose       { color: #C4859A; }
+  .text-rose-light { color: #E8B4D3; }
+  .text-gold       { color: #C8963C; }
+  .text-gold-light { color: #E9B949; }
+
+  .text-percussion { color: #C8963C; }
+  .text-strings    { color: #C4859A; }
+  .text-keys       { color: #4DBDE8; }
+  .text-wind       { color: #6ECEF5; }
+
+  /* Section bg helpers */
+  .section-dark    { background: #0A0A0F; }
+  .section-panel   { background: #0D0F1E; }
+  .section-night   { background: #060810; }
+
+  /* Dividers */
+  .divider-sky  { border-color: rgba(77,189,232,0.15); }
+  .divider-rose { border-color: rgba(196,133,154,0.15); }
+  .divider-gold { border-color: rgba(200,150,60,0.15); }
+}
