@@ -38,22 +38,28 @@ export function Hero() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const sectionRef = useRef<HTMLElement | null>(null);
 
-  const hasInteracted = useRef(false);
-  const isVisible = useRef(true);
+  // Tracks whether the browser has unlocked autoplay via any user gesture
+  const unlockedRef = useRef(false);
+  // Tracks whether the section is in view
+  const inViewRef = useRef(true);
+  // Whether the user has manually paused (so re-entry doesn't auto-resume)
+  const manuallyPausedRef = useRef(false);
 
   const [playing, setPlaying] = useState(false);
   const [idx, setIdx] = useState(0);
   const [progress, setProgress] = useState(0);
 
-  const stopTablaAudio = useCallback(() => {
+  // ── Core play / stop helpers ──────────────────────────────────────────────
+
+  const stopAudio = useCallback(() => {
     const audio = audioRef.current;
-    if (!audio) return;
+    if (!audio || audio.paused) return;
     audio.pause();
     audio.currentTime = 0;
     setPlaying(false);
   }, []);
 
-  const startTablaAudio = useCallback(async () => {
+  const playAudio = useCallback(async () => {
     const audio = audioRef.current;
     if (!audio) return;
     audio.volume = TABLA_VOLUME;
@@ -62,53 +68,68 @@ export function Hero() {
       await audio.play();
       setPlaying(true);
     } catch {
+      // Autoplay blocked — will retry on first user gesture
       setPlaying(false);
     }
   }, []);
 
-  const tryPlay = useCallback(() => {
-    const audio = audioRef.current;
-    if (!audio || !hasInteracted.current || !isVisible.current) return;
-    if (!audio.paused) return;
-    audio.volume = TABLA_VOLUME;
-    audio.muted = false;
-    audio.play().then(() => setPlaying(true)).catch(() => setPlaying(false));
-  }, []);
+  // ── Attempt autoplay when section becomes visible ─────────────────────────
+  // Called both on mount and whenever IntersectionObserver fires "visible"
+  const tryAutoplay = useCallback(() => {
+    if (!inViewRef.current) return;
+    if (manuallyPausedRef.current) return;
+    playAudio();
+  }, [playAudio]);
 
+  // ── Unlock on first user gesture, then immediately try to play ────────────
   useEffect(() => {
-    const onInteract = () => {
-      if (hasInteracted.current) return;
-      hasInteracted.current = true;
-      tryPlay();
+    const unlock = () => {
+      if (unlockedRef.current) return;
+      unlockedRef.current = true;
+      // Only auto-start if: section visible AND user hasn't manually paused
+      if (inViewRef.current && !manuallyPausedRef.current) {
+        playAudio();
+      }
     };
     const events = ["click", "touchstart", "keydown", "scroll"] as const;
-    events.forEach(e => window.addEventListener(e, onInteract, { passive: true }));
-    return () => events.forEach(e => window.removeEventListener(e, onInteract));
-  }, [tryPlay]);
+    events.forEach(e => window.addEventListener(e, unlock, { passive: true, once: true }));
+    return () => events.forEach(e => window.removeEventListener(e, unlock));
+  }, [playAudio]);
 
+  // ── IntersectionObserver — play on enter, stop on leave ───────────────────
   useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        isVisible.current = entry.isIntersecting;
+        inViewRef.current = entry.isIntersecting;
+
         if (entry.isIntersecting) {
-          tryPlay();
+          // Section entered viewport — try to play (respects manuallyPaused)
+          tryAutoplay();
         } else {
-          stopTablaAudio();
+          // Section left viewport — always stop regardless of manual state
+          // Reset manuallyPaused so next visit auto-plays again
+          manuallyPausedRef.current = false;
+          stopAudio();
         }
       },
       { threshold: 0.15 }
     );
 
     observer.observe(section);
+
+    // Try immediately on mount (page load with section already visible)
+    tryAutoplay();
+
     return () => {
       observer.disconnect();
-      stopTablaAudio();
+      stopAudio();
     };
-  }, [tryPlay, stopTablaAudio]);
+  }, [tryAutoplay, stopAudio]);
 
+  // ── Slide timer ───────────────────────────────────────────────────────────
   useEffect(() => {
     setProgress(0);
     const INTERVAL = 5000;
@@ -125,14 +146,17 @@ export function Hero() {
     return () => clearInterval(ticker);
   }, [idx]);
 
+  // ── Manual toggle (play/pause button) ────────────────────────────────────
   const toggleAudio = () => {
     const audio = audioRef.current;
     if (!audio) return;
     if (audio.paused) {
-      hasInteracted.current = true;
-      startTablaAudio();
+      manuallyPausedRef.current = false;
+      unlockedRef.current = true;
+      playAudio();
     } else {
-      stopTablaAudio();
+      manuallyPausedRef.current = true;
+      stopAudio();
     }
   };
 
@@ -150,9 +174,7 @@ export function Hero() {
         ))}
       </div>
 
-      {/* RIGHT — Image panel (desktop) 
-          Preserved your EXACT desktop layout 
-      */}
+      {/* RIGHT — Image panel (desktop) */}
       <div className="absolute inset-y-0 right-0 hidden lg:block z-10" style={{ width: "58%", clipPath: "polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%)" }}>
         <AnimatePresence mode="sync">
           <motion.div key={idx} initial={{ opacity: 0, scale: 1.05 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} transition={{ duration: 2, ease: [0.25, 0.46, 0.45, 0.94] }} className="absolute inset-0">
@@ -166,7 +188,7 @@ export function Hero() {
         </AnimatePresence>
         <div className="absolute inset-0 pointer-events-none opacity-20" style={{ background: `linear-gradient(135deg, ${INDIGO}55 0%, transparent 50%, ${SAFFRON}33 100%)`, mixBlendMode: "color" }} />
 
-        {/* Desktop-only Tag & Label */}
+        {/* Desktop Tag & Label */}
         <div className="absolute bottom-24 right-8 z-20 text-right">
           <AnimatePresence mode="wait">
             <motion.div key={`tag-${idx}`} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.5 }}>
@@ -177,9 +199,7 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Mobile image 
-          Updated gradients so text is readable, and added the missing Tag/Label for phones
-      */}
+      {/* Mobile image */}
       <div className="absolute inset-0 lg:hidden z-0">
         <AnimatePresence mode="sync">
           <motion.div key={`mob-${idx}`} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 1.6 }} className="absolute inset-0">
@@ -189,7 +209,7 @@ export function Hero() {
         <div className="absolute inset-0" style={{ background: `linear-gradient(to right, ${INK}F5, ${INK}DD 60%, transparent 100%)` }} />
         <div className="absolute inset-0" style={{ background: `linear-gradient(to bottom, ${INK}88 0%, transparent 30%, transparent 60%, ${INK} 100%)` }} />
 
-        {/* Mobile-only Tag & Label (Top Right) so users know what image is showing */}
+        {/* Mobile Tag & Label */}
         <div className="absolute top-24 right-6 z-20 text-right">
           <AnimatePresence mode="wait">
             <motion.div key={`mob-tag-${idx}`} initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} transition={{ duration: 0.5 }}>
@@ -225,9 +245,7 @@ export function Hero() {
         ))}
       </div>
 
-      {/* LEFT CONTENT PANEL 
-          Fixed Mobile Alignment: Replaced inline max-width with responsive Tailwind classes.
-      */}
+      {/* LEFT CONTENT PANEL */}
       <div className="relative z-20 flex flex-col justify-center min-h-[100svh] pt-32 pb-20 px-6 sm:px-10 lg:px-[max(3rem,5vw)] lg:pt-[5rem] lg:pb-[4rem] w-full lg:w-[52%] mx-auto lg:mx-0">
 
         <motion.div initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
@@ -243,10 +261,10 @@ export function Hero() {
         <div className="max-w-xl">
           <h1 className="font-serif leading-[0.95] tracking-tight" style={{ fontSize: "clamp(3rem, 6.5vw, 7rem)" }}>
             {[
-              { text: "Turn Your", color: IVORY, italic: false },
-              { text: "Talent Into", color: SAFFRON, italic: true },
-              { text: "A Musical", color: IVORY, italic: false },
-              { text: "Milestone.", color: TEAL, italic: true },
+              { text: "Turn Your",    color: IVORY,   italic: false },
+              { text: "Talent Into",  color: SAFFRON, italic: true  },
+              { text: "A Musical",    color: IVORY,   italic: false },
+              { text: "Milestone.",   color: TEAL,    italic: true  },
             ].map((line, i) => (
               <motion.span key={line.text}
                 initial={{ opacity: 0, x: -40, skewX: -4 }}
@@ -270,7 +288,7 @@ export function Hero() {
           </p>
         </motion.div>
 
-        {/* Buttons - Switched to w-full on mobile for better alignment */}
+        {/* Buttons */}
         <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.0 }} className="mt-8 sm:mt-11 flex flex-col sm:flex-row flex-wrap gap-4">
           <a href="#instruments"
             className="group inline-flex justify-center items-center gap-3 px-8 py-4 rounded-full font-semibold text-sm tracking-wide transition-all duration-300 w-full sm:w-auto"
@@ -292,18 +310,16 @@ export function Hero() {
           </a>
         </motion.div>
 
-        {/* Links / Info tags */}
+        {/* Info tags */}
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.15 }} className="mt-8 flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-x-6 gap-y-3">
           <span className="font-mono text-xs" style={{ color: TURMERIC }}>
             <span className="font-bold">★ 5.0</span>&nbsp; GOOGLE REVIEWS
           </span>
           <span className="hidden sm:block w-px h-4 bg-white/10" />
-
           <a href="#contact" className="inline-flex items-center gap-1.5 font-mono text-xs transition-colors" style={{ color: "#FFFFFF" }}
             onMouseEnter={e => (e.currentTarget.style.color = SKY)} onMouseLeave={e => (e.currentTarget.style.color = "#FFFFFF")}>
             <MapPin className="w-3 h-3 shrink-0" style={{ color: SKY }} /> Sanpada, Navi Mumbai
           </a>
-
           <a href="tel:+917770003037" className="inline-flex items-center gap-1.5 font-mono text-xs transition-colors" style={{ color: "#FFFFFF" }}
             onMouseEnter={e => (e.currentTarget.style.color = SKY)} onMouseLeave={e => (e.currentTarget.style.color = "#FFFFFF")}>
             <Phone className="w-3 h-3 shrink-0" style={{ color: SKY }} /> +91 777 000 3037
@@ -341,7 +357,7 @@ export function Hero() {
               preload="auto"
               playsInline
               onEnded={() => setPlaying(false)}
-              onPause={() => setPlaying(false)}
+              onPause={() => { if (!manuallyPausedRef.current) setPlaying(false); }}
             />
           </div>
         </motion.div>
@@ -352,7 +368,7 @@ export function Hero() {
         <motion.div className="h-full" style={{ width: `${progress}%`, background: `linear-gradient(to right, ${SAFFRON}, ${TEAL})` }} />
       </div>
 
-      {/* Scroll hint - Hidden on mobile so it doesn't clutter the bottom edge */}
+      {/* Scroll hint */}
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2 }}
         className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 hidden sm:flex flex-col items-center gap-1">
         <span className="font-mono text-[9px] tracking-[0.3em]" style={{ color: `${IVORY}22` }}>SCROLL</span>
