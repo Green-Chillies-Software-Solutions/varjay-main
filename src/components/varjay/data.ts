@@ -20,7 +20,7 @@ export const INSTRUMENTS = [
   },
   {
     name: "Piano & Keyboard",
-    category: "Western Classical",
+    category: "Western/Indian Classical",
     color: "#7C3AED",
     height: 320,
     curriculum: "Trinity certified curriculum",
@@ -28,7 +28,7 @@ export const INSTRUMENTS = [
   },
   {
     name: "Guitar",
-    category: "Acoustic & Electric",
+    category: "Western/Indian Classical",
     color: "#0D9488",
     height: 420,
     curriculum: "Trinity certified curriculum",
@@ -52,7 +52,7 @@ export const INSTRUMENTS = [
   },
   {
     name: "Vocal",
-    category: "Hindustani,Carnatic & Western Singing",
+    category: "Hindustani, Carnatic & Western Singing",
     color: "#65A30D",
     height: 300,
     curriculum: "Gandharva certified curriculum",
@@ -68,7 +68,7 @@ export const INSTRUMENTS = [
   },
   {
     name: "Violin",
-    category: "Hindustani,Carnatic & Western Strings",
+    category: "Hindustani, Carnatic & Western Strings",
     color: "#DB2777",
     height: 400,
     curriculum: null,                           // ← no curriculum text for now
