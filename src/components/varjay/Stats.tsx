@@ -50,7 +50,7 @@ const stats = [
   { value: 300, suffix: "+", prefix: "",  label: "STUDENTS",      decimals: 0 },
   { value: 9,   suffix: "",  prefix: "",  label: "INSTRUMENTS",   decimals: 0 },
   { value: 3,   suffix: "",  prefix: "",  label: "VOCALS",        decimals: 0 },
-  { value: 5.0, suffix: "",  prefix: "★", label: "GOOGLE RATING", decimals: 1 },
+  { value: 5.0, suffix: "",  prefix: "★", label: "GOOGLE RATINGS", decimals: 1 },
 ];
 
 export function Stats() {
