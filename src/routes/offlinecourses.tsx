@@ -565,7 +565,7 @@ function Page() {
         <div className="absolute inset-y-0 right-0 hidden md:block z-10" style={{ width: "48%", clipPath: "polygon(18% 0%, 100% 0%, 100% 100%, 0% 100%)" }}>
           <motion.div initial={{ opacity: 0, scale: 1.06 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 2.2, ease: [0.25, 0.46, 0.45, 0.94] }} className="absolute inset-0">
             <img
-              src="https://varjaymusic.com/wp-content/uploads/2024/07/tabla.jpg"
+              src="https://i.ibb.co/j9G7zrGp/image.png"
               alt="Offline music classes at Varjay Music Academy"
               className="w-full h-full object-cover object-center"
             />
@@ -578,7 +578,7 @@ function Page() {
         {/* Mobile image */}
         <div className="absolute inset-0 md:hidden z-0">
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.6 }} className="absolute inset-0">
-            <img src="https://varjaymusic.com/wp-content/uploads/2024/07/tabla.jpg" alt="Offline music classes" className="w-full h-full object-cover" />
+            <img src="https://i.ibb.co/j9G7zrGp/image.png" alt="Offline music classes" className="w-full h-full object-cover" />
           </motion.div>
           <div className="absolute inset-0" style={{ background: `linear-gradient(to right, ${INK}F5, ${INK}CC 55%, ${INK}88)` }} />
           <div className="absolute inset-0" style={{ background: `linear-gradient(to bottom, ${INK}66, transparent 30%, transparent 58%, ${INK} 100%)` }} />
