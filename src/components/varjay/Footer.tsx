@@ -77,7 +77,7 @@ export function Footer() {
             </h4>
             <ul className="space-y-3 text-[#F9F3E8]/70">
               {INSTRUMENTS.filter((i) => !i.name.toLowerCase().includes("vocal")).map((i) => {
-                const destination = SLUG[i.name] || "/courses";
+                const destination = SLUG[i.name] || "//onlinecourses";
                 return (
                   <li key={i.name}>
                     <Link
