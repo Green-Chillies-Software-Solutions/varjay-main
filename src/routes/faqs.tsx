@@ -9,27 +9,27 @@ const URL = "https://instrument-story-spark.lovable.app/faqs";
 const FAQS = [
   {
     q: "Where is your class located?",
-    a: "Our class is near Moraj residency off Palm beach road, Sector 1, Sanpada, Navi Mumbai.",
+    a: "Our class is in Sai-Jyot Co-Op Housing Society Sector 1, Near Rekhi Sai Co-Op Housing Society Sector 1, Sanpada, Navi Mumbai — 5 minutes walking distance from Platform 4 Vashi Station.",
   },
   {
     q: "What are the instruments you teach in your academy?",
-    a: "We teach Tabla, Keyboard, Guitar, Violin, Harmonium and Hindustani vocal.",
+    a: "We teach Tabla, Dholak, Keyboard, Guitar, Harmonium and Hindustani Vocal.",
   },
   {
     q: "Do you have different faculties for the different instruments?",
-    a: "Yes, we have the following faculties for the following instruments:\n• Shri Arvind Rao (owner) for Tabla\n• Shri Bharat Patil for Keyboard, Guitar & Violin\n• Shri Vishal Rajguru for Harmonium & Hindustani Vocal",
+    a: "Yes, we have the following faculties for the following instruments:\n• Shri Arvind Rao (Founder/Owner) for Tabla & Dholak\n• Shri Anil K for Keyboard & Guitar\n• Shri Vishal Rajguru for Harmonium & Hindustani Vocal",
   },
   {
     q: "How many students in a Batch?",
-    a: "We take only limited students in a batch, average 5 to 7.",
+    a: "We take only limited students in a batch, average 5 to 7 per instrument.",
   },
   {
     q: "When are the sessions conducted for different instruments?",
-    a: "Presently we are conducting the sessions as per the details given below (subject to change, please confirm before joining):\n\nTabla:\n• Mon to Sat morning: 10 am to 1 pm\n• Mon evening: 3:00 pm to 6:00 pm\n• Wed evening: 3:00 pm to 9:00 pm\n• Sat evening: 3:00 pm to 7:00 pm\n\nHindustani Vocal & Harmonium:\n• Tue & Fri evening: 6:30 pm to 9:30 pm\n\nEach session is of 1 hour duration & twice a week (Monthly 8 sessions). We conduct group sessions only. In case of private tuitions or Online sessions you may contact/message us.",
+    a: "Presently we are conducting the sessions as per the details given below, which are liable for changes from time to time. We request you to confirm the days & timings before joining.\n\nTabla & Dholak:\n• Monday to Sunday morning: 10 am to 1 pm\n• Monday to Saturday evening: 3:00 pm to 9:00 pm\n\nKeyboard & Guitar:\n• Monday & Thursday: 6:30 pm to 9:30 pm\n• Saturday: 6:00 pm to 9:00 pm\n\nHindustani Vocal & Harmonium:\n• Tuesday & Friday Evening: 6:00 pm to 9:00 pm\n• Sunday: 11:00 am to 1:00 pm\n\nEach session is of 1 hour duration & twice a week (Monthly 8 sessions). We conduct group sessions only. In case of private tuitions or Online sessions you may contact/message us at our registered mobile numbers or email address.",
   },
   {
     q: "What is your fee structure?",
-    a: "Presently we charge Rs 1500 per month for Tabla, Vocal & Harmonium. Presently we charge Rs 2000 per month for Keyboard, Guitar & Violin. The fees has to be paid by the latest on 10th of the same month.",
+    a: "Presently we charge Rs 1800 per month for Tabla, Dholak, Vocal & Harmonium (Beginner batch). Presently we charge Rs 2000 per month for Keyboard & Guitar. The fees has to be paid by the latest on the 5th of the same month.",
   },
   {
     q: "Is there any admission fee or Registration fee?",
@@ -40,7 +40,7 @@ const FAQS = [
     a: "Sorry we don't offer any discounts. We are lower or equal to the general market fees.",
   },
   {
-    q: "In case if the student misses any session, what is your policy?",
+    q: "In case the student misses any session, what is your policy?",
     a: "The student can compensate the session by attending the next available session in coordination with the owners of the academy.",
   },
   {
@@ -49,11 +49,11 @@ const FAQS = [
   },
   {
     q: "Is there any particular Syllabus you follow?",
-    a: "We follow Gandharva Syllabus for Tabla, Harmonium & Hindustani Vocal. We follow Trinity school of London for Keyboard, Guitar & Violin.",
+    a: "We follow Gandharva Syllabus for Tabla, Harmonium & Hindustani Vocal. We follow Trinity School of London Syllabus for Keyboard & Guitar. For those who want to learn as a Hobby, the syllabus will be the same for the first six months, after which it will differ for hobby students. For Dholak, we follow Hindustani base Taals.",
   },
   {
     q: "Where & When do we buy the instruments?",
-    a: "We suggest that you may buy from our known dealers. We leave it to your choice when you want to purchase the instruments, but we suggest that buying the instrument after a month of your joining, will be more ideal, so that you can practice at home.",
+    a: "We suggest that you may buy from our known dealers. We leave it to your choice when you want to purchase the instruments, but we suggest that buying the instrument after a month of your joining will be more ideal, so that you can practice at home.",
   },
 ];
 
