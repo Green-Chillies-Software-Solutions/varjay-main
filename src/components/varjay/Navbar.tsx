@@ -3,7 +3,6 @@ import { Menu, X, ChevronDown, Sparkles } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 
 const navLinks = [
-  { label: "About", to: "/about" },
   { label: "Gallery", to: "/gallery" },
   { label: "FAQs", to: "/faqs" },
 ];
@@ -58,7 +57,9 @@ export function Navbar() {
         </Link>
 
         {/* Desktop nav links */}
+        {/* Order: Home → About → Courses → Gallery → FAQs → Contact */}
         <div className="hidden lg:flex items-center gap-6 lg:gap-8">
+          {/* 1. Home */}
           <Link
             to="/"
             activeProps={{ className: "text-[#5BB8E8]" }}
@@ -69,7 +70,17 @@ export function Navbar() {
             <span className="absolute inset-x-0 bottom-0 h-[2px] bg-[#5BB8E8] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-full" />
           </Link>
 
-          {/* Courses Dropdown */}
+          {/* 2. About */}
+          <Link
+            to="/about"
+            activeProps={{ className: "text-[#5BB8E8]" }}
+            className="group relative font-bold text-sm text-[#0B1F3A] hover:text-[#5BB8E8] transition-colors tracking-wide py-2"
+          >
+            About
+            <span className="absolute inset-x-0 bottom-0 h-[2px] bg-[#5BB8E8] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-full" />
+          </Link>
+
+          {/* 3. Courses Dropdown */}
           <div
             className="relative"
             onMouseEnter={() => setCoursesOpen(true)}
@@ -114,6 +125,7 @@ export function Navbar() {
             </div>
           </div>
 
+          {/* 4. Gallery & 5. FAQs */}
           {navLinks.map((l) => (
             <Link
               key={l.to}
@@ -126,6 +138,7 @@ export function Navbar() {
             </Link>
           ))}
 
+          {/* 6. Contact */}
           <Link
             to="/contact"
             activeProps={{ className: "text-[#5BB8E8]" }}
@@ -136,7 +149,7 @@ export function Navbar() {
           </Link>
         </div>
 
-        {/* CTA button */}
+        {/* CTA button — Register Now */}
         <div className="hidden lg:block ml-2">
           <Link
             to="/register"
@@ -158,6 +171,7 @@ export function Navbar() {
       </nav>
 
       {/* Mobile Menu Overlay */}
+      {/* Order: Home → About → Courses → Gallery → FAQs → Contact → Register Now */}
       <div
         className={`fixed inset-0 z-[60] bg-[#EBF5FB] transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] flex flex-col px-8 py-10 overflow-y-auto ${
           open ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full pointer-events-none"
@@ -179,6 +193,7 @@ export function Navbar() {
         </div>
 
         <div className="flex flex-col gap-8 flex-1">
+          {/* 1. Home */}
           <Link
             to="/"
             onClick={() => setOpen(false)}
@@ -187,7 +202,16 @@ export function Navbar() {
             Home
           </Link>
 
-          {/* Mobile Courses Collapse */}
+          {/* 2. About */}
+          <Link
+            to="/about"
+            onClick={() => setOpen(false)}
+            className="text-4xl md:text-5xl font-bold text-[#0B1F3A] hover:text-[#5BB8E8] transition-colors tracking-tight"
+          >
+            About
+          </Link>
+
+          {/* 3. Courses Collapse */}
           <details className="group">
             <summary className="text-4xl md:text-5xl font-bold text-[#0B1F3A] cursor-pointer list-none flex items-center justify-between hover:text-[#5BB8E8] transition-colors tracking-tight">
               Courses
@@ -212,6 +236,7 @@ export function Navbar() {
             </div>
           </details>
 
+          {/* 4. Gallery & 5. FAQs */}
           {navLinks.map((l) => (
             <Link
               key={l.to}
@@ -222,6 +247,8 @@ export function Navbar() {
               {l.label}
             </Link>
           ))}
+
+          {/* 6. Contact */}
           <Link
             to="/contact"
             onClick={() => setOpen(false)}
@@ -230,6 +257,7 @@ export function Navbar() {
             Contact
           </Link>
 
+          {/* Register Now */}
           <div className="mt-auto pt-10">
             <Link
               to="/register"
