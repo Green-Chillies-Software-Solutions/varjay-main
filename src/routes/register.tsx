@@ -12,7 +12,6 @@ const perks = [
   "Batches of 5–7 students (small group attention)",
   "Choose online or offline classes",
   "ABGMV certified curriculum",
-  "Free trial class before you commit",
   "Stage performance opportunities every year",
 ];
 
@@ -159,7 +158,7 @@ function RegisterPage() {
             className="font-serif text-4xl md:text-5xl font-semibold leading-tight mb-10"
             style={{ color: IVORY }}
           >
-            Six reasons students love Varjay.
+            Five reasons students love Varjay.
           </motion.h2>
 
           <ul className="space-y-6">
@@ -199,7 +198,7 @@ function RegisterPage() {
               className="inline-block text-3xl font-serif transition-colors hover:opacity-80"
               style={{ color: TEAL }}
             >
-              +91 777 000 3036
+              +91 777 000 3037
             </a>
           </motion.div>
         </div>
@@ -212,7 +211,7 @@ function RegisterPage() {
           transition={{ duration: 0.8 }}
         >
           {/* Note: EnquiryForm component may need a dark-mode update inside its own file next! */}
-          <EnquiryForm title="Register for a free trial" subtitle="Pick your instrument and we'll handle the rest." />
+          <EnquiryForm title="Register now" subtitle="Pick your instrument and we'll handle the rest." />
         </motion.div>
       </section>
 
