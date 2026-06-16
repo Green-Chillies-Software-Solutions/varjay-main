@@ -15,10 +15,11 @@ const schema = z.object({
 });
 
 const COURSE_OPTIONS = [
-  ...INSTRUMENTS.map((i) => i.name),
+  ...INSTRUMENTS.map((i) =>
+    i.name === "Vocal" ? "Vocal (Hindustani, Carnatic & Western)" : i.name
+  ),
   "Not sure yet",
 ];
-
 // Helper: Exponential Backoff Retry for robustness against network or GAS timeouts
 async function fetchWithRetry(url: string, options: RequestInit, retries = 3): Promise<any> {
   for (let i = 0; i < retries; i++) {
