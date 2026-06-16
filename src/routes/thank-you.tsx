@@ -99,14 +99,6 @@ function ThankYouPage() {
             className="mt-12 flex flex-wrap gap-4 justify-center items-center"
           >
             <a
-              href="https://wa.me/917770003037"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:scale-105"
-              style={{ background: SAFFRON, color: INK, boxShadow: `0 8px 30px ${SAFFRON}40` }}
-            >
-              <MessageCircle className="w-5 h-5" /> Continue on WhatsApp
-            </a>
-
-            <a
               href="tel:+917770003037"
               className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full font-semibold transition-colors"
               style={{ border: `1.5px solid ${TEAL}60`, color: TEAL }}
