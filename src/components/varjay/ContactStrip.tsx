@@ -11,7 +11,7 @@ export function ContactStrip({ defaultCourse }: { defaultCourse?: string }) {
     </p>
 
     <h2 className="font-display text-4xl md:text-5xl font-semibold text-[#1C0A00] leading-tight">
-      Book a your class.
+      Book  your class.
     </h2>
 
     <p className="mt-4 text-[#57534e] text-lg max-w-md">
