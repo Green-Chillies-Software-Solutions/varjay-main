@@ -75,7 +75,7 @@ export function About() {
           </div>
           
           <p className="font-sanskrit text-lg md:text-xl text-[#378ADD] mt-6 text-center sm:text-left">
-            "We follow syllabus local university"
+            "We follow the local university's syllabus."
           </p>
 
           <a
