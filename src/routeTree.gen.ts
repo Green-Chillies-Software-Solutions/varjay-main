@@ -13,6 +13,7 @@ import { Route as ThankYouRouteImport } from './routes/thank-you'
 import { Route as TablaRouteImport } from './routes/tabla'
 import { Route as RegisterRouteImport } from './routes/register'
 import { Route as OnlinecoursesRouteImport } from './routes/onlinecourses'
+import { Route as OfflinecoursesRouteImport } from './routes/offlinecourses'
 import { Route as HindustaniClassicalRouteImport } from './routes/hindustani-classical'
 import { Route as GuruPoornima2025RouteImport } from './routes/guru-poornima-2025'
 import { Route as GuitarRouteImport } from './routes/guitar'
@@ -42,6 +43,11 @@ const RegisterRoute = RegisterRouteImport.update({
 const OnlinecoursesRoute = OnlinecoursesRouteImport.update({
   id: '/onlinecourses',
   path: '/onlinecourses',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OfflinecoursesRoute = OfflinecoursesRouteImport.update({
+  id: '/offlinecourses',
+  path: '/offlinecourses',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HindustaniClassicalRoute = HindustaniClassicalRouteImport.update({
@@ -106,6 +112,7 @@ export interface FileRoutesByFullPath {
   '/guitar': typeof GuitarRoute
   '/guru-poornima-2025': typeof GuruPoornima2025Route
   '/hindustani-classical': typeof HindustaniClassicalRoute
+  '/offlinecourses': typeof OfflinecoursesRoute
   '/onlinecourses': typeof OnlinecoursesRoute
   '/register': typeof RegisterRoute
   '/tabla': typeof TablaRoute
@@ -122,6 +129,7 @@ export interface FileRoutesByTo {
   '/guitar': typeof GuitarRoute
   '/guru-poornima-2025': typeof GuruPoornima2025Route
   '/hindustani-classical': typeof HindustaniClassicalRoute
+  '/offlinecourses': typeof OfflinecoursesRoute
   '/onlinecourses': typeof OnlinecoursesRoute
   '/register': typeof RegisterRoute
   '/tabla': typeof TablaRoute
@@ -139,6 +147,7 @@ export interface FileRoutesById {
   '/guitar': typeof GuitarRoute
   '/guru-poornima-2025': typeof GuruPoornima2025Route
   '/hindustani-classical': typeof HindustaniClassicalRoute
+  '/offlinecourses': typeof OfflinecoursesRoute
   '/onlinecourses': typeof OnlinecoursesRoute
   '/register': typeof RegisterRoute
   '/tabla': typeof TablaRoute
@@ -157,6 +166,7 @@ export interface FileRouteTypes {
     | '/guitar'
     | '/guru-poornima-2025'
     | '/hindustani-classical'
+    | '/offlinecourses'
     | '/onlinecourses'
     | '/register'
     | '/tabla'
@@ -173,6 +183,7 @@ export interface FileRouteTypes {
     | '/guitar'
     | '/guru-poornima-2025'
     | '/hindustani-classical'
+    | '/offlinecourses'
     | '/onlinecourses'
     | '/register'
     | '/tabla'
@@ -189,6 +200,7 @@ export interface FileRouteTypes {
     | '/guitar'
     | '/guru-poornima-2025'
     | '/hindustani-classical'
+    | '/offlinecourses'
     | '/onlinecourses'
     | '/register'
     | '/tabla'
@@ -206,6 +218,7 @@ export interface RootRouteChildren {
   GuitarRoute: typeof GuitarRoute
   GuruPoornima2025Route: typeof GuruPoornima2025Route
   HindustaniClassicalRoute: typeof HindustaniClassicalRoute
+  OfflinecoursesRoute: typeof OfflinecoursesRoute
   OnlinecoursesRoute: typeof OnlinecoursesRoute
   RegisterRoute: typeof RegisterRoute
   TablaRoute: typeof TablaRoute
@@ -240,6 +253,13 @@ declare module '@tanstack/react-router' {
       path: '/onlinecourses'
       fullPath: '/onlinecourses'
       preLoaderRoute: typeof OnlinecoursesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/offlinecourses': {
+      id: '/offlinecourses'
+      path: '/offlinecourses'
+      fullPath: '/offlinecourses'
+      preLoaderRoute: typeof OfflinecoursesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/hindustani-classical': {
@@ -326,6 +346,7 @@ const rootRouteChildren: RootRouteChildren = {
   GuitarRoute: GuitarRoute,
   GuruPoornima2025Route: GuruPoornima2025Route,
   HindustaniClassicalRoute: HindustaniClassicalRoute,
+  OfflinecoursesRoute: OfflinecoursesRoute,
   OnlinecoursesRoute: OnlinecoursesRoute,
   RegisterRoute: RegisterRoute,
   TablaRoute: TablaRoute,

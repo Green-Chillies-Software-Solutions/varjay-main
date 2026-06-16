@@ -284,21 +284,22 @@ function Page() {
               style={{ border: `1px solid ${TURMERIC}30`, boxShadow: `0 8px 32px rgba(232,184,75,0.10)` }}>
 
               {/* ── Guru photo ── */}
-              <div className="mx-auto md:mx-0 shrink-0"
-                style={{
-                  width: 120,
-                  height: 120,
-                  borderRadius: "50%",
-                  border: `3px solid ${TURMERIC}55`,
-                  boxShadow: `0 0 0 5px ${TURMERIC}18`,
-                  overflow: "hidden",
-                }}>
-                <img
-                  src="https://varjaymusic.com/wp-content/uploads/2024/07/arvind1.jpg"
-                  alt="Arvind V. Rao — Founder & Owner, Varjay Music Academy"
-                  style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }}
-                />
-              </div>
+              <div className="flex flex-col items-center gap-3 shrink-0">
+  <div className="w-36 h-44 rounded-2xl overflow-hidden"
+    style={{ border: `2px solid ${TURMERIC}55`, boxShadow: `0 4px 20px ${TURMERIC}28` }}>
+    <img
+      src="https://i.ibb.co/BVZTvSpG/arvind.jpg"
+      alt="Arvind V. Rao — Founder & Owner, Varjay Music Academy"
+      className="w-full h-full object-cover object-top"
+      onError={e => {
+        (e.currentTarget as HTMLImageElement).style.display = "none";
+        (e.currentTarget.parentElement as HTMLElement).style.background = `linear-gradient(135deg, ${TURMERIC}33, ${TURMERIC}22)`;
+        (e.currentTarget.parentElement as HTMLElement).innerHTML = `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:2.5rem;font-family:serif;color:${TURMERIC}">A</div>`;
+      }}
+    />
+  </div>
+  <span className="font-mono text-[10px] tracking-widest uppercase" style={{ color: TURMERIC }}>Founder & Owner</span>
+</div>
 
               <div>
                 <h3 className="font-serif text-2xl mb-1" style={{ color: NAVY }}>Arvind V. Rao</h3>

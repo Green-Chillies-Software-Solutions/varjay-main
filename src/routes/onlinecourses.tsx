@@ -207,7 +207,7 @@ const ONLINE_INSTRUMENTS = [
     name: "Harmonium",
     style: "Hindustani",
     color: "#0EA5E9",
-    img: "https://images.unsplash.com/photo-1695473379092-95a482d9bd11?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    img: "https://i.ibb.co/rRL7TfkT/harmonium.jpg",
     faculty: [
       {
         name: "Guru Arvind",
@@ -254,7 +254,7 @@ const ONLINE_INSTRUMENTS = [
     name: "Sitar",
     style: "Hindustani",
     color: "#F97316",
-    img: "https://earthmoments.com/cdn/shop/articles/sitar_1200x.jpg?v=1568737429",
+    img: "https://m.media-amazon.com/images/I/51izbO+NA9L._SL1280_.jpg",
     faculty: [
       {
         name: "To be announced",
@@ -696,7 +696,7 @@ function OnlineCoursesPage() {
             initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="inline-flex self-start items-center gap-2 px-4 py-2 rounded-full font-mono text-[14px] mb-8 tracking-widest uppercase"
+            className="inline-flex self-start items-center gap-2 px-4 py-2 rounded-full font-mono text-[10px] mb-8 tracking-widest uppercase"
             style={{ border: `1px solid ${BLUE}45`, background: `${BLUE}12`, color: BLUE }}
           >
             <Wifi className="w-3 h-3" />

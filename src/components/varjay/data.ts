@@ -19,12 +19,12 @@ export const INSTRUMENTS = [
     img: "https://images.unsplash.com/photo-1568219656418-15c329312bf1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
-    name: "Dholak",
-    category: "Indian Classical Percussion",   // ← was "Indian Folk Percussion"
-    color: "#F43F5E",
-    height: 280,
-    curriculum: null,                           // ← no curriculum text
-    img: "https://www.carvedculture.in/cdn/shop/articles/Indian-Dholak_Drum-The-Complete-Guide_68f25b2e-b994-460f-8768-2da4673398ac.jpg?v=1774273778&width=900",
+    name: "Piano & Keyboard",
+    category: "Western Classical",
+    color: "#7C3AED",
+    height: 320,
+    curriculum: "Trinity certified curriculum",
+    img: "https://images.unsplash.com/photo-1632008341003-5c6767c7d237?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     name: "Guitar",
@@ -35,12 +35,12 @@ export const INSTRUMENTS = [
     img: "https://cdn.mos.cms.futurecdn.net/Mt4Uis69VRU6EsBbTdF5Qm-750-80.jpg.webp",
   },
   {
-    name: "Piano & Keyboard",
-    category: "Western Classical",
-    color: "#7C3AED",
-    height: 320,
-    curriculum: "Trinity certified curriculum",
-    img: "https://images.unsplash.com/photo-1632008341003-5c6767c7d237?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    name: "Dholak",
+    category: "Indian Classical Percussion",   // ← was "Indian Folk Percussion"
+    color: "#F43F5E",
+    height: 280,
+    curriculum: null,                           // ← no curriculum text
+    img: "https://www.carvedculture.in/cdn/shop/articles/Indian-Dholak_Drum-The-Complete-Guide_68f25b2e-b994-460f-8768-2da4673398ac.jpg?v=1774273778&width=900",
   },
   {
     name: "Harmonium",
@@ -48,7 +48,7 @@ export const INSTRUMENTS = [
     color: "#0EA5E9",
     height: 350,
     curriculum: "Gandharva certified curriculum",
-    img: "https://images.unsplash.com/photo-1695473379092-95a482d9bd11?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    img: "https://i.ibb.co/rRL7TfkT/harmonium.jpg",
   },
   {
     name: "Vocal",
@@ -88,7 +88,7 @@ export const INSTRUMENTS = [
     color: "#F97316",
     height: 420,
     curriculum: null,
-    img: "https://earthmoments.com/cdn/shop/articles/sitar_1200x.jpg?v=1568737429",
+    img: "https://m.media-amazon.com/images/I/51izbO+NA9L._SL1280_.jpg",
   },
   {
     name: "Ukulele",
@@ -163,8 +163,8 @@ export const TESTIMONIALS = [
 export const GALLERY = [
   "https://varjaymusic.com/wp-content/uploads/2024/07/tabla.jpg",
   "https://varjaymusic.com/wp-content/uploads/2024/05/SRG_1204-copy-scaled-1-1024x576.jpg",
-  "https://varjaymusic.com/wp-content/uploads/2024/07/arvind1.jpg",
   "https://varjaymusic.com/wp-content/uploads/2024/05/how-to-play-acous123tic-guitar.jpg",
+  "https://i.ibb.co/BVZTvSpG/arvind.jpg",
   "https://varjaymusic.com/wp-content/uploads/2025/11/gp17-1024x458.jpg",
   vocalImg,
   "https://images.unsplash.com/photo-1632008341003-5c6767c7d237?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",

@@ -146,51 +146,58 @@ export function Hero() {
         <div className="absolute" style={{ width: "70vw", height: "70vh", top: "-20%", left: "-15%", background: `radial-gradient(ellipse, ${INDIGO}18 0%, transparent 70%)`, transform: "rotate(-20deg)" }} />
         <div className="absolute" style={{ width: "50vw", height: "60vh", bottom: "-10%", left: "5%", background: `radial-gradient(ellipse, ${SAFFRON}12 0%, transparent 65%)` }} />
         {[...Array(5)].map((_, i) => (
-          <div key={i} className="absolute w-full hidden md:block" style={{ top: `${28 + i * 4}%`, height: "1px", background: `linear-gradient(to right, transparent, ${IVORY}06 20%, ${IVORY}06 80%, transparent)` }} />
+          <div key={i} className="absolute w-full" style={{ top: `${28 + i * 4}%`, height: "1px", background: `linear-gradient(to right, transparent, ${IVORY}06 20%, ${IVORY}06 80%, transparent)` }} />
         ))}
       </div>
 
-      {/* Slide Info (Tag and Label) - Shifted down with top-32 to clear navbars */}
-      <div className="absolute top-32 right-6 md:top-32 md:right-16 z-40 text-right pointer-events-none">
-        <AnimatePresence mode="wait">
-          <motion.div key={`tag-${idx}`} initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 8 }} transition={{ duration: 0.5 }}>
-            <p className="font-mono text-[10px] md:text-[11px] tracking-[0.3em] text-white/60 mb-1.5 uppercase drop-shadow-md">
-              {current.tag}
-            </p>
-            <p className="font-serif italic text-3xl md:text-5xl font-light tracking-tight drop-shadow-xl" style={{ color: current.accent, textShadow: `0 0 30px ${current.accent}80` }}>
-              {current.label}
-            </p>
-          </motion.div>
-        </AnimatePresence>
-      </div>
-
-      {/* RIGHT — Image panel (desktop) */}
-      <div className="absolute inset-y-0 right-0 hidden md:block z-10" style={{ width: "58%", clipPath: "polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%)" }}>
+      {/* RIGHT — Image panel (desktop) 
+          Preserved your EXACT desktop layout 
+      */}
+      <div className="absolute inset-y-0 right-0 hidden lg:block z-10" style={{ width: "58%", clipPath: "polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%)" }}>
         <AnimatePresence mode="sync">
           <motion.div key={idx} initial={{ opacity: 0, scale: 1.05 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} transition={{ duration: 2, ease: [0.25, 0.46, 0.45, 0.94] }} className="absolute inset-0">
             <img src={current.src} alt={current.label} className="w-full h-full object-cover" style={{ objectPosition: current.position }} loading="eager" />
           </motion.div>
         </AnimatePresence>
-
-        {/* Gradients to blend image edge and text */}
         <div className="absolute inset-y-0 left-0 w-52 pointer-events-none" style={{ background: `linear-gradient(to right, ${INK}, transparent)` }} />
-        <div className="absolute inset-0 top-0 h-48 pointer-events-none" style={{ background: `linear-gradient(to bottom, ${INK}D0 0%, transparent 100%)` }} />
-
+        <div className="absolute inset-0 pointer-events-none" style={{ background: `linear-gradient(to bottom, ${INK}88 0%, transparent 20%, transparent 60%, ${INK}EE 100%)` }} />
         <AnimatePresence mode="sync">
           <motion.div key={`glow-${idx}`} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 1.6 }} className="absolute inset-0 pointer-events-none" style={{ background: `radial-gradient(ellipse 65% 55% at 65% 45%, ${current.glow}30, transparent 70%)` }} />
         </AnimatePresence>
         <div className="absolute inset-0 pointer-events-none opacity-20" style={{ background: `linear-gradient(135deg, ${INDIGO}55 0%, transparent 50%, ${SAFFRON}33 100%)`, mixBlendMode: "color" }} />
+
+        {/* Desktop-only Tag & Label */}
+        <div className="absolute bottom-24 right-8 z-20 text-right">
+          <AnimatePresence mode="wait">
+            <motion.div key={`tag-${idx}`} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.5 }}>
+              <p className="font-mono text-[9px] tracking-[0.3em] text-white/35 mb-1.5 uppercase">{current.tag}</p>
+              <p className="font-serif italic text-3xl font-light tracking-tight" style={{ color: current.accent, textShadow: `0 0 40px ${current.accent}60` }}>{current.label}</p>
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </div>
 
-      {/* Mobile image */}
-      <div className="absolute inset-0 md:hidden z-0">
+      {/* Mobile image 
+          Updated gradients so text is readable, and added the missing Tag/Label for phones
+      */}
+      <div className="absolute inset-0 lg:hidden z-0">
         <AnimatePresence mode="sync">
           <motion.div key={`mob-${idx}`} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 1.6 }} className="absolute inset-0">
             <img src={current.src} alt={current.label} className="w-full h-full object-cover object-top" loading="eager" />
           </motion.div>
         </AnimatePresence>
-        <div className="absolute inset-0" style={{ background: `linear-gradient(to right, ${INK}F5 0%, ${INK}CC 65%, transparent 100%)` }} />
-        <div className="absolute inset-0" style={{ background: `linear-gradient(to bottom, ${INK}E6 0%, transparent 20%, transparent 55%, ${INK} 95%)` }} />
+        <div className="absolute inset-0" style={{ background: `linear-gradient(to right, ${INK}F5, ${INK}DD 60%, transparent 100%)` }} />
+        <div className="absolute inset-0" style={{ background: `linear-gradient(to bottom, ${INK}88 0%, transparent 30%, transparent 60%, ${INK} 100%)` }} />
+
+        {/* Mobile-only Tag & Label (Top Right) so users know what image is showing */}
+        <div className="absolute top-24 right-6 z-20 text-right">
+          <AnimatePresence mode="wait">
+            <motion.div key={`mob-tag-${idx}`} initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} transition={{ duration: 0.5 }}>
+              <p className="font-mono text-[9px] tracking-[0.3em] text-white/60 mb-1 uppercase drop-shadow-md">{current.tag}</p>
+              <p className="font-serif italic text-2xl font-light tracking-tight drop-shadow-lg" style={{ color: current.accent }}>{current.label}</p>
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </div>
 
       {/* Floating music notes */}
@@ -218,22 +225,23 @@ export function Hero() {
         ))}
       </div>
 
-      {/* LEFT CONTENT PANEL - Condensing vertical spacing to fit entirely in view */}
-      <div className="relative z-20 flex flex-col justify-center min-h-[100svh] pt-28 pb-16 px-6 sm:px-10 md:pl-16 lg:pl-24 w-full md:w-[55%] lg:w-[52%] mx-auto md:mx-0">
+      {/* LEFT CONTENT PANEL 
+          Fixed Mobile Alignment: Replaced inline max-width with responsive Tailwind classes.
+      */}
+      <div className="relative z-20 flex flex-col justify-center min-h-[100svh] pt-32 pb-20 px-6 sm:px-10 lg:px-[max(3rem,5vw)] lg:pt-[5rem] lg:pb-[4rem] w-full lg:w-[52%] mx-auto lg:mx-0">
 
         <motion.div initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-          className="inline-flex self-start items-center gap-2.5 px-4 py-2 rounded-full font-mono text-[9px] sm:text-[10px] mb-6 sm:mb-8 tracking-widest font-bold"
+          className="inline-flex self-start items-center gap-2.5 px-4 py-2 rounded-full font-mono text-[9px] sm:text-[10px] mb-8 sm:mb-10 tracking-widest font-bold"
           style={{ border: `1px solid ${SAFFRON}90`, background: `${SAFFRON}25`, color: SAFFRON }}>
           <span className="relative flex h-2 w-2 shrink-0">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-100" style={{ background: SAFFRON }} />
             <span className="relative inline-flex rounded-full h-2 w-2" style={{ background: SAFFRON }} />
           </span>
-          <span className="truncate">EST. 2021 · SANPADA · NAVI MUMBAI</span>
+          <span className="text-white">EST. 2021 · <span>SANPADA</span> · NAVI MUMBAI</span>
         </motion.div>
 
-        <div className="max-w-full">
-          {/* Slightly reduced max font clamp to preserve vertical height on shorter screens */}
-          <h1 className="font-serif leading-[0.95] tracking-tight" style={{ fontSize: "clamp(2.5rem, 5.5vw, 5.5rem)" }}>
+        <div className="max-w-xl">
+          <h1 className="font-serif leading-[0.95] tracking-tight" style={{ fontSize: "clamp(3rem, 6.5vw, 7rem)" }}>
             {[
               { text: "Turn Your", color: IVORY, italic: false },
               { text: "Talent Into", color: SAFFRON, italic: true },
@@ -252,20 +260,20 @@ export function Hero() {
           </h1>
         </div>
 
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.85 }} className="mt-6 sm:mt-8 max-w-lg">
-          <div className="w-12 sm:w-16 h-[2px] mb-3 sm:mb-4 rounded-full" style={{ background: `linear-gradient(to right, ${SAFFRON}, ${TEAL})` }} />
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.85 }} className="mt-8 sm:mt-10 max-w-lg">
+          <div className="w-16 h-[2px] mb-4 sm:mb-5 rounded-full" style={{ background: `linear-gradient(to right, ${SAFFRON}, ${TEAL})` }} />
           <p className="text-lg sm:text-xl leading-relaxed" style={{ fontFamily: "serif", color: TURMERIC }}>
             संगीतं परमानन्दं संगीतं परमं दयालुम्।
           </p>
-          <p className="text-xs sm:text-sm mt-1.5 italic font-bold tracking-wide" style={{ color: WHITE }}>
+          <p className="text-xs sm:text-sm mt-2 italic font-bold tracking-wide" style={{ color: WHITE }}>
             Music is supreme bliss · Music is the most compassionate.
           </p>
         </motion.div>
 
-        {/* Buttons - margins reduced to save space */}
-        <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.0 }} className="mt-6 sm:mt-8 flex flex-col sm:flex-row flex-wrap gap-3">
+        {/* Buttons - Switched to w-full on mobile for better alignment */}
+        <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.0 }} className="mt-8 sm:mt-11 flex flex-col sm:flex-row flex-wrap gap-4">
           <a href="#instruments"
-            className="group inline-flex justify-center items-center gap-3 px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide transition-all duration-300 w-full sm:w-auto"
+            className="group inline-flex justify-center items-center gap-3 px-8 py-4 rounded-full font-semibold text-sm tracking-wide transition-all duration-300 w-full sm:w-auto"
             style={{ background: `linear-gradient(135deg, ${SAFFRON}, ${TURMERIC})`, color: INK, boxShadow: `0 8px 36px ${SAFFRON}45` }}
             onMouseEnter={e => (e.currentTarget.style.boxShadow = `0 12px 48px ${SAFFRON}70`)}
             onMouseLeave={e => (e.currentTarget.style.boxShadow = `0 8px 36px ${SAFFRON}45`)}>
@@ -275,7 +283,7 @@ export function Hero() {
             </span>
           </a>
           <a href="#youtube"
-            className="inline-flex justify-center items-center gap-2.5 px-8 py-3.5 rounded-full font-semibold text-sm tracking-wide transition-all duration-300 w-full sm:w-auto"
+            className="inline-flex justify-center items-center gap-2.5 px-8 py-4 rounded-full font-semibold text-sm tracking-wide transition-all duration-300 w-full sm:w-auto"
             style={{ border: `1.5px solid ${TEAL}55`, color: TEAL }}
             onMouseEnter={e => { e.currentTarget.style.borderColor = TEAL; e.currentTarget.style.background = `${TEAL}14`; }}
             onMouseLeave={e => { e.currentTarget.style.borderColor = `${TEAL}55`; e.currentTarget.style.background = "transparent"; }}>
@@ -284,29 +292,31 @@ export function Hero() {
           </a>
         </motion.div>
 
-        {/* Info tags - margins reduced */}
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.15 }} className="mt-5 flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-x-6 gap-y-2">
-          <span className="font-mono text-[11px] sm:text-xs" style={{ color: TURMERIC }}>
+        {/* Links / Info tags */}
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.15 }} className="mt-8 flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-x-6 gap-y-3">
+          <span className="font-mono text-xs" style={{ color: TURMERIC }}>
             <span className="font-bold">★ 5.0</span>&nbsp; GOOGLE REVIEWS
           </span>
           <span className="hidden sm:block w-px h-4 bg-white/10" />
-          <a href="#contact" className="inline-flex items-center gap-1.5 font-mono text-[11px] sm:text-xs transition-colors" style={{ color: `${IVORY}40` }}
-            onMouseEnter={e => (e.currentTarget.style.color = SKY)} onMouseLeave={e => (e.currentTarget.style.color = `${IVORY}40`)}>
+
+          <a href="#contact" className="inline-flex items-center gap-1.5 font-mono text-xs transition-colors" style={{ color: "#FFFFFF" }}
+            onMouseEnter={e => (e.currentTarget.style.color = SKY)} onMouseLeave={e => (e.currentTarget.style.color = "#FFFFFF")}>
             <MapPin className="w-3 h-3 shrink-0" style={{ color: SKY }} /> Sanpada, Navi Mumbai
           </a>
-          <a href="tel:+917770003037" className="inline-flex items-center gap-1.5 font-mono text-[11px] sm:text-xs transition-colors" style={{ color: `${IVORY}40` }}
-            onMouseEnter={e => (e.currentTarget.style.color = SKY)} onMouseLeave={e => (e.currentTarget.style.color = `${IVORY}40`)}>
+
+          <a href="tel:+917770003037" className="inline-flex items-center gap-1.5 font-mono text-xs transition-colors" style={{ color: "#FFFFFF" }}
+            onMouseEnter={e => (e.currentTarget.style.color = SKY)} onMouseLeave={e => (e.currentTarget.style.color = "#FFFFFF")}>
             <Phone className="w-3 h-3 shrink-0" style={{ color: SKY }} /> +91 777 000 3037
           </a>
         </motion.div>
 
-        {/* Audio player - margins reduced */}
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.3 }} className="mt-6 sm:mt-8 self-start w-full sm:w-auto">
-          <div className="relative rounded-2xl p-3 pr-5 flex items-center gap-4 max-w-full sm:max-w-[300px] overflow-hidden"
+        {/* Audio player */}
+        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.3 }} className="mt-10 sm:mt-12 self-start flex flex-col gap-2 w-full sm:w-auto">
+          <div className="relative rounded-2xl p-3.5 pr-6 flex items-center gap-4 max-w-full sm:max-w-[300px] overflow-hidden"
             style={{ background: "rgba(255,255,255,0.05)", backdropFilter: "blur(24px)", border: `1px solid ${TURMERIC}28` }}>
             <div className="absolute inset-0 rounded-2xl pointer-events-none" style={{ background: `linear-gradient(135deg, ${SAFFRON}10, ${INDIGO}0A)` }} />
             <button onClick={toggleAudio} aria-label={playing ? "Pause tabla" : "Play tabla"}
-              className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center shrink-0 hover:scale-105 active:scale-95 transition-transform"
+              className="relative w-12 h-12 rounded-xl flex items-center justify-center shrink-0 hover:scale-105 active:scale-95 transition-transform"
               style={{ background: `linear-gradient(135deg, ${SAFFRON}, ${TURMERIC})`, color: INK, boxShadow: `0 4px 20px ${SAFFRON}55` }}>
               {playing ? <Pause className="w-4 h-4 fill-current" /> : <Play className="w-4 h-4 fill-current ml-0.5" />}
             </button>
@@ -314,8 +324,8 @@ export function Hero() {
               <p className="font-mono text-[9px] tracking-[0.2em] mb-0.5" style={{ color: `${IVORY}35` }}>
                 {playing ? "NOW PLAYING" : "PAUSED"}
               </p>
-              <p className="text-xs sm:text-sm font-semibold truncate" style={{ color: IVORY }}>Teen Taal · Tabla</p>
-              <div className="flex items-end gap-[2px] mt-1.5 h-3 sm:h-4">
+              <p className="text-sm font-semibold truncate" style={{ color: IVORY }}>Teen Taal · Tabla</p>
+              <div className="flex items-end gap-[2px] mt-1.5 h-4">
                 {[3, 8, 5, 12, 7, 4, 10, 6, 9, 5].map((h, i) => (
                   <motion.span key={i} className="w-[2px] rounded-full"
                     style={{ background: playing ? SAFFRON : `${IVORY}25` }}
@@ -342,12 +352,12 @@ export function Hero() {
         <motion.div className="h-full" style={{ width: `${progress}%`, background: `linear-gradient(to right, ${SAFFRON}, ${TEAL})` }} />
       </div>
 
-      {/* Scroll hint */}
+      {/* Scroll hint - Hidden on mobile so it doesn't clutter the bottom edge */}
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2 }}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1 hidden sm:flex">
-        <span className="font-mono text-[9px] tracking-[0.3em]" style={{ color: `${IVORY}30` }}>SCROLL</span>
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 hidden sm:flex flex-col items-center gap-1">
+        <span className="font-mono text-[9px] tracking-[0.3em]" style={{ color: `${IVORY}22` }}>SCROLL</span>
         <motion.div animate={{ y: [0, 6, 0] }} transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}>
-          <ChevronDown className="w-4 h-4" style={{ color: `${IVORY}30` }} />
+          <ChevronDown className="w-4 h-4" style={{ color: `${IVORY}22` }} />
         </motion.div>
       </motion.div>
 

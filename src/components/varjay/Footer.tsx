@@ -72,7 +72,7 @@ export function Footer() {
               <span className="w-4 h-[1px] bg-[#F4813A]" /> Instruments
             </h4>
             <ul className="space-y-3 text-[#F9F3E8]/70">
-              {INSTRUMENTS.map((i) => {
+              {INSTRUMENTS.filter((i) => !i.name.toLowerCase().includes("vocal")).map((i) => {
                 const destination = SLUG[i.name] || "/courses";
                 return (
                   <li key={i.name}>

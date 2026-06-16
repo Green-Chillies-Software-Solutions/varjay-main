@@ -13,9 +13,6 @@ const TURMERIC = "#E8B84B";
 const TEAL = "#0BC4A0";
 const CRIMSON = "#E8284E";
 const LAVENDER = "#7C5CFC";
-const FOREST = "#12B76A";
-const ROSE = "#F0407A";
-const SKY_ACC = "#2196F3";
 
 const PLAYFAIR = "'Playfair Display', Georgia, serif";
 
@@ -27,15 +24,15 @@ const INSTRUMENT_ORDER = [
 ];
 
 const INSTRUMENT_META: Record<string, { accent: string; solidBg: string; note: string }> = {
-  Tabla: { accent: "#FF6B1A", solidBg: "#DC3C00", note: "♩" },
-  Piano: { accent: "#00E5BE", solidBg: "#006E58", note: "𝄞" },
-  Guitar: { accent: "#FF1F4B", solidBg: "#B40028", note: "♫" },
-  Dholak: { accent: "#8B6EFF", solidBg: "#4B1ED2", note: "♬" },
+  Tabla:     { accent: "#FF6B1A", solidBg: "#DC3C00", note: "♩" },
+  Piano:     { accent: "#00E5BE", solidBg: "#006E58", note: "𝄞" },
+  Guitar:    { accent: "#FF1F4B", solidBg: "#B40028", note: "♫" },
+  Dholak:    { accent: "#8B6EFF", solidBg: "#4B1ED2", note: "♬" },
   Harmonium: { accent: "#FFD020", solidBg: "#A06400", note: "♪" },
-  Violin: { accent: "#1AE07A", solidBg: "#006432", note: "♭" },
-  Vocal: { accent: "#FF6B1A", solidBg: "#DC3C00", note: "𝄢" },
-  Flute: { accent: "#38AEFF", solidBg: "#0050B4", note: "♮" },
-  Mandolin: { accent: "#FF3D88", solidBg: "#B40050", note: "♯" },
+  Violin:    { accent: "#1AE07A", solidBg: "#006432", note: "♭" },
+  Vocal:     { accent: "#FF6B1A", solidBg: "#DC3C00", note: "𝄢" },
+  Flute:     { accent: "#38AEFF", solidBg: "#0050B4", note: "♮" },
+  Mandolin:  { accent: "#FF3D88", solidBg: "#B40050", note: "♯" },
 };
 
 const BG_NOTES = ["♩", "♪", "♫", "♬", "𝄞", "𝄢", "♭", "♮", "♯"];
@@ -44,11 +41,9 @@ const BG_NOTES = ["♩", "♪", "♫", "♬", "𝄞", "𝄢", "♭", "♮", "♯
 function TiltCard({
   inst,
   index,
-  height = 300,
 }: {
   inst: typeof INSTRUMENTS[number];
   index: number;
-  height?: number;
 }) {
   const ref = useRef<HTMLAnchorElement>(null);
   const [hovered, setHovered] = useState(false);
@@ -72,11 +67,12 @@ function TiltCard({
   }
 
   return (
+    // ✅ FIX: removed fixed height prop — now fills wrapper via h-full
     <motion.a
       ref={ref}
-      href="#contact"
-      className="relative block cursor-pointer flex-1"
-      style={{ borderRadius: "18px", height: `${height}px`, perspective: 1500 }}
+      href="/courses"
+      className="relative block cursor-pointer w-full h-full"
+      style={{ borderRadius: "18px", perspective: 1500 }}
       initial={{ opacity: 0, y: 60, scale: 0.85, rotateX: 25, rotateY: -10 }}
       whileInView={{ opacity: 1, y: 0, scale: 1, rotateX: 0, rotateY: 0 }}
       viewport={{ once: true, margin: "-30px" }}
@@ -98,12 +94,9 @@ function TiltCard({
             : "0 6px 28px rgba(4,44,83,0.18)",
           transition: "box-shadow 0.3s, border 0.3s",
         }}
-        animate={{
-          y: hovered ? -25 : 0,
-        }}
-        transition={{
-          y: { type: "spring", stiffness: 350, damping: 20 },
-        }}
+        // ✅ FIX: reduced lift from -25 to -10 so cards don't overlap siblings
+        animate={{ y: hovered ? -10 : 0 }}
+        transition={{ y: { type: "spring", stiffness: 350, damping: 20 } }}
       >
         {/* Image */}
         <img
@@ -116,19 +109,15 @@ function TiltCard({
           }}
         />
 
-        {/* Optimized Dual-Overlay: 
-          - Darkens the top slightly so the note & category are always visible.
-          - Leaves the middle transparent to show the image clearly.
-          - Fades into the solid color at the bottom for the title & link.
-        */}
+        {/* Overlay */}
         <div className="absolute inset-0" style={{
           background: `
             linear-gradient(
-              to bottom, 
-              rgba(0,0,0,0.55) 0%, 
-              transparent 25%, 
-              transparent 45%, 
-              rgba(0,0,0,0.4) 75%, 
+              to bottom,
+              rgba(0,0,0,0.55) 0%,
+              transparent 25%,
+              transparent 45%,
+              rgba(0,0,0,0.4) 75%,
               ${meta.solidBg} 100%
             )
           `,
@@ -148,7 +137,7 @@ function TiltCard({
           transition: "opacity 0.3s",
         }} />
 
-        {/* Ghost note (Top Right) - Increased size and added heavy text shadow */}
+        {/* Ghost note */}
         <span className="absolute top-4 right-5 select-none pointer-events-none" style={{
           fontFamily: PLAYFAIR,
           fontSize: "2.4rem",
@@ -159,12 +148,12 @@ function TiltCard({
           {meta.note}
         </span>
 
-        {/* Category chip (Top Left) - Changed to solid background for perfect visibility */}
+        {/* Category chip */}
         <div className="absolute top-5 left-5" style={{ opacity: 1 }}>
           <span className="px-3.5 py-1.5 rounded-full font-mono text-[10px] tracking-widest font-bold" style={{
             background: meta.accent,
             color: "#FFFFFF",
-            boxShadow: "0 4px 12px rgba(0,0,0,0.3)"
+            boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
           }}>
             {inst.category}
           </span>
@@ -174,7 +163,7 @@ function TiltCard({
         <div className="absolute bottom-0 left-0 right-0 p-6">
           <h3 style={{
             fontFamily: PLAYFAIR,
-            fontSize: "clamp(1.6rem, 2.5vw, 2.2rem)", // Made slightly larger
+            fontSize: "clamp(1.3rem, 2vw, 1.9rem)",
             color: IVORY,
             lineHeight: 1.05,
             fontWeight: 700,
@@ -183,7 +172,6 @@ function TiltCard({
             {inst.name}
           </h3>
 
-          {/* Learn More - Changed to crisp white (IVORY) instead of the accent color */}
           <div className="mt-3 flex items-center gap-2 font-bold text-sm tracking-wide" style={{
             color: IVORY,
             opacity: hovered ? 1 : 0.85,
@@ -221,9 +209,17 @@ export function Instruments() {
   return (
     <section
       id="instruments"
-      className="relative overflow-hidden py-24"
+      // ✅ CHANGE: py-24 → py-14 to shorten overall section height
+      className="relative overflow-hidden py-14"
       style={{ background: `linear-gradient(160deg, #C2E8F8 0%, ${SKY} 45%, #7EC8E8 100%)` }}
     >
+      <style>{`
+        @media (max-width: 767px) {
+          /* ✅ FIX: uniform 220px on mobile — wrapper controls height, card fills it */
+          .instrument-card-wrapper { height: 220px !important; }
+        }
+      `}</style>
+
       {/* ── Ambient background ─────────────────────────── */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div className="absolute" style={{ width: "800px", height: "800px", top: "-260px", right: "-200px", borderRadius: "50%", background: "radial-gradient(ellipse, rgba(255,255,255,0.40) 0%, transparent 68%)" }} />
@@ -234,82 +230,78 @@ export function Instruments() {
         {BG_NOTES.map((note, i) => (
           <span key={i} className="absolute select-none" style={{ fontFamily: PLAYFAIR, fontSize: `${2.4 + (i % 4) * 1.4}rem`, left: `${(i * 11 + 3) % 92}%`, top: `${(i * 17 + 5) % 85}%`, color: i % 2 === 0 ? "rgba(4,44,83,0.07)" : "rgba(255,255,255,0.20)", transform: `rotate(${-15 + (i % 6) * 8}deg)`, userSelect: "none" }}>{note}</span>
         ))}
-        <svg className="absolute top-0 left-0 w-56 h-56 opacity-[0.055]" viewBox="0 0 200 200">
-          <circle cx="10" cy="10" r="80" fill={DEEP} /><circle cx="60" cy="5" r="28" fill={DEEP} /><circle cx="5" cy="68" r="22" fill={DEEP} />
-        </svg>
-        <svg className="absolute bottom-0 right-0 w-64 h-64 opacity-[0.055]" viewBox="0 0 200 200">
-          <circle cx="190" cy="190" r="88" fill={DEEP} /><circle cx="145" cy="194" r="32" fill={DEEP} /><circle cx="194" cy="142" r="26" fill={DEEP} />
-        </svg>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
 
         {/* ── Section header ──────────────────────────── */}
-        <div className="mb-16">
-          <div className="flex items-center gap-4 mb-8 flex-wrap">
-            <div className="h-px flex-shrink-0 w-12" style={{ background: "rgba(4,44,83,0.25)" }} />
+        {/* ✅ CHANGE: mb-12 md:mb-16 → mb-8 md:mb-10 */}
+        <div className="mb-8 md:mb-10">
+          <div className="flex items-center gap-3 md:gap-4 mb-5 flex-wrap">
+            <div className="h-px flex-shrink-0 w-8 md:w-12" style={{ background: "rgba(4,44,83,0.25)" }} />
             {[
               { label: "HINDUSTANI", color: SAFFRON },
-              { label: "CARNATIC", color: TEAL },
-              { label: "WESTERN", color: CRIMSON },
+              { label: "CARNATIC",   color: TEAL },
+              { label: "WESTERN",    color: CRIMSON },
             ].map(({ label, color }) => (
-              <span key={label} className="px-4 py-1.5 rounded-full font-mono text-[12px] tracking-widest" style={{ background: "rgba(255,255,255,0.45)", border: "1px solid rgba(255,255,255,0.70)", color: INK, backdropFilter: "blur(10px)" }}>
+              <span key={label} className="px-3 py-1.5 md:px-4 md:py-1.5 rounded-full font-mono text-[10px] md:text-[12px] tracking-widest" style={{ background: "rgba(255,255,255,0.45)", border: "1px solid rgba(255,255,255,0.70)", color: INK, backdropFilter: "blur(10px)" }}>
                 <span style={{ color }}>{label}</span>
               </span>
             ))}
           </div>
 
-          <p className="mb-4 tracking-[0.28em] uppercase" style={{ fontFamily: PLAYFAIR, fontSize: "1.0rem", color: SAFFRON, fontWeight: 700 }}>
-            Our Story
-          </p>
-
           <h2 style={{ fontFamily: PLAYFAIR, lineHeight: 1, fontWeight: 800, margin: 0 }}>
-            <span style={{ display: "block", fontSize: "clamp(1.9rem,3.5vw,2.8rem)", fontStyle: "italic", color: "rgba(4,44,83,0.26)", letterSpacing: "-0.01em", marginBottom: "0.06em" }}>Discover</span>
-            <span style={{ display: "block", fontSize: "clamp(2.6rem,5vw,4.2rem)", color: DEEP, letterSpacing: "-0.025em", lineHeight: 0.95, marginBottom: "-0.08em" }}>Your Perfect</span>
-            <span style={{ display: "block", fontSize: "clamp(5.5rem,11.5vw,10rem)", lineHeight: 0.82, fontStyle: "italic", letterSpacing: "-0.03em", background: `linear-gradient(130deg, ${SAFFRON} 0%, ${TURMERIC} 60%, rgba(4,44,83,0.7) 100%)`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", WebkitTextStroke: "1px rgba(4,44,83,0.06)" }}>Instrument</span>
+            {/* ✅ CHANGE: "Discover" clamp(1.9→1.1rem, 3.5→2vw, 2.8→1.7rem) */}
+            <span style={{ display: "block", fontSize: "clamp(1.1rem, 2vw, 1.7rem)", fontStyle: "italic", color: "rgba(4,44,83,0.26)", letterSpacing: "-0.01em", marginBottom: "0.06em" }}>Discover</span>
+            {/* ✅ CHANGE: "Your Perfect" clamp(2.6→1.7rem, 5→3vw, 4.2→2.6rem) */}
+            <span style={{ display: "block", fontSize: "clamp(1.7rem, 3vw, 2.6rem)", color: DEEP, letterSpacing: "-0.025em", lineHeight: 0.95, marginBottom: "0.04em" }}>Your Perfect</span>
+            {/* ✅ CHANGE: "Instrument" clamp(5.5→2.8rem, 11.5→6vw, 10→5rem) — was the main offender */}
+            <span style={{ display: "block", fontSize: "clamp(2.8rem, 6vw, 5rem)", lineHeight: 0.9, fontStyle: "italic", letterSpacing: "-0.03em", background: `linear-gradient(130deg, ${SAFFRON} 0%, ${TURMERIC} 60%, rgba(4,44,83,0.7) 100%)`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", WebkitTextStroke: "1px rgba(4,44,83,0.06)" }}>Instrument</span>
           </h2>
 
-          <div className="mt-6 flex gap-1.5 items-center">
+          <div className="mt-4 flex gap-1.5 items-center">
             {[SAFFRON, TEAL, CRIMSON, LAVENDER, TURMERIC].map((c, i) => (
               <div key={i} className="rounded-full" style={{ height: i === 0 ? "3px" : i === 1 ? "2.5px" : "2px", width: i === 0 ? "52px" : i === 1 ? "32px" : i === 2 ? "18px" : i === 3 ? "10px" : "6px", background: c, opacity: 1 - i * 0.14 }} />
             ))}
           </div>
 
-          <p className="mt-6 max-w-md leading-relaxed" style={{ fontFamily: PLAYFAIR, fontStyle: "italic", fontSize: "1.05rem", color: "rgba(4,44,83,0.50)" }}>
+          <p className="mt-4 max-w-md leading-relaxed" style={{ fontFamily: PLAYFAIR, fontStyle: "italic", fontSize: "0.95rem", color: "rgba(4,44,83,0.50)" }}>
             From the ancient rhythms of the tabla to the modern strings of the guitar — every sound has a home here.
           </p>
         </div>
 
         {/* ── Honeycomb grid ───────────────────────── */}
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-3">
 
-          <div className="flex gap-4 items-end">
+          <div className="flex flex-col md:flex-row gap-3 items-stretch md:items-end">
             {row1.map((inst, i) => {
               const isMiddle = i === 1;
-              const h = isMiddle ? 370 : 290;
+              const h = isMiddle ? 320 : 255;
               return (
-                <div key={inst.name} className="flex-1" style={{ height: `${h}px` }}>
-                  <TiltCard inst={inst} index={i} height={h} />
+                // ✅ FIX: `isolate` creates a new stacking context per card
+                // so the hover lift never visually overlaps the card below
+                <div key={inst.name} className="instrument-card-wrapper isolate w-full md:flex-1" style={{ height: `${h}px` }}>
+                  <TiltCard inst={inst} index={i} />
                 </div>
               );
             })}
           </div>
 
-          <div className="flex gap-4">
+          <div className="flex flex-col md:flex-row gap-3 items-stretch">
             {row2.map((inst, i) => (
-              <div key={inst.name} className="flex-1" style={{ height: "300px" }}>
-                <TiltCard inst={inst} index={i + 3} height={300} />
+              <div key={inst.name} className="instrument-card-wrapper isolate w-full md:flex-1" style={{ height: "265px" }}>
+                <TiltCard inst={inst} index={i + 3} />
               </div>
             ))}
           </div>
 
-          <div className="flex gap-4 items-start">
+          <div className="flex flex-col md:flex-row gap-3 items-stretch md:items-start">
             {row3.map((inst, i) => {
               const isMiddle = i === 1;
-              const h = isMiddle ? 370 : 290;
+              const h = isMiddle ? 320 : 255;
               return (
-                <div key={inst.name} className="flex-1" style={{ height: `${h}px` }}>
-                  <TiltCard inst={inst} index={i + 6} height={h} />
+                <div key={inst.name} className="instrument-card-wrapper isolate w-full md:flex-1" style={{ height: `${h}px` }}>
+                  <TiltCard inst={inst} index={i + 6} />
                 </div>
               );
             })}
@@ -318,7 +310,7 @@ export function Instruments() {
         </div>
 
         {/* ── Separator ───────────────────────────────── */}
-        <div className="flex justify-center gap-6 mt-8 mb-2 opacity-25 select-none" aria-hidden="true">
+        <div className="flex justify-center gap-6 mt-6 mb-2 opacity-25 select-none" aria-hidden="true">
           {["♩", "𝄞", "♪", "𝄞", "♩"].map((n, i) => (
             <span key={i} style={{ fontFamily: PLAYFAIR, fontSize: "1.4rem", color: DEEP }}>{n}</span>
           ))}
@@ -330,9 +322,9 @@ export function Instruments() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mt-12"
+          className="text-center mt-8"
         >
-          <div className="flex items-center gap-4 justify-center mb-8">
+          <div className="flex items-center gap-4 justify-center mb-6">
             <div className="flex-1 max-w-32 h-px" style={{ background: "linear-gradient(to right, transparent, rgba(4,44,83,0.20))" }} />
             <div className="flex gap-2 items-center">
               {[SAFFRON, TEAL, CRIMSON].map((c, i) => (
@@ -342,9 +334,9 @@ export function Instruments() {
             <div className="flex-1 max-w-32 h-px" style={{ background: "linear-gradient(to left, transparent, rgba(4,44,83,0.20))" }} />
           </div>
 
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-3 px-10 py-4 rounded-full font-semibold text-base tracking-wide transition-all duration-300"
+          
+            <a href="/courses"
+            className="inline-flex justify-center w-full md:w-auto items-center gap-3 px-6 md:px-10 py-4 rounded-full font-semibold text-sm md:text-base tracking-wide transition-all duration-300"
             style={{ fontFamily: PLAYFAIR, background: "rgba(255,255,255,0.55)", border: "1.5px solid rgba(255,255,255,0.78)", color: DEEP, backdropFilter: "blur(16px)", boxShadow: "0 4px 24px rgba(4,44,83,0.12), inset 0 1px 0 rgba(255,255,255,0.90)" }}
             onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.78)"; e.currentTarget.style.boxShadow = "0 8px 40px rgba(4,44,83,0.20), inset 0 1px 0 rgba(255,255,255,0.90)"; }}
             onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.55)"; e.currentTarget.style.boxShadow = "0 4px 24px rgba(4,44,83,0.12), inset 0 1px 0 rgba(255,255,255,0.90)"; }}

@@ -52,7 +52,7 @@ export function FinalCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="font-mono text-xs tracking-widest mb-6 uppercase"
+          className="font-mono text-xl tracking-widest mb-6 uppercase"
           style={{ color: BLUE }}
         >
           START YOUR JOURNEY
@@ -98,7 +98,7 @@ export function FinalCTA() {
           className="mt-10 flex flex-wrap gap-4 justify-center"
         >
           <a
-            href="https://wa.me/917770003036"
+            href="/register"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300"
             style={{
               background: BLUE,

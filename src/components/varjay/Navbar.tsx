@@ -10,20 +10,14 @@ const navLinks = [
 
 const courseButtons = [
   { label: "All Courses", to: "/courses" },
-  { label: "Online Courses", to: "/onlinecourses", isNew: true },
-];
-
-const offlineCourseButtons = [
-  { label: "Tabla and Dholak", to: "/tabla" },
-  { label: "Guitar", to: "/guitar" },
-  { label: "Hindustani Classical", to: "/hindustani-classical" },
+  { label: "Online Courses", to: "/onlinecourses" },
+  { label: "Offline Courses", to: "/offlinecourses" },
 ];
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [coursesOpen, setCoursesOpen] = useState(false);
-  const [offlineOpen, setOfflineOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -39,23 +33,26 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-400 ease-in-out ${scrolled ? "bg-transparent pt-4 px-4" : "bg-[#EBF5FB] border-b border-[#A8D8F0]/60 pt-0 px-0"
-        }`}
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-400 ease-in-out ${
+        scrolled ? "bg-transparent pt-4 px-4" : "bg-[#EBF5FB] border-b border-[#A8D8F0]/60 pt-0 px-0"
+      }`}
     >
       <nav
-        className={`mx-auto max-w-6xl transition-all duration-400 ease-in-out flex items-center justify-between ${scrolled
-          ? "bg-white shadow-[0_8px_30px_rgba(11,31,58,0.12)] border border-[#A8D8F0]/40 rounded-full px-6 py-2"
-          : "bg-transparent px-6 py-2"
-          }`}
+        className={`mx-auto max-w-6xl transition-all duration-400 ease-in-out flex items-center justify-between ${
+          scrolled
+            ? "bg-white shadow-[0_8px_30px_rgba(11,31,58,0.12)] border border-[#A8D8F0]/40 rounded-full px-6 py-2"
+            : "bg-transparent px-6 py-2"
+        }`}
       >
-        {/* Logo - Visually scaled up without affecting navbar layout height */}
+        {/* Logo */}
         <Link to="/" className="relative z-10 group flex items-center">
           <div className="origin-left transform scale-[1.3] md:scale-[1.5] transition-transform duration-400 group-hover:scale-[1.35] md:group-hover:scale-[1.55]">
             <img
               src="https://varjaymusic.com/wp-content/uploads/2024/05/logo.png"
               alt="Varjay Music Academy"
-              className={`w-auto transition-all duration-400 ease-in-out ${scrolled ? "h-8 md:h-10" : "h-12 md:h-14"
-                }`}
+              className={`w-auto transition-all duration-400 ease-in-out ${
+                scrolled ? "h-8 md:h-10" : "h-12 md:h-14"
+              }`}
             />
           </div>
         </Link>
@@ -72,7 +69,7 @@ export function Navbar() {
             <span className="absolute inset-x-0 bottom-0 h-[2px] bg-[#5BB8E8] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-full" />
           </Link>
 
-          {/* Premium Dropdown - Solid Background */}
+          {/* Courses Dropdown */}
           <div
             className="relative"
             onMouseEnter={() => setCoursesOpen(true)}
@@ -81,26 +78,28 @@ export function Navbar() {
             <button className="group relative inline-flex items-center gap-1.5 font-bold text-sm text-[#0B1F3A] hover:text-[#5BB8E8] transition-colors tracking-wide py-2">
               Courses
               <ChevronDown
-                className={`w-4 h-4 transition-transform duration-300 ${coursesOpen ? "rotate-180 text-[#5BB8E8]" : ""
-                  }`}
+                className={`w-4 h-4 transition-transform duration-300 ${
+                  coursesOpen ? "rotate-180 text-[#5BB8E8]" : ""
+                }`}
               />
               <span className="absolute inset-x-0 bottom-0 h-[2px] bg-[#5BB8E8] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-full" />
             </button>
 
             {/* Dropdown Content */}
             <div
-              className={`absolute left-1/2 -translate-x-1/2 top-full pt-4 w-64 transition-all duration-300 ease-out origin-top ${coursesOpen
-                ? "opacity-100 scale-100 visible translate-y-0"
-                : "opacity-0 scale-95 invisible -translate-y-2"
-                }`}
+              className={`absolute left-1/2 -translate-x-1/2 top-full pt-4 w-56 transition-all duration-300 ease-out origin-top ${
+                coursesOpen
+                  ? "opacity-100 scale-100 visible translate-y-0"
+                  : "opacity-0 scale-95 invisible -translate-y-2"
+              }`}
             >
               <div className="rounded-3xl bg-white shadow-[0_20px_40px_-15px_rgba(11,31,58,0.2)] border border-[#A8D8F0]/50 overflow-hidden p-3">
-                <div className="space-y-3">
+                <div className="space-y-2">
                   {courseButtons.map((l) => (
                     <Link
                       key={l.to}
                       to={l.to}
-                      className="group flex items-center justify-between px-4 py-4 rounded-2xl text-sm font-bold tracking-wide text-[#0B1F3A] bg-[#F8FCFF] border border-[#A8D8F0]/80 hover:bg-[#EBF5FB] hover:border-[#5BB8E8] hover:text-[#0B1F3A] transition-all duration-200"
+                      className="group flex items-center justify-between px-4 py-3.5 rounded-2xl text-sm font-bold tracking-wide text-[#0B1F3A] bg-[#F8FCFF] border border-[#A8D8F0]/80 hover:bg-[#EBF5FB] hover:border-[#5BB8E8] hover:text-[#0B1F3A] transition-all duration-200"
                     >
                       {l.label}
                       {l.isNew && (
@@ -110,27 +109,6 @@ export function Navbar() {
                       )}
                     </Link>
                   ))}
-
-                  <button
-                    type="button"
-                    onClick={() => setOfflineOpen((current) => !current)}
-                    className="group flex w-full items-center justify-between px-4 py-4 rounded-2xl text-sm font-bold tracking-wide text-[#0B1F3A] bg-[#F8FCFF] border border-[#A8D8F0]/80 hover:bg-[#EBF5FB] hover:border-[#5BB8E8] transition-all duration-200"
-                  >
-                    Offline Courses
-                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${offlineOpen ? "rotate-180" : ""}`} />
-                  </button>
-
-                  <div className={`${offlineOpen ? "block" : "hidden"} space-y-2 pl-3 border-l-2 border-[#A8D8F0]/70`}>
-                    {offlineCourseButtons.map((l) => (
-                      <Link
-                        key={l.to}
-                        to={l.to}
-                        className="group flex items-center justify-between px-4 py-3 rounded-2xl text-sm font-semibold text-[#0B1F3A] bg-white border border-[#D5EAF7] hover:bg-[#EBF5FB] hover:border-[#5BB8E8] transition-all duration-200"
-                      >
-                        {l.label}
-                      </Link>
-                    ))}
-                  </div>
                 </div>
               </div>
             </div>
@@ -179,16 +157,17 @@ export function Navbar() {
         </button>
       </nav>
 
-      {/* Solid Mobile Menu Overlay */}
+      {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 z-[60] bg-[#EBF5FB] transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] flex flex-col px-8 py-10 overflow-y-auto ${open ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full pointer-events-none"
-          }`}
+        className={`fixed inset-0 z-[60] bg-[#EBF5FB] transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] flex flex-col px-8 py-10 overflow-y-auto ${
+          open ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full pointer-events-none"
+        }`}
       >
         <div className="flex justify-between items-center mb-16">
           <img
             src="https://varjaymusic.com/wp-content/uploads/2024/05/logo.png"
             alt="Varjay"
-            className="h-16 w-auto" // Increased mobile menu logo size here as well
+            className="h-16 w-auto"
           />
           <button
             onClick={() => setOpen(false)}
@@ -214,7 +193,7 @@ export function Navbar() {
               Courses
               <ChevronDown className="w-8 h-8 group-open:rotate-180 transition-transform duration-300" />
             </summary>
-            <div className="mt-6 ml-4 border-l-4 border-[#5BB8E8]/30 pl-6 space-y-4">
+            <div className="mt-6 ml-4 border-l-4 border-[#5BB8E8]/30 pl-6 space-y-3">
               {courseButtons.map((l) => (
                 <Link
                   key={l.to}
@@ -230,28 +209,6 @@ export function Navbar() {
                   )}
                 </Link>
               ))}
-
-              <button
-                type="button"
-                onClick={() => setOfflineOpen((current) => !current)}
-                className="flex w-full items-center justify-between px-4 py-4 rounded-2xl text-2xl font-bold text-[#0B1F3A] bg-white border border-[#D5EAF7] hover:bg-[#EBF5FB] hover:border-[#5BB8E8] transition-all duration-200"
-              >
-                Offline Courses
-                <ChevronDown className={`w-5 h-5 transition-transform duration-200 ${offlineOpen ? "rotate-180" : ""}`} />
-              </button>
-
-              <div className={`${offlineOpen ? "block" : "hidden"} space-y-3 pl-3 border-l-2 border-[#A8D8F0]/70`}>
-                {offlineCourseButtons.map((l) => (
-                  <Link
-                    key={l.to}
-                    to={l.to}
-                    onClick={() => setOpen(false)}
-                    className="flex items-center justify-between px-4 py-3 rounded-2xl text-lg md:text-xl font-semibold text-[#0B1F3A] bg-[#F8FCFF] border border-[#D5EAF7] hover:bg-[#EBF5FB] hover:border-[#5BB8E8] transition-all duration-200"
-                  >
-                    {l.label}
-                  </Link>
-                ))}
-              </div>
             </div>
           </details>
 
