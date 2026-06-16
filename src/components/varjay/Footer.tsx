@@ -9,8 +9,10 @@ const SLUG: Record<string, string> = {
   Guitar: "/offlinecourses",
   Dholak: "/offlinecourses",
   Harmonium: "/offlinecourses",
+  "Piano & Keyboard": "/offlinecourses",
   "Hindustani Classical": "/offlinecourses",
 };
+
 
 const containerVariants = {
   hidden: { opacity: 0 },
