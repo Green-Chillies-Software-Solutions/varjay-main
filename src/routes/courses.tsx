@@ -190,9 +190,12 @@ function CoursesPage() {
                       {i.name}
                     </h3>
                     <p className="text-sm mt-2 text-[#0B1F3A]/60">
-  Beginner to advanced · Online & offline
-  {i.curriculum ? ` · ${i.curriculum}.` : "."}
-</p>
+                      Beginner to advanced ·{" "}
+                      {["Violin", "Flute", "Ukulele", "Mandolin", "Sitar", "Veena"].includes(i.name)
+                        ? "Online"
+                        : "Online & offline"}
+                      {i.curriculum ? ` · ${i.curriculum}.` : "."}
+                    </p>
                     <div className="mt-4 inline-flex items-center gap-1 text-sm font-semibold transition-colors" style={{ color: i.color }}>
                       {slug ? "Learn more" : "Enquire"} <ArrowRight className="w-4 h-4" />
                     </div>
