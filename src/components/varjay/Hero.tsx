@@ -192,7 +192,7 @@ export function Hero() {
         <div className="absolute bottom-24 right-8 z-20 text-right">
           <AnimatePresence mode="wait">
             <motion.div key={`tag-${idx}`} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.5 }}>
-              <p className="font-mono text-[9px] tracking-[0.3em] text-white/35 mb-1.5 uppercase">{current.tag}</p>
+              <p className="font-mono text-[9px] tracking-[0.3em] text-white mb-1.5 uppercase">{current.tag}</p>
               <p className="font-serif italic text-3xl font-light tracking-tight" style={{ color: current.accent, textShadow: `0 0 40px ${current.accent}60` }}>{current.label}</p>
             </motion.div>
           </AnimatePresence>
@@ -213,7 +213,7 @@ export function Hero() {
         <div className="absolute top-24 right-6 z-20 text-right">
           <AnimatePresence mode="wait">
             <motion.div key={`mob-tag-${idx}`} initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} transition={{ duration: 0.5 }}>
-              <p className="font-mono text-[9px] tracking-[0.3em] text-white/60 mb-1 uppercase drop-shadow-md">{current.tag}</p>
+              <p className="font-mono text-[9px] tracking-[0.3em] text-white mb-1 uppercase drop-shadow-md">{current.tag}</p>
               <p className="font-serif italic text-2xl font-light tracking-tight drop-shadow-lg" style={{ color: current.accent }}>{current.label}</p>
             </motion.div>
           </AnimatePresence>
