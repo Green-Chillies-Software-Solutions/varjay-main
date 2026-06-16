@@ -279,14 +279,16 @@ function ContactPage() {
       </section>
 
       {/* ─── MAP ───────────────────────────────────────────────────────────── */}
+      {/* ─── MAP ───────────────────────────────────────────────────────────── */}
       <section className="relative z-20 pb-24 pt-10 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
             className="rounded-3xl overflow-hidden shadow-lg border border-[#A8D8F0]/30 transition-all">
             <iframe
               title="Varjay Music Academy — Sanpada, Navi Mumbai"
-              src="https://www.google.com/maps?q=Sanpada,+Navi+Mumbai&output=embed"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6071.253390655967!2d73.00133280709336!3d19.06256699373783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c14ff1555555%3A0x14f6d1028ac46b89!2sVarjay%20Music%20Academy!5e0!3m2!1sen!2sin!4v1781597302141!5m2!1sen!2sin"
               className="w-full h-[420px] border-0"
+              allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
