@@ -5,9 +5,11 @@ import { INSTRUMENTS } from "./data";
 import { motion } from "framer-motion";
 
 const SLUG: Record<string, string> = {
-  Tabla: "/tabla",
-  Guitar: "/guitar",
-  "Hindustani Classical": "/hindustani-classical",
+  Tabla: "/offlinecourses",
+  Guitar: "/offlinecourses",
+  Dholak: "/offlinecourses",
+  Harmonium: "/offlinecourses",
+  "Hindustani Classical": "/offlinecourses",
 };
 
 const containerVariants = {
@@ -98,9 +100,9 @@ export function Footer() {
             </h4>
             <ul className="space-y-3 text-[#F9F3E8]/70">
               {[
-                { label: "Hindustani", to: "/hindustani-classical" },
-                { label: "Carnatic", to: "/courses" },
-                { label: "Western", to: "/courses" },
+                { label: "Hindustani", to: "/offlinecourses" },
+                { label: "Carnatic", to: "/offlinecourses" },
+                { label: "Western", to: "/offlinecourses" },
               ].map((link) => (
                 <li key={link.to}>
                   <Link
