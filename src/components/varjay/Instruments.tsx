@@ -24,15 +24,15 @@ const INSTRUMENT_ORDER = [
 ];
 
 const INSTRUMENT_META: Record<string, { accent: string; solidBg: string; note: string }> = {
-  Tabla:     { accent: "#FF6B1A", solidBg: "#DC3C00", note: "♩" },
-  Piano:     { accent: "#00E5BE", solidBg: "#006E58", note: "𝄞" },
-  Guitar:    { accent: "#FF1F4B", solidBg: "#B40028", note: "♫" },
-  Dholak:    { accent: "#8B6EFF", solidBg: "#4B1ED2", note: "♬" },
+  Tabla: { accent: "#FF6B1A", solidBg: "#DC3C00", note: "♩" },
+  Piano: { accent: "#00E5BE", solidBg: "#006E58", note: "𝄞" },
+  Guitar: { accent: "#FF1F4B", solidBg: "#B40028", note: "♫" },
+  Dholak: { accent: "#8B6EFF", solidBg: "#4B1ED2", note: "♬" },
   Harmonium: { accent: "#FFD020", solidBg: "#A06400", note: "♪" },
-  Violin:    { accent: "#1AE07A", solidBg: "#006432", note: "♭" },
-  Vocal:     { accent: "#FF6B1A", solidBg: "#DC3C00", note: "𝄢" },
-  Flute:     { accent: "#38AEFF", solidBg: "#0050B4", note: "♮" },
-  Mandolin:  { accent: "#FF3D88", solidBg: "#B40050", note: "♯" },
+  Violin: { accent: "#1AE07A", solidBg: "#006432", note: "♭" },
+  Vocal: { accent: "#FF6B1A", solidBg: "#DC3C00", note: "𝄢" },
+  Flute: { accent: "#38AEFF", solidBg: "#0050B4", note: "♮" },
+  Mandolin: { accent: "#FF3D88", solidBg: "#B40050", note: "♯" },
 };
 
 const BG_NOTES = ["♩", "♪", "♫", "♬", "𝄞", "𝄢", "♭", "♮", "♯"];
@@ -67,7 +67,7 @@ function TiltCard({
   }
 
   return (
-    // ✅ FIX: removed fixed height prop — now fills wrapper via h-full
+    //  FIX: removed fixed height prop — now fills wrapper via h-full
     <motion.a
       ref={ref}
       href="/courses"
@@ -94,7 +94,7 @@ function TiltCard({
             : "0 6px 28px rgba(4,44,83,0.18)",
           transition: "box-shadow 0.3s, border 0.3s",
         }}
-        // ✅ FIX: reduced lift from -25 to -10 so cards don't overlap siblings
+        //  FIX: reduced lift from -25 to -10 so cards don't overlap siblings
         animate={{ y: hovered ? -10 : 0 }}
         transition={{ y: { type: "spring", stiffness: 350, damping: 20 } }}
       >
@@ -149,11 +149,14 @@ function TiltCard({
         </span>
 
         {/* Category chip */}
-        <div className="absolute top-5 left-5" style={{ opacity: 1 }}>
-          <span className="px-3.5 py-1.5 rounded-full font-mono text-[10px] tracking-widest font-bold" style={{
-            background: meta.accent,
-            color: "#FFFFFF",
-            boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
+        <div className="absolute top-5 left-5">
+          <span className="px-3 py-1 rounded-full font-mono text-[10px] tracking-widest" style={{
+            background: "rgba(0,0,0,0.35)",
+            backdropFilter: "blur(8px)",
+            color: "rgba(255,255,255,0.80)",
+            border: `1px solid rgba(255,255,255,0.20)`,
+            fontWeight: 400,
+            letterSpacing: "0.12em",
           }}>
             {inst.category}
           </span>
@@ -241,8 +244,8 @@ export function Instruments() {
             <div className="h-px flex-shrink-0 w-8 md:w-12" style={{ background: "rgba(4,44,83,0.25)" }} />
             {[
               { label: "HINDUSTANI", color: SAFFRON },
-              { label: "CARNATIC",   color: TEAL },
-              { label: "WESTERN",    color: CRIMSON },
+              { label: "CARNATIC", color: TEAL },
+              { label: "WESTERN", color: CRIMSON },
             ].map(({ label, color }) => (
               <span key={label} className="px-3 py-1.5 md:px-4 md:py-1.5 rounded-full font-mono text-[10px] md:text-[12px] tracking-widest" style={{ background: "rgba(255,255,255,0.45)", border: "1px solid rgba(255,255,255,0.70)", color: INK, backdropFilter: "blur(10px)" }}>
                 <span style={{ color }}>{label}</span>
@@ -334,8 +337,8 @@ export function Instruments() {
             <div className="flex-1 max-w-32 h-px" style={{ background: "linear-gradient(to left, transparent, rgba(4,44,83,0.20))" }} />
           </div>
 
-          
-            <a href="/courses"
+
+          <a href="/courses"
             className="inline-flex justify-center w-full md:w-auto items-center gap-3 px-6 md:px-10 py-4 rounded-full font-semibold text-sm md:text-base tracking-wide transition-all duration-300"
             style={{ fontFamily: PLAYFAIR, background: "rgba(255,255,255,0.55)", border: "1.5px solid rgba(255,255,255,0.78)", color: DEEP, backdropFilter: "blur(16px)", boxShadow: "0 4px 24px rgba(4,44,83,0.12), inset 0 1px 0 rgba(255,255,255,0.90)" }}
             onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.78)"; e.currentTarget.style.boxShadow = "0 8px 40px rgba(4,44,83,0.20), inset 0 1px 0 rgba(255,255,255,0.90)"; }}
