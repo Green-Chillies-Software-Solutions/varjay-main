@@ -308,7 +308,7 @@ function Page() {
                     "Visharad in Tabla",
                     "Currently pursuing Alankar from Guru Shri Praveen Karkareji",
                     "10+ years of teaching experience in Tabla before founding the academy",
-                    "Learning tabla for 10+ years, teaching for 7+ years",
+                    "Learning tabla for 10+ years, teaching for 7 years",
                     "Has trained local, national, and international students",
                     "Affiliated with Akhil Bharatiya Gandharva Mahavidyalaya Mandal (ABGMV)",
                   ].map((point) => (

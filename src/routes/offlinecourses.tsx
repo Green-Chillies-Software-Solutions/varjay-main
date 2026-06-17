@@ -314,7 +314,7 @@ function TablaDholakSection() {
         bullets={[
           "Visharad in Tabla",
           "Currently pursuing Alankar from Guru Shri Praveen Karkareji",
-          "7+ years of teaching experience before founding the academy",
+          "10+ years of teaching experience before founding the academy",
           "Trained local, national & international students",
           "Affiliated with ABGMV",
         ]}

@@ -197,7 +197,7 @@ const ONLINE_INSTRUMENTS = [
       {
         name: "Akanksha Shah",
         avatar: "AK",
-        bio: "Akanksha Shah received her musical training under the guidance of the renowned Padma Bhushan awardee musician Pandit Hariharan ji and his disciple Shri Matang Parikh ji. During her 7+ years of training, she spent 2+ years in Mumbai and 5+ years in Ahmedabad learning music under Shri Matang Parikh ji of the Mewati Gharana. During this period, 111 fellow disciples together got their names recorded in the India Book of Records.",
+        bio: "Akanksha Shah received her musical training under the guidance of the renowned Padma Bhushan awardee musician Pandit Hariharan ji and his disciple Shri Matang Parikh ji. During her 7 years of training, she spent 2+ years in Mumbai and 5+ years in Ahmedabad learning music under Shri Matang Parikh ji of the Mewati Gharana. During this period, 111 fellow disciples together got their names recorded in the India Book of Records.",
       },
     ],
   },
