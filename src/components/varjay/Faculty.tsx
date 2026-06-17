@@ -68,8 +68,8 @@ export function Faculty() {
             </div>
 
             <p className="mt-6 text-[#1C0A00]/80 leading-relaxed">
-              Arvind V. Rao has been learning tabla for over 15 years and has teaching experience
-              of over 7 years. He currently pursues Alankar under Guru Shri Praveen Karkareji. His students range from local beginners to international learners performing on stage.
+              Arvind V. Rao has been learning tabla for over 15+ years and has teaching experience
+              of over 10+ years. He currently pursues Alankar under Guru Shri Praveen Karkareji. His students range from local beginners to international learners performing on stage.
             </p>
 
             <blockquote className="mt-6 font-display italic text-2xl text-[#F43F5E] leading-snug border-l-4 border-[#F43F5E] pl-5">

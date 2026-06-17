@@ -126,6 +126,21 @@ const ONLINE_INSTRUMENTS = [
       },
     ],
   },
+  {
+
+    id: "hindustani guitar",
+    name: "Hindustani Guitar",
+    style: "Hindustani",
+    color: "#D63031",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRq58olQpWAYMnAm6wwkUDMGVRbkpaKH1rwwdVcUMiPAAEbW7CXMdLi0wuR&s=10",
+    faculty: [
+      {
+        name: "Aabhas Shrivastav",
+        avatar: "AS",
+        bio: "Aabhas Shrivastava is a motivated musician and student music therapist with an extensive background in music and psychology, skilled in preparing customised lesson plans for individual learners. Since 2020, he has been working at Aalaap Studio in a dual role — as a Guitar Teacher and as a Production Artist. He is currently pursuing a degree in Piano from Trinity College of Music.",
+      }
+    ],
+  },
   // 6. Violin (Hindustani)
   {
     id: "violin-hindustani",
@@ -137,7 +152,7 @@ const ONLINE_INSTRUMENTS = [
       {
         name: "Shivangi",
         avatar: "SH",
-        bio: "Shivangi is an experienced Hindustani violin teacher, bringing deep knowledge of classical Indian violin technique and repertoire.",
+        bio: "Shivangi Sovenkumar Mehta is a Mumbai-based musician with 7 years of experience playing the violin across three traditions — Western, Carnatic, and Hindustani classical — with her primary expertise in Hindustani classical. She is also a flute player, adding another dimension to her musical repertoire. She is multilingual, proficient in English, Hindi, Marathi, and Gujarati.",
       },
     ],
   },
@@ -152,7 +167,7 @@ const ONLINE_INSTRUMENTS = [
       {
         name: "Sivashree S.P.",
         avatar: "SS",
-        bio: "Sivashree S.P. is a skilled Carnatic violin teacher bringing expertise in Carnatic violin technique and the classical South Indian music tradition.",
+        bio: "S.P. Sivashree is a young violin teacher and performer based in Puducherry, with a B.Sc. in Computer Science and an ongoing B.F.A. in Music (Violin) from Annamalai University DDE. She has over a year of professional teaching experience as an online Violin Teacher. Alongside teaching, she is an active performer, regularly appearing in stage concerts and performances across Puducherry and other states. Her achievements include First Prize wins at the Kala Utsav State & District Level Competition and the NITPY Karaikal Inter-State Level Competition, a World Record Certificate from Puduvai Kalaimamani Viruthalargal Sangam, and the prestigious Siruvar Seermani Award from Puducherry. She comes from a musically accomplished family, being the daughter of Dr. V. Sivakumar, M.Mus., Ph.D.",
       },
     ],
   },
@@ -182,7 +197,7 @@ const ONLINE_INSTRUMENTS = [
       {
         name: "Akanksha Shah",
         avatar: "AK",
-        bio: "Akanksha Shah received her musical training under the guidance of the renowned Padma Bhushan awardee musician Pandit Hariharan ji and his disciple Shri Matang Parikh ji. During her 7 years of training, she spent 2 years in Mumbai and 5 years in Ahmedabad learning music under Shri Matang Parikh ji of the Mewati Gharana. During this period, 111 fellow disciples together got their names recorded in the India Book of Records.",
+        bio: "Akanksha Shah received her musical training under the guidance of the renowned Padma Bhushan awardee musician Pandit Hariharan ji and his disciple Shri Matang Parikh ji. During her 7+ years of training, she spent 2+ years in Mumbai and 5+ years in Ahmedabad learning music under Shri Matang Parikh ji of the Mewati Gharana. During this period, 111 fellow disciples together got their names recorded in the India Book of Records.",
       },
     ],
   },
@@ -197,7 +212,7 @@ const ONLINE_INSTRUMENTS = [
       {
         name: "Roopavathi Kotte",
         avatar: "RK",
-        bio: "Roopavathi Kotte is an accomplished Carnatic vocal teacher bringing deep expertise in Carnatic music traditions and pedagogy.",
+        bio: "She is certified in Carnatic Music Vocals from PSTU, Hyderabad, and has 6 years of experience.",
       },
     ],
   },
@@ -313,9 +328,8 @@ function FacultyCard({ faculty, color }: { faculty: FacultyMember; color: string
 
       <div className="relative">
         <p
-          className={`text-sm text-[#0B1F3A]/70 leading-relaxed ${
-            !expanded ? "line-clamp-3" : ""
-          }`}
+          className={`text-sm text-[#0B1F3A]/70 leading-relaxed ${!expanded ? "line-clamp-3" : ""
+            }`}
         >
           {faculty.bio}
         </p>
@@ -356,9 +370,8 @@ function InstrumentSection({
       className="scroll-mt-24"
     >
       <div
-        className={`flex flex-col md:flex-row gap-8 items-start mb-8 ${
-          !isEven ? "md:flex-row-reverse" : ""
-        }`}
+        className={`flex flex-col md:flex-row gap-8 items-start mb-8 ${!isEven ? "md:flex-row-reverse" : ""
+          }`}
       >
         {/* Image */}
         <div className="w-full md:w-2/5 shrink-0">
@@ -367,11 +380,11 @@ function InstrumentSection({
             style={{ boxShadow: `0 16px 48px ${instrument.color}25` }}
           >
             <img
-  src={instrument.img}
-  alt={`${instrument.name} ${instrument.style}`}
-  className="w-full h-full object-cover"
-  style={{ objectPosition: instrument.imgPosition ?? "center center" }}
-/>
+              src={instrument.img}
+              alt={`${instrument.name} ${instrument.style}`}
+              className="w-full h-full object-cover"
+              style={{ objectPosition: instrument.imgPosition ?? "center center" }}
+            />
             <div
               className="absolute inset-0"
               style={{
@@ -413,7 +426,7 @@ function InstrumentSection({
             live one-on-one.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            {["Live sessions", "Flexible timing", "Certificate on completion"].map(
+            {["Live sessions", "Flexible timing"].map(
               (tag) => (
                 <span
                   key={tag}
@@ -435,11 +448,10 @@ function InstrumentSection({
 
       {/* Faculty cards */}
       <div
-        className={`grid gap-5 ${
-          instrument.faculty.length === 1
-            ? "lg:grid-cols-1 max-w-xl"
-            : "sm:grid-cols-2"
-        }`}
+        className={`grid gap-5 ${instrument.faculty.length === 1
+          ? "lg:grid-cols-1 max-w-xl"
+          : "sm:grid-cols-2"
+          }`}
       >
         {instrument.faculty.map((f) => (
           <FacultyCard key={f.name} faculty={f} color={instrument.color} />

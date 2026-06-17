@@ -315,7 +315,7 @@ function TablaDholakSection() {
         bullets={[
           "Visharad in Tabla",
           "Currently pursuing Alankar from Guru Shri Praveen Karkareji",
-          "7 years of teaching experience before founding the academy",
+          "7+ years of teaching experience before founding the academy",
           "Trained local, national & international students",
           "Affiliated with ABGMV",
         ]}
@@ -498,9 +498,9 @@ function HindustaniSection() {
         accent={TEAL}
         name="Vishal R. Rajguru"
         role="Vocal & Harmonium Faculty"
-        bio="5 years of teaching experience in Vocals and Harmonium. Also serves as a music teacher at a school in Vashi, Navi Mumbai."
+        bio="5+ years of teaching experience in Vocals and Harmonium. Also serves as a music teacher at a school in Vashi, Navi Mumbai."
         bullets={[
-          "5 years of teaching experience in Vocals & Harmonium",
+          "5+ years of teaching experience in Vocals & Harmonium",
           "Music teacher at a school in Vashi, Navi Mumbai",
           "Affiliated with ABGMV",
           "Teaches all levels from Prarambhik to Visharad",
@@ -600,7 +600,7 @@ function Page() {
                 Offline
               </motion.span>
               <motion.span initial={{ opacity: 0, x: -40 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.35, duration: 0.8 }} className="block italic" style={{ color: TURMERIC, textShadow: `0 0 50px ${TURMERIC}40` }}>
-                Courses.
+                Courses
               </motion.span>
             </h1>
           </div>
@@ -608,7 +608,7 @@ function Page() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.55 }} className="mt-8 max-w-md">
             <div className="w-10 h-[2px] mb-5 rounded-full" style={{ background: `linear-gradient(to right, ${TURMERIC}, ${SAFFRON})` }} />
             <p className="text-lg leading-relaxed" style={{ color: `${IVORY}CC` }}>
-              Three instruments. Real teachers, real classrooms — in Sanpada, Navi Mumbai.
+              Six instruments. Real teachers, real classrooms — in Sanpada, Navi Mumbai.
             </p>
           </motion.div>
 

@@ -43,10 +43,9 @@ const SYLLABUS = [
 ];
 
 const TIMINGS = [
-  "Monday to Saturday — Morning 10:00 AM to 1:00 PM",
-  "Monday evening — 3:00 PM to 6:00 PM",
-  "Wednesday evening — 3:00 PM to 9:00 PM",
-  "Saturday evening — 3:00 PM to 7:00 PM",
+  "Monday - 6.30 pm to 9.30 pm",
+  "Thursday - 6.30 pm to 9.30 pm",
+  "Saturday - 6.00 pm to 9.00 pm",
 ];
 
 // ─── PALETTE ─────────────────────────────────────────────────────────────────
@@ -309,7 +308,7 @@ function Page() {
                     "Visharad in Tabla",
                     "Currently pursuing Alankar from Guru Shri Praveen Karkareji",
                     "7 years of teaching experience in Tabla before founding the academy",
-                    "Learning tabla for 10 years, teaching for 7 years",
+                    "Learning tabla for 10+ years, teaching for 7+ years",
                     "Has trained local, national, and international students",
                     "Affiliated with Akhil Bharatiya Gandharva Mahavidyalaya Mandal (ABGMV)",
                   ].map((point) => (

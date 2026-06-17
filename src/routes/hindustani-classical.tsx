@@ -203,11 +203,11 @@ function Page() {
                 <h3 className="font-serif text-2xl mb-1" style={{ color: NAVY }}>Vishal R. Rajguru</h3>
                 <p className="font-mono text-xs tracking-widest mb-5 uppercase" style={{ color: TEAL }}>Vocal & Harmonium Faculty — Varjay Music Academy</p>
                 <p className="text-sm leading-relaxed mb-5" style={{ color: `${NAVY}88` }}>
-                  He has 5 years of teaching experience in Vocals and Harmonium, and also works as a music teacher in a school in Vashi, Navi Mumbai.
+                  He has 5+ years of teaching experience in Vocals and Harmonium, and also works as a music teacher in a school in Vashi, Navi Mumbai.
                 </p>
                 <ul className="space-y-2">
                   {[
-                    "5 years of teaching experience in Vocals & Harmonium",
+                    "5+ years of teaching experience in Vocals & Harmonium",
                     "Music teacher at a school in Vashi, Navi Mumbai",
                     "Affiliated with Akhil Bharatiya Gandharva Mahavidyalaya Mandal (ABGMV)",
                     "Teaches all levels from Prarambhik to Visharad",

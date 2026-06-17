@@ -17,7 +17,7 @@ const FAQS = [
   },
   {
     q: "Do you have different faculties for the different instruments?",
-    a: "Yes, we have the following faculties for the following instruments:\n• Shri Arvind Rao (Founder/Owner) for Tabla & Dholak\n• Shri Anil K for Keyboard & Guitar\n• Shri Vishal Rajguru for Harmonium & Hindustani Vocal",
+    a: "Yes, we have the following faculties for the following instruments:\n• Shri Arvind Rao (Founder/Owner) for Tabla & Dholak\n• Ansil A for Keyboard & Guitar\n• Shri Vishal Rajguru for Harmonium & Hindustani Vocal",
   },
   {
     q: "How many students in a Batch?",
@@ -29,7 +29,7 @@ const FAQS = [
   },
   {
     q: "What is your fee structure?",
-    a: "Presently we charge Rs 1800 per month for Tabla, Dholak, Vocal & Harmonium (Beginner batch). Presently we charge Rs 2000 per month for Keyboard & Guitar. The fees has to be paid by the latest on the 5th of the same month.",
+    a: "Presently we charge Rs 1800 per month for Tabla, Dholak, Vocal & Harmonium (Beginner batch). Presently we charge Rs 2500 per month for Keyboard & Guitar. The fees has to be paid by the latest on the 5th of the same month.",
   },
   {
     q: "Is there any admission fee or Registration fee?",
