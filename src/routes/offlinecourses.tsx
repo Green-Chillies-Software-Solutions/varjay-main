@@ -7,16 +7,16 @@ import { breadcrumbSchema, ldJson } from "@/components/varjay/schema";
 const PAGE_URL = "https://instrument-story-spark.lovable.app/offline-courses";
 
 // ─── PALETTE ─────────────────────────────────────────────────────────────────
-const INK      = "#0A0F1E";
-const IVORY    = "#F9F3E8";
-const NAVY     = "#0B1F3A";
+const INK = "#0A0F1E";
+const IVORY = "#F9F3E8";
+const NAVY = "#0B1F3A";
 const LIGHT_BG = "#EBF5FB";
 
 const TURMERIC = "#E8B84B";
-const SAFFRON  = "#F4813A";
-const CRIMSON  = "#F4813A";
-const INDIGO   = "#3D5AF1";
-const TEAL     = "#17C8A3";
+const SAFFRON = "#F4813A";
+const CRIMSON = "#F4813A";
+const INDIGO = "#3D5AF1";
+const TEAL = "#17C8A3";
 
 export const Route = createFileRoute("/offlinecourses")({
   head: () => ({
@@ -46,16 +46,15 @@ export const Route = createFileRoute("/offlinecourses")({
 // ─── DATA ─────────────────────────────────────────────────────────────────────
 
 const TABLA_SYLLABUS = [
-  { level: "Beginner",      exams: ["Prarambhik (Base Level)", "Praveshika Pratham (Entry Level)", "Praveshika Poorna (Entry Level)"], color: TURMERIC },
-  { level: "Intermediate",  exams: ["Madhyama Pratham (Mid Level 1)", "Madhyama Poorna (Mid Level 2)"],                                color: SAFFRON  },
-  { level: "Advanced",      exams: ["Visharath Pratham (Mid Level 1)", "Visharath Poorna (Mid Level 2)"],                              color: INDIGO   },
+  { level: "Beginner", exams: ["Prarambhik (Base Level)", "Praveshika Pratham (Entry Level)", "Praveshika Poorna (Entry Level)"], color: TURMERIC },
+  { level: "Intermediate", exams: ["Madhyama Pratham (Mid Level 1)", "Madhyama Poorna (Mid Level 2)"], color: SAFFRON },
+  { level: "Advanced", exams: ["Visharath Pratham (Mid Level 1)", "Visharath Poorna (Mid Level 2)"], color: INDIGO },
 ];
 
 const TABLA_TIMINGS = [
-  "Monday to Saturday — Morning 10:00 AM to 1:00 PM",
-  "Monday evening — 3:00 PM to 6:00 PM",
-  "Wednesday evening — 3:00 PM to 9:00 PM",
-  "Saturday evening — 3:00 PM to 7:00 PM",
+  "Monday - 6.30 pm to 9.30 pm",
+  "Thursday - 6.30 pm to 9.30 pm",
+  "Saturday - 6.00 pm to 9.00 pm",
 ];
 
 const GUITAR_TIMINGS = [
@@ -65,9 +64,9 @@ const GUITAR_TIMINGS = [
 ];
 
 const HINDUSTANI_SYLLABUS = [
-  { level: "Beginner",      exams: ["Prarambhik (Base Level)", "Praveshika Pratham (Entry Level)", "Praveshika Poorna (Entry Level)"], color: TEAL    },
-  { level: "Intermediate",  exams: ["Madhyama Pratham (Mid Level 1)", "Madhyama Poorna (Mid Level 2)"],                                color: SAFFRON },
-  { level: "Advanced",      exams: ["Visharath Pratham (Mid Level 1)", "Visharath Poorna (Mid Level 2)"],                              color: INDIGO  },
+  { level: "Beginner", exams: ["Prarambhik (Base Level)", "Praveshika Pratham (Entry Level)", "Praveshika Poorna (Entry Level)"], color: TEAL },
+  { level: "Intermediate", exams: ["Madhyama Pratham (Mid Level 1)", "Madhyama Poorna (Mid Level 2)"], color: SAFFRON },
+  { level: "Advanced", exams: ["Visharath Pratham (Mid Level 1)", "Visharath Poorna (Mid Level 2)"], color: INDIGO },
 ];
 
 // ─── SHARED COMPONENTS ────────────────────────────────────────────────────────
@@ -401,9 +400,9 @@ function GuitarKeyboardSection() {
       <p className="text-xs mb-4" style={{ color: `${NAVY}55` }}>Affiliation: Trinity School of Music, London</p>
       <div className="flex flex-wrap gap-3">
         {[
-          { label: "Beginner",      color: TEAL   },
-          { label: "Intermediate",  color: CRIMSON },
-          { label: "Advanced",      color: INDIGO  },
+          { label: "Beginner", color: TEAL },
+          { label: "Intermediate", color: CRIMSON },
+          { label: "Advanced", color: INDIGO },
         ].map((s) => (
           <span key={s.label} className="px-4 py-2 rounded-full text-sm font-semibold font-mono"
             style={{ background: `${s.color}18`, color: s.color, border: `1px solid ${s.color}40` }}>
@@ -516,7 +515,7 @@ function HindustaniSection() {
       <SubHeading text="Class Timings" accent={TEAL} />
       <p className="text-xs font-mono mb-4" style={{ color: `${NAVY}50` }}>(Liable to change)</p>
       <div className="grid sm:grid-cols-2 gap-3 max-w-xl">
-        {["Tuesday Evening — 6:30 PM to 9:30 PM", "Friday Evening — 6:30 PM to 9:30 PM"].map((t, i) => (
+        {["Tuesday & Friday  6.00 pm to 9.00 pm", "Sunday 11.00 am to 1.00 pm"].map((t, i) => (
           <motion.div key={t} initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}
             className="rounded-xl p-4 flex items-center gap-3 bg-white border border-[#A8D8F0]">
             <div className="w-1.5 h-8 rounded-full shrink-0" style={{ background: `linear-gradient(to bottom, ${TEAL}, ${SAFFRON})` }} />
@@ -616,9 +615,9 @@ function Page() {
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7 }}
             className="flex flex-wrap gap-3 mt-8">
             {[
-              { label: "Tabla & Dholak",                  id: "tabla",      color: TURMERIC },
-              { label: "Guitar & Keyboard",               id: "guitar",     color: CRIMSON  },
-              { label: "Hindustani Vocals & Harmonium",   id: "hindustani", color: TEAL     },
+              { label: "Tabla & Dholak", id: "tabla", color: TURMERIC },
+              { label: "Guitar & Keyboard", id: "guitar", color: CRIMSON },
+              { label: "Hindustani Vocals & Harmonium", id: "hindustani", color: TEAL },
             ].map(({ label, id, color }) => (
               <a key={id} href={`#${id}`}
                 className="px-5 py-2 rounded-full font-mono text-xs font-semibold tracking-wide transition-all duration-200 hover:-translate-y-0.5"
