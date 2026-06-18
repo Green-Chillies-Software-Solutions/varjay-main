@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Menu, X, ChevronDown, Sparkles } from "lucide-react";
+import { Menu, X, ChevronDown, ChevronRight, Sparkles } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 
 const navLinks = [
@@ -17,6 +17,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [coursesOpen, setCoursesOpen] = useState(false);
+  const [mobileCoursesOpen, setMobileCoursesOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -29,6 +30,13 @@ export function Navbar() {
     if (open) document.body.style.overflow = "hidden";
     else document.body.style.overflow = "unset";
   }, [open]);
+
+  // Reset the courses accordion whenever the drawer closes
+  useEffect(() => {
+    if (!open) setMobileCoursesOpen(false);
+  }, [open]);
+
+  const closeMenu = () => setOpen(false);
 
   return (
     <header
@@ -166,107 +174,137 @@ export function Navbar() {
           onClick={() => setOpen(true)}
           aria-label="Open menu"
         >
-          <Menu className="w-7 h-7" />
+          <Menu className="w-6 h-6" />
         </button>
       </nav>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu — compact slide-in drawer */}
       {/* Order: Home → About → Courses → Gallery → FAQs → Contact → Register Now */}
+
+      {/* Backdrop */}
       <div
-        className={`fixed inset-0 z-[60] bg-[#EBF5FB] transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] flex flex-col px-8 py-10 overflow-y-auto ${
-          open ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full pointer-events-none"
+        onClick={closeMenu}
+        className={`fixed inset-0 z-[55] bg-[#0B1F3A]/40 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${
+          open ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+      />
+
+      {/* Drawer */}
+      <div
+        className={`fixed top-0 right-0 z-[60] h-full w-full max-w-[320px] bg-white shadow-[-8px_0_30px_rgba(11,31,58,0.15)] transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] flex flex-col lg:hidden ${
+          open ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex justify-between items-center mb-16">
+        {/* Drawer header */}
+        <div className="flex items-center justify-between px-5 py-4 border-b border-[#EBF5FB]">
           <img
             src="https://varjaymusic.com/wp-content/uploads/2024/05/logo.png"
             alt="Varjay"
-            className="h-16 w-auto"
+            className="h-9 w-auto"
           />
           <button
-            onClick={() => setOpen(false)}
+            onClick={closeMenu}
             aria-label="Close menu"
-            className="p-2 rounded-full bg-white text-[#0B1F3A] hover:bg-[#5BB8E8] hover:text-white transition-colors shadow-sm"
+            className="p-1.5 rounded-full bg-[#EBF5FB] text-[#0B1F3A] hover:bg-[#5BB8E8] hover:text-white transition-colors"
           >
-            <X className="w-6 h-6" />
+            <X className="w-5 h-5" />
           </button>
         </div>
 
-        <div className="flex flex-col gap-8 flex-1">
-          {/* 1. Home */}
+        {/* Nav list */}
+        <div className="flex-1 overflow-y-auto px-3 py-2">
           <Link
             to="/"
-            onClick={() => setOpen(false)}
-            className="text-4xl md:text-5xl font-bold text-[#0B1F3A] hover:text-[#5BB8E8] transition-colors tracking-tight"
+            onClick={closeMenu}
+            activeProps={{ className: "text-[#5BB8E8]" }}
+            activeOptions={{ exact: true }}
+            className="flex items-center justify-between px-3 py-3 rounded-xl text-base font-bold text-[#0B1F3A] hover:bg-[#EBF5FB] hover:text-[#5BB8E8] transition-colors"
           >
             Home
           </Link>
 
-          {/* 2. About */}
           <Link
             to="/about"
-            onClick={() => setOpen(false)}
-            className="text-4xl md:text-5xl font-bold text-[#0B1F3A] hover:text-[#5BB8E8] transition-colors tracking-tight"
+            onClick={closeMenu}
+            activeProps={{ className: "text-[#5BB8E8]" }}
+            className="flex items-center justify-between px-3 py-3 rounded-xl text-base font-bold text-[#0B1F3A] hover:bg-[#EBF5FB] hover:text-[#5BB8E8] transition-colors"
           >
             About
           </Link>
 
-          {/* 3. Courses Collapse */}
-          <details className="group">
-            <summary className="text-4xl md:text-5xl font-bold text-[#0B1F3A] cursor-pointer list-none flex items-center justify-between hover:text-[#5BB8E8] transition-colors tracking-tight">
-              Courses
-              <ChevronDown className="w-8 h-8 group-open:rotate-180 transition-transform duration-300" />
-            </summary>
-            <div className="mt-6 ml-4 border-l-4 border-[#5BB8E8]/30 pl-6 space-y-3">
-              {courseButtons.map((l) => (
-                <Link
-                  key={l.to}
-                  to={l.to}
-                  onClick={() => setOpen(false)}
-                  className="flex items-center justify-between px-4 py-4 rounded-2xl text-2xl font-bold text-[#0B1F3A] bg-white border border-[#D5EAF7] hover:bg-[#EBF5FB] hover:border-[#5BB8E8] transition-all duration-200"
-                >
-                  {l.label}
-                  {l.isNew && (
-                    <span className="inline-flex items-center px-2 py-1 rounded-full text-[10px] font-bold bg-[#5BB8E8] text-white uppercase tracking-widest shadow-sm">
-                      New
+          {/* Courses accordion */}
+          <button
+            onClick={() => setMobileCoursesOpen((v) => !v)}
+            className="w-full flex items-center justify-between px-3 py-3 rounded-xl text-base font-bold text-[#0B1F3A] hover:bg-[#EBF5FB] hover:text-[#5BB8E8] transition-colors"
+            aria-expanded={mobileCoursesOpen}
+          >
+            Courses
+            <ChevronDown
+              className={`w-4 h-4 transition-transform duration-300 ${
+                mobileCoursesOpen ? "rotate-180 text-[#5BB8E8]" : "text-[#0B1F3A]/50"
+              }`}
+            />
+          </button>
+          <div
+            className={`grid transition-all duration-300 ease-in-out ${
+              mobileCoursesOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+            }`}
+          >
+            <div className="overflow-hidden">
+              <div className="ml-3 pl-3 border-l-2 border-[#A8D8F0]/60 my-1 space-y-0.5">
+                {courseButtons.map((l) => (
+                  <Link
+                    key={l.to}
+                    to={l.to}
+                    onClick={closeMenu}
+                    className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold text-[#0B1F3A]/80 hover:bg-[#EBF5FB] hover:text-[#5BB8E8] transition-colors"
+                  >
+                    {l.label}
+                    <span className="flex items-center gap-1.5">
+                      {l.isNew && (
+                        <span className="px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-[#5BB8E8] text-white uppercase tracking-wider">
+                          New
+                        </span>
+                      )}
+                      <ChevronRight className="w-3.5 h-3.5 opacity-40" />
                     </span>
-                  )}
-                </Link>
-              ))}
+                  </Link>
+                ))}
+              </div>
             </div>
-          </details>
+          </div>
 
-          {/* 4. Gallery & 5. FAQs */}
           {navLinks.map((l) => (
             <Link
               key={l.to}
               to={l.to}
-              onClick={() => setOpen(false)}
-              className="text-4xl md:text-5xl font-bold text-[#0B1F3A] hover:text-[#5BB8E8] transition-colors tracking-tight"
+              onClick={closeMenu}
+              activeProps={{ className: "text-[#5BB8E8]" }}
+              className="flex items-center justify-between px-3 py-3 rounded-xl text-base font-bold text-[#0B1F3A] hover:bg-[#EBF5FB] hover:text-[#5BB8E8] transition-colors"
             >
               {l.label}
             </Link>
           ))}
 
-          {/* 6. Contact */}
           <Link
             to="/contact"
-            onClick={() => setOpen(false)}
-            className="text-4xl md:text-5xl font-bold text-[#0B1F3A] hover:text-[#5BB8E8] transition-colors tracking-tight"
+            onClick={closeMenu}
+            activeProps={{ className: "text-[#5BB8E8]" }}
+            className="flex items-center justify-between px-3 py-3 rounded-xl text-base font-bold text-[#0B1F3A] hover:bg-[#EBF5FB] hover:text-[#5BB8E8] transition-colors"
           >
             Contact
           </Link>
+        </div>
 
-          {/* Register Now */}
-          <div className="mt-auto pt-10">
-            <Link
-              to="/register"
-              onClick={() => setOpen(false)}
-              className="flex w-full items-center justify-center px-8 py-5 rounded-full bg-[#0B1F3A] text-white font-bold text-lg shadow-xl shadow-[#0B1F3A]/20 active:scale-95 transition-transform"
-            >
-              Register Now
-            </Link>
-          </div>
+        {/* CTA footer */}
+        <div className="px-4 py-4 border-t border-[#EBF5FB]">
+          <Link
+            to="/register"
+            onClick={closeMenu}
+            className="flex w-full items-center justify-center px-6 py-3 rounded-full bg-[#0B1F3A] text-white font-bold text-sm shadow-md shadow-[#0B1F3A]/15 active:scale-95 transition-transform"
+          >
+            Register Now
+          </Link>
         </div>
       </div>
     </header>
