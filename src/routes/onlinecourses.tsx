@@ -82,12 +82,17 @@ const ONLINE_INSTRUMENTS = [
       {
         name: "Chandru P.",
         avatar: "CP",
-        bio: "Chandru P. is a skilled keyboard instructor specialising in Western keyboard techniques, covering theory, sight-reading, and performance skills.",
+        bio: "Chandru P. is a skilled keyboard instructor specialising in Western keyboard techniques, covering theory, sight-reading, and performance skills. Education: Chandru holds a BA in History from St. Joseph's College, Tiruchirappalli (2020) with 62%, and completed his HSC (84.25%) and SSLC (88%) from Thanthai Hans Roever Hr. Sec. School, Perambalur. He is currently pursuing a BA in Music from The Tamil Nadu Dr. J. Jayalalithaa Music and Fine Arts University, Chennai (expected 2025). Music Skills: He is proficient in Veena, keyboard, and vocal performance, and is currently learning the piano.",
       },
       {
-        name: "Aabhas Shrivastav",
+        name: "Aabhas Shrivastava",
         avatar: "AS",
-        bio: "Aabhas Shrivastava is a motivated musician and student music therapist with an extensive background in music and psychology, skilled in preparing customised lesson plans for individual learners. Currently pursuing a degree in Piano from Trinity College of Music.",
+        bio: "Aabhas Shrivastava is a motivated musician and student music therapist with an extensive background in music and psychology, skilled in preparing customised lesson plans for individual learners. He is currently pursuing a degree in Piano from Trinity College of Music.",
+      },
+      {
+        name: "Ansil Achankunju",
+        avatar: "AA",
+        bio: "Ansil Achankunju is a Guitar & Keyboard Faculty member and a passionate musician with extensive Western music experience. He specialises in acoustic guitar, electric guitar, and keyboard, teaching various styles including Bollywood, Western pop, rock, and acoustic. Affiliated with the Trinity School of Music, London, Ansil blends theory with practical songwriting so students can play their favourites from day one.",
       },
     ],
   },
@@ -123,6 +128,11 @@ const ONLINE_INSTRUMENTS = [
         name: "Raju Kirtunia",
         avatar: "RK",
         bio: "Raju Kirtunia is a highly experienced multi-instrument music educator, holding Grade V in Nylon String Guitar from the Calcutta School of Music under Trinity College of London, and Grade VIII in Spanish Guitar from the University of West London. He brings over 30 years of teaching experience in Spanish Guitar and more than 20 years each in Nylon String Guitar, Bass Guitar, Mandolin, and Ukulele.",
+      },
+      {
+        name: "Ansil Achankunju",
+        avatar: "AA",
+        bio: "Ansil Achankunju is a Guitar & Keyboard Faculty member and a passionate musician with extensive Western music experience. He specialises in acoustic guitar, electric guitar, and keyboard, teaching various styles including Bollywood, Western pop, rock, and acoustic. Affiliated with the Trinity School of Music, London, Ansil blends theory with practical songwriting so students can play their favourites from day one.",
       },
     ],
   },
@@ -169,6 +179,11 @@ const ONLINE_INSTRUMENTS = [
         avatar: "SS",
         bio: "S.P. Sivashree is a young violin teacher and performer based in Puducherry, with a B.Sc. in Computer Science and an ongoing B.F.A. in Music (Violin) from Annamalai University DDE. She has over a year of professional teaching experience as an online Violin Teacher. Alongside teaching, she is an active performer, regularly appearing in stage concerts and performances across Puducherry and other states. Her achievements include First Prize wins at the Kala Utsav State & District Level Competition and the NITPY Karaikal Inter-State Level Competition, a World Record Certificate from Puduvai Kalaimamani Viruthalargal Sangam, and the prestigious Siruvar Seermani Award from Puducherry. She comes from a musically accomplished family, being the daughter of Dr. V. Sivakumar, M.Mus., Ph.D.",
       },
+      {
+        name: "Sumalatha T.R.",
+        avatar: "ST",
+        bio: "Very passionate and dedicated music teacher having 7 years of experience in teaching vocal and instrumental music to students. Skilled in Carnatic music, violin, and keyboard playing, committed to creating a positive learning environment and helping students build confidence, creativity, and a love for music.",
+      },
     ],
   },
   // 8. Flute
@@ -199,6 +214,11 @@ const ONLINE_INSTRUMENTS = [
         avatar: "AK",
         bio: "Akanksha Shah received her musical training under the guidance of the renowned Padma Bhushan awardee musician Pandit Hariharan ji and his disciple Shri Matang Parikh ji. During her 7 years of training, she spent 2+ years in Mumbai and 5+ years in Ahmedabad learning music under Shri Matang Parikh ji of the Mewati Gharana. During this period, 111 fellow disciples together got their names recorded in the India Book of Records.",
       },
+      {
+        name: "Vishal R. Rajguru",
+        avatar: "VR",
+        bio: "Vishal R. Rajguru is a Vocal & Harmonium Faculty with over 5 years of teaching experience. He also serves as a music teacher at a school in Vashi, Navi Mumbai. Affiliated with the Akhil Bharatiya Gandharva Mahavidyalaya Mandal (ABGMV), he teaches all levels from Prarambhik to Visharad.",
+      },
     ],
   },
   // 10. Vocal (Carnatic)
@@ -212,7 +232,12 @@ const ONLINE_INSTRUMENTS = [
       {
         name: "Roopavathi Kotte",
         avatar: "RK",
-        bio: "She is certified in Carnatic Music Vocals from PSTU, Hyderabad, and has 6 years of experience.",
+        bio: "She is certified in Carnatic Music Vocals from PSTU, Hyderabad, and has 6 years of experience.Education: Roopavathi holds a Certificate in Carnatic Music (Vocals) from Potti Sreeramulu Telugu University, Hyderabad (2019), and completed her Intermediate from Sree Nidhi High School (2022) with 70.6%. She is currently pursuing a BA in Carnatic Music Vocals at PSG College of Arts and Science.Achievements: She won 1st place in a State Level Singing Competition for women, secured 2nd place at an International Level Singing Competition organized by Swaranatya Sambhrama, and claimed 1st place in Padya competitions at Balotsav.Strengths: She identifies her key strengths as confidence, creative thinking, a positive attitude, and smart thinking.",
+      },
+      {
+        name: "Sumalatha T.R.",
+        avatar: "ST",
+        bio: "Very passionate and dedicated music teacher having 7 years of experience in teaching vocal and instrumental music to students. Skilled in Carnatic music, violin, and keyboard playing, committed to creating a positive learning environment and helping students build confidence, creativity, and a love for music.",
       },
     ],
   },
@@ -225,9 +250,9 @@ const ONLINE_INSTRUMENTS = [
     img: "https://i.ibb.co/rRL7TfkT/harmonium.jpg",
     faculty: [
       {
-        name: "Guru Arvind",
-        avatar: "GA",
-        bio: "Guru Arvind teaches Harmonium with a grounding in Hindustani classical music — covering sur, ragas, and bandishes, making it an ideal companion instrument for vocalists and a complete study in itself.",
+        name: "Vishal R. Rajguru",
+        avatar: "VR",
+        bio: "Vishal R. Rajguru is a Vocal & Harmonium Faculty with over 5 years of teaching experience. He also serves as a music teacher at a school in Vashi, Navi Mumbai. Affiliated with the Akhil Bharatiya Gandharva Mahavidyalaya Mandal (ABGMV), he teaches all levels from Prarambhik to Visharad.",
       },
     ],
   },
