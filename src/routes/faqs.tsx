@@ -41,7 +41,7 @@ const FAQS = [
   },
   {
     q: "In case the student misses any session, what is your policy?",
-    a: "The student can compensate the session by attending the next available session in coordination with the owners of the academy.",
+    a: "The student can compensate the session by attending the next available session in coordination with the owners of the academy.If the student has paid for the particular month and yet missed the entire month, there will be no refund for that particular month. The classes have to be compensated within the next month, maximum by two months.",
   },
   {
     q: "Within how many months can I learn the basics?",
