@@ -9,9 +9,12 @@ export function Gallery() {
         <p className="font-mono text-xl text-[#F59E0B] tracking-widest mb-3">
           FROM OUR ACADEMY
         </p>
-        <h2 className="font-display text-5xl md:text-6xl text-[#1C0A00] font-semibold">
+        <h2 className="font-display text-5xl md:text-6xl text-[#1C0A00] font-semibold mb-4">
           Life at Varjay
         </h2>
+        <p className="text-lg md:text-xl text-gray-600">
+          Stage performances are offered to students every year.
+        </p>
       </div>
 
       <div className="relative">
