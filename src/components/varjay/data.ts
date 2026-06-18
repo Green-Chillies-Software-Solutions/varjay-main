@@ -178,5 +178,5 @@ export const GALLERY = [
 
   "https://i.ibb.co/GfcpHxHQ/varjayshop4.jpg",
 
-  "https://i.ibb.co/MxLSZy16/varjayshop5.jpg",
+  
 ];
