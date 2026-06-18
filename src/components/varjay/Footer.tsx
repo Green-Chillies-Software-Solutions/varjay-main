@@ -196,7 +196,7 @@ export function Footer() {
             <div className="flex gap-4 mt-8">
               {[
                 { Icon: YoutubeIcon, href: "https://www.youtube.com/channel/UCxrYgHmwDxVIpVjFvVadKYA" },
-                { Icon: FacebookIcon, href: "https://www.facebook.com/p/Varjay-Music-Academy-100077740792261/" },
+                { Icon: FacebookIcon, href: "https://www.facebook.com/profile.php?id=61584016929193" },
                 { Icon: InstagramIcon, href: "https://www.instagram.com/varjay.music.academy/" },
               ].map((social, idx) => (
                 <motion.a
