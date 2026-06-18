@@ -4,7 +4,8 @@ import { z } from "zod";
 import { Loader2, Send } from "lucide-react";
 import { INSTRUMENTS } from "./data";
 
-const SHEETS_URL = "https://script.google.com/macros/s/AKfycbz51V7q6fvHHb6QUZnQLmg_kDYNtc4XRLMjYviGzebuRtuQxpk5jNo0M4wtpD9ZZE4sPA/exec";
+const SHEETS_URL = "https://script.google.com/macros/s/AKfycbya8E5rWJRS9lFEZJoFZd4HpCu_G0uqZ3JqSsJR0f7BU02G-MRSdeQ7BfEw_ZLLA58vCA/exec";
+
 
 const schema = z.object({
   name: z.string().trim().min(2, "Please enter your name").max(80),
