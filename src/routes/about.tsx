@@ -80,7 +80,7 @@ function AboutPage() {
         <div className="absolute inset-0 md:hidden z-0">
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.6 }} className="absolute inset-0">
             <img
-              src="https://varjaymusic.com/wp-content/uploads/2024/07/arvind1.jpg"
+              src="https://i.ibb.co/BVZTvSpG/arvind.jpg"
               alt="Guru Arvind"
               className="w-full h-full object-cover object-top"
             />
