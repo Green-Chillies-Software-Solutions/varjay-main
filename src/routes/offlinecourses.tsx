@@ -58,10 +58,17 @@ const TABLA_TIMINGS = [
 ];
 
 const GUITAR_TIMINGS = [
-  "Monday — 6:00 PM to 9:00 PM",
-  "Thursday — 5:00 PM to 9:00 PM",
-  "Sunday morning — 9:00 AM to 1:00 PM",
+  "Monday — 6:30 pm to 9:30 pm",
+  "Thursday — 6:30 pm to 9:30 pm",
+  "Saturday — 6:00 pm to 9:00 pm",
 ];
+
+const HINDUSTANI_TIMINGS = [
+   "Tuesday - 6.00 pm to 9.00 pm",
+   "Friday - 6.00 pm to 9.00 pm",
+   "Sunday - 11.00 am to 1.00 pm"
+];
+
 
 const HINDUSTANI_SYLLABUS = [
   { level: "Beginner", exams: ["Prarambhik (Base Level)", "Praveshika Pratham (Entry Level)", "Praveshika Poorna (Entry Level)"], color: TEAL },
@@ -274,7 +281,7 @@ function TablaDholakSection() {
           <img
             src="https://varjaymusic.com/wp-content/uploads/2024/08/tabla-details.jpg"
             alt="Tabla"
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-center "
             loading="lazy"
           />
           <div className="absolute bottom-0 left-0 right-0 px-5 py-3" style={{ background: `linear-gradient(to top, ${NAVY}CC, transparent)` }}>
@@ -357,7 +364,7 @@ function GuitarKeyboardSection() {
       accent={CRIMSON}
       tag="Western · Strings & Keys"
       title="Guitar & Keyboard"
-      subtitle="Acoustic, electric, fingerstyle, lead — pick your sound and we'll get you playing your favourite songs in weeks."
+      subtitle="Acoustic, fingerstyle, lead — pick your sound and we'll get you playing your favourite songs in weeks."
     >
       {/* Image */}
       <motion.div
@@ -369,9 +376,9 @@ function GuitarKeyboardSection() {
         style={{ boxShadow: `0 12px 40px rgba(244,129,58,0.14)`, aspectRatio: "21/9" }}
       >
         <img
-          src="https://i.ibb.co/0jZRvJFD/image.png"
+          src="https://i.ibb.co/1GndGKHY/guitar.jpg"
           alt="Guitar"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-center"
           loading="lazy"
         />
         <div className="absolute inset-0 pointer-events-none" style={{ background: `linear-gradient(to right, ${NAVY}55, transparent 50%)` }} />
@@ -512,13 +519,13 @@ function HindustaniSection() {
       <SyllabusBlock syllabus={HINDUSTANI_SYLLABUS} affiliation="Akhil Bharatiya Gandharva Mahavidyalaya Mandal (ABGMV)" />
 
       {/* Timings */}
-      <SubHeading text="Class Timings" accent={TEAL} />
+      <SubHeading text="Class Timings" accent={CRIMSON} />
       <p className="text-xs font-mono mb-4" style={{ color: `${NAVY}50` }}>(Liable to change)</p>
-      <div className="grid sm:grid-cols-2 gap-3 max-w-xl">
-        {["Tuesday & Friday  6.00 pm to 9.00 pm", "Sunday 11.00 am to 1.00 pm"].map((t, i) => (
+      <div className="grid sm:grid-cols-3 gap-3">
+        {HINDUSTANI_TIMINGS.map((t, i) => (
           <motion.div key={t} initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}
             className="rounded-xl p-4 flex items-center gap-3 bg-white border border-[#A8D8F0]">
-            <div className="w-1.5 h-8 rounded-full shrink-0" style={{ background: `linear-gradient(to bottom, ${TEAL}, ${SAFFRON})` }} />
+            <div className="w-1.5 h-8 rounded-full shrink-0" style={{ background: `linear-gradient(to bottom, ${CRIMSON}, ${INDIGO})` }} />
             <p className="text-sm" style={{ color: `${NAVY}BB` }}>{t}</p>
           </motion.div>
         ))}
