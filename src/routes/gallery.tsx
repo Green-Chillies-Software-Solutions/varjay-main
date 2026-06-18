@@ -25,9 +25,30 @@ const EXTRA = [
   "https://i.ibb.co/fVpQDyS1/IMG20250727190442.jpg",
   "https://i.ibb.co/yFxnqWMs/IMG20250727190512.jpg",
   "https://i.ibb.co/gZMHCM1x/IMG20250727190455.jpg",
-  "https://i.ibb.co/1JpLmdTZ/IMG20250727190539.jpg"
+  "https://i.ibb.co/1JpLmdTZ/IMG20250727190539.jpg",
 ];
 
+const Tabla_Prambhik_Certificates = [
+  "https://i.ibb.co/6054gmz5/Advait-Prarambhik.jpg",
+
+  "https://i.ibb.co/8DF95qSc/Arnav-Prarambhik.jpg",
+
+  "https://i.ibb.co/5W9gMX24/Sarthak-Prarambhik.jpg",
+
+  "https://i.ibb.co/ymYmVn4X/Nilantik-Prarambhik.jpg",
+
+  "https://i.ibb.co/bRW5D2D2/Group-photo-Prarambhik.jpg",
+];
+
+const Tabla_Prathamik_Certificates = [
+  "https://i.ibb.co/MxqDMXNd/Advait-Praveshika-Pratham.jpg",
+
+  "https://i.ibb.co/0yzyVQ84/Advait-with-Guru.jpg",
+
+  "https://i.ibb.co/KczzrLsx/Arnav-Shide-Praveshika.jpg",
+
+  "https://i.ibb.co/8DVJfm5M/Group-photo-Praveshika-Pratham.jpg",
+];
 const ALL = [...EXTRA];
 
 // Extracted YouTube Links from the provided sheet
@@ -288,6 +309,91 @@ function GalleryPage() {
                     alt={`Varjay Music Academy moment ${i + 1}`}
                     loading="lazy"
                     className="w-full h-auto group-hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+      {/* ─── EXAM CERTIFICATES SECTION (NAVY BACKGROUND) ──────────────────── */}
+      <section className="py-24" style={{ background: NAVY }}>
+        <div className="max-w-7xl mx-auto px-6 text-center mb-16">
+          <h2 className="font-serif text-4xl md:text-5xl" style={{ color: LIGHT }}>
+            Exam <span className="italic" style={{ color: BLUE }}>Certificates</span>
+          </h2>
+          <p className="mt-4 text-lg max-w-2xl mx-auto" style={{ color: `${LIGHT}CC` }}>
+            Celebrating our students' achievements in Tabla examinations.
+          </p>
+        </div>
+
+        {/* SUBSECTION 1 — Tabla Prarambhik */}
+        <div className="max-w-7xl mx-auto px-6 mb-20">
+          <div className="flex items-center gap-4 mb-8">
+            <div className="w-10 h-[2px] rounded-full" style={{ background: `linear-gradient(to right, ${BLUE}, ${ACCENT})` }} />
+            <h3 className="font-serif text-2xl md:text-3xl" style={{ color: LIGHT }}>
+              Tabla <span className="italic" style={{ color: BLUE }}>Prarambhik</span>
+            </h3>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+            {Tabla_Prambhik_Certificates.map((src, i) => (
+              <motion.div
+                key={`prarambhik-${i}`}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ delay: (i % 4) * 0.1, duration: 0.6 }}
+                className="rounded-2xl overflow-hidden group cursor-pointer"
+                style={{
+                  border: `1px solid ${BLUE}30`,
+                  boxShadow: `0 4px 20px rgba(0,0,0,0.25)`,
+                }}
+              >
+                <div className="relative overflow-hidden aspect-[4/5]">
+                  <div className="absolute inset-0 bg-[#0B1F3A]/0 group-hover:bg-[#0B1F3A]/20 transition-colors duration-500 z-10 pointer-events-none" />
+                  <img
+                    src={src}
+                    alt={`Tabla Prarambhik certificate ${i + 1}`}
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* SUBSECTION 2 — Tabla Praveshika Pratham */}
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex items-center gap-4 mb-8">
+            <div className="w-10 h-[2px] rounded-full" style={{ background: `linear-gradient(to right, ${BLUE}, ${ACCENT})` }} />
+            <h3 className="font-serif text-2xl md:text-3xl" style={{ color: LIGHT }}>
+              Tabla <span className="italic" style={{ color: BLUE }}>Praveshika Pratham</span>
+            </h3>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+            {Tabla_Prathamik_Certificates.map((src, i) => (
+              <motion.div
+                key={`praveshika-${i}`}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ delay: (i % 4) * 0.1, duration: 0.6 }}
+                className="rounded-2xl overflow-hidden group cursor-pointer"
+                style={{
+                  border: `1px solid ${BLUE}30`,
+                  boxShadow: `0 4px 20px rgba(0,0,0,0.25)`,
+                }}
+              >
+                <div className="relative overflow-hidden aspect-[4/5]">
+                  <div className="absolute inset-0 bg-[#0B1F3A]/0 group-hover:bg-[#0B1F3A]/20 transition-colors duration-500 z-10 pointer-events-none" />
+                  <img
+                    src={src}
+                    alt={`Tabla Praveshika Pratham certificate ${i + 1}`}
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                 </div>
               </motion.div>
