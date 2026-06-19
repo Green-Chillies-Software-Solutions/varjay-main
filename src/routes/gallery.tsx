@@ -42,11 +42,13 @@ const Tabla_Prambhik_Certificates = [
 
 const Tabla_Prathamik_Certificates = [
   "https://i.ibb.co/MxqDMXNd/Advait-Praveshika-Pratham.jpg",
-
   "https://i.ibb.co/0yzyVQ84/Advait-with-Guru.jpg",
-
+  "https://i.ibb.co/21xXCxmN/Arnav-Praveshika-Pratham-1.jpg",
   "https://i.ibb.co/KczzrLsx/Arnav-Shide-Praveshika.jpg",
-
+  "https://i.ibb.co/fdVNzBbr/Nilantik-Praveshika-Pratham.jpg",
+  "https://i.ibb.co/nsr1Xwc7/Nilantik-Praveshika-Pratham-with-guru.jpg",
+  "https://i.ibb.co/bjLSYYcZ/Sarthak-Praveshika-Pratham-1.jpg",
+  "https://i.ibb.co/cKGhggmw/Sarthak-Praveshika-Pratham-1-with-guru.jpg",
   "https://i.ibb.co/8DVJfm5M/Group-photo-Praveshika-Pratham.jpg",
 ];
 const ALL = [...EXTRA];
