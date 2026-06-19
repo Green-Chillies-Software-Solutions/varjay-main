@@ -2,8 +2,8 @@ import { Play, ArrowRight } from "lucide-react";
 
 const videos = [
   { title: "Tabla Solo — Arnav Shinde", url: "https://www.youtube.com/watch?v=-O8iiXMCGFo" },
-  { title: "Republic Day Special 2025", url: "https://www.youtube.com/channel/UCxrYgHmwDxVIpVjFvVadKYA" },
-  { title: "Keyboard Solo — Vijayashish Satapathy", url: "https://www.youtube.com/channel/UCxrYgHmwDxVIpVjFvVadKYA" },
+  { title: "Republic Day Special 2025", url: "https://www.youtube.com/watch?v=v3UblXP6JrM" },
+  { title: "Keyboard Solo — Vijayashish Satapathy", url: "https://www.youtube.com/watch?v=QIdfJMdqH5U" },
 ];
 
 export function YouTube() {
