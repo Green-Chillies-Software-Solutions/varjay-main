@@ -4,7 +4,7 @@ import { z } from "zod";
 import { Loader2, Send } from "lucide-react";
 import { INSTRUMENTS } from "./data";
 
-const SHEETS_URL = "https://script.google.com/macros/s/AKfycbxs_7EYClALR-67VcOL16FalkX2va1T2Vp_iJOOUMgLEDfjvciy3X0sfl-A9JaE9NILsA/exec";
+const SHEETS_URL = "https://script.google.com/macros/s/AKfycbybwjpLBZq6R8eXapduoXL-Ih7ujzLQCOGknBXWeGT4PtsTCvh8FwPxsvbPOBMwflcU4w/exec";
 
 
 const schema = z.object({

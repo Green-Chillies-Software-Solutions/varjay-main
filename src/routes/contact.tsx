@@ -8,7 +8,7 @@ import { breadcrumbSchema, ldJson, localBusinessSchema } from "@/components/varj
 const URL = "https://instrument-story-spark.lovable.app/contact";
 
 // REPLACE THIS WITH YOUR NEW APPS SCRIPT DEPLOYMENT URL
-const SHEETS_URL = "https://script.google.com/macros/s/AKfycbzZVvPmI8jA5OVDvP32bULC2LWDV2SibWIXw47eCu2nO4F-SmDpURD5vCQEron1e6E/exec";
+const SHEETS_URL = "https://script.google.com/macros/s/AKfycbyPFjEVM13qY-y9SQ8yksr3S8fVRprIiERXvJQEwK7i6ZBk-_sqeGP6UsmBKWAEZ2ZJ/exec";
 
 const NAVY = "#0B1F3A";
 const BLUE = "#5BB8E8";
