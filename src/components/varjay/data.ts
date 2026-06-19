@@ -168,15 +168,11 @@ export const GALLERY = [
   "https://varjaymusic.com/wp-content/uploads/2025/11/gp17-1024x458.jpg",
   vocalImg,
   "https://images.unsplash.com/photo-1632008341003-5c6767c7d237?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://i.ibb.co/fVSGCt1T/image.png",
-
-  "https://i.ibb.co/JFwPvwDz/varjayshop1.jpg",
-
-  "https://i.ibb.co/23fgSqv2/varjayshop2.jpg",
-
-  "https://i.ibb.co/LdWs1c3B/varjayshop3.jpg",
-
-  "https://i.ibb.co/GfcpHxHQ/varjayshop4.jpg",
-
-  
+  "https://i.ibb.co/0VrQY7RX/shop1.jpg",
+  "https://i.ibb.co/G4v0kBzX/shop2.jpg",
+  "https://i.ibb.co/s962kBvG/shop3.jpg",
+  "https://i.ibb.co/d4WhP0KQ/shop4.jpg",
+  "https://i.ibb.co/1fQZp25B/shop5.jpg",
+  "https://i.ibb.co/S4ZQj9fF/shop6.jpg",
+  "https://i.ibb.co/1JbsMmDh/shop7.jpg",
 ];
