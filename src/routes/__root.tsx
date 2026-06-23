@@ -1,4 +1,3 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
   Link,
@@ -8,6 +7,7 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 
+// Import your global layout components
 import { Navbar } from "@/components/varjay/Navbar";
 import { Footer } from "@/components/varjay/Footer";
 import { Floating } from "@/components/varjay/Floating";
@@ -59,8 +59,8 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
           >
             Try again
           </button>
-          
-           <a href="/"
+          <a
+            href="/"
             className="inline-flex items-center justify-center rounded-full border border-[#5BB8E8]/30 bg-transparent px-6 py-3 text-sm font-bold text-[#5BB8E8] transition-colors hover:bg-[#5BB8E8]/10"
           >
             Go home
@@ -70,33 +70,26 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
     </div>
   );
 }
+
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  meta: [
-    { charSet: "utf-8" },
-    { name: "viewport", content: "width=device-width, initial-scale=1" },
-    { title: "Varjay Music Academy" },
-    {
-      name: "description",
-      content:
-        "Varjay Music Academy's homepage showcases instrument stories with a premium, magazine-like design.",
-    },
-    { name: "author", content: "Varjay" },
-    { property: "og:title", content: "Varjay Music Academy" },
-    {
-      property: "og:description",
-      content:
-        "Varjay Music Academy's homepage showcases instrument stories with a premium, magazine-like design.",
-    },
-    { property: "og:type", content: "website" },
-  ],
-  links: [
-    { rel: "stylesheet", href: appCss },
-    // Favicon (JPG — primary browser tab icon)
-    { rel: "icon", href: "https://i.ibb.co/NgF2TmRj/favicon.jpg", type: "image/jpeg" },
-    // Apple touch icon + Android chrome (512×512 PNG)
-    { rel: "apple-touch-icon", href: "https://i.ibb.co/N6QGXyrD/android-chrome-512x512.png" },
-    { rel: "icon", href: "https://i.ibb.co/N6QGXyrD/android-chrome-512x512.png", type: "image/png", sizes: "512x512" },
-  ],
+  head: () => ({
+    meta: [
+      { charSet: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { title: "Varjay Music Academy" },
+      { name: "description", content: "Varjay Music Academy's homepage showcases instrument stories with a premium, magazine-like design." },
+      { name: "author", content: "Varjay" },
+      { property: "og:title", content: "Varjay Music Academy" },
+      { property: "og:description", content: "Varjay Music Academy's homepage showcases instrument stories with a premium, magazine-like design." },
+      { property: "og:type", content: "website" },
+    ],
+    links: [
+      {
+        rel: "stylesheet",
+        href: appCss,
+      },
+    ],
+  }),
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
@@ -122,9 +115,13 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      {/* Global Theme Wrapper applying INK background and IVORY text */}
       <div className="min-h-screen bg-[#0A0F1E] text-[#F9F3E8] selection:bg-[#F4813A] selection:text-[#0A0F1E] font-sans">
         <Navbar />
+
+        {/* Required: nested routes render here. */}
         <Outlet />
+
         <Footer />
         <Floating />
       </div>
