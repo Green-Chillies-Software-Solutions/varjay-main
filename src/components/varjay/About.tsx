@@ -27,7 +27,7 @@ export function About() {
         <div className="relative h-[300px] sm:h-[400px] lg:h-auto overflow-hidden">
           <motion.img
             style={{ y }}
-            src="https://varjaymusic.com/wp-content/uploads/2024/05/SRG_1204-copy-scaled-1-1024x576.jpg"
+            src="https://i.ibb.co/5f2sjhN/guru-arvind-tabla.jpg"
             alt="Inside Varjay"
             className="absolute inset-0 w-full h-[120%] object-cover lg:rounded-r-[2rem]"
           />
