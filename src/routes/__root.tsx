@@ -73,53 +73,28 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-head: () => ({
-  meta: [
-    { charSet: "utf-8" },
-    { name: "viewport", content: "width=device-width, initial-scale=1" },
-    { title: "Varjay Music Academy" },
-    {
-      name: "description",
-      content:
-        "Varjay Music Academy's homepage showcases instrument stories with a premium, magazine-like design.",
-    },
-    { name: "author", content: "Varjay" },
-    { property: "og:title", content: "Varjay Music Academy" },
-    {
-      property: "og:description",
-      content:
-        "Varjay Music Academy's homepage showcases instrument stories with a premium, magazine-like design.",
-    },
-    { property: "og:type", content: "website" },
-  ],
-  links: [
-    {
-      rel: "stylesheet",
-      href: appCss,
-    },
-
-    // Browser favicon
-    {
-      rel: "icon",
-      type: "image/jpeg",
-      href: "https://i.ibb.co/NgF2TmRj/favicon.jpg",
-    },
-
-    // Android / PWA icon
-    {
-      rel: "icon",
-      type: "image/png",
-      sizes: "512x512",
-      href: "https://i.ibb.co/N6QGXyrD/android-chrome-512x512.png",
-    },
-
-    {
-      rel: "apple-touch-icon",
-      href: "https://i.ibb.co/N6QGXyrD/android-chrome-512x512.png",
-    },
-  ],
-}),
-
+   meta: [
+      { charSet: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { title: "Varjay Music Academy" },
+      { name: "description", content: "Varjay Music Academy's homepage showcases instrument stories with a premium, magazine-like design." },
+      { name: "author", content: "Varjay" },
+      { property: "og:title", content: "Varjay Music Academy" },
+      { property: "og:description", content: "Varjay Music Academy's homepage showcases instrument stories with a premium, magazine-like design." },
+      { property: "og:type", content: "website" },
+    ],
+    links: [
+      {
+        rel: "stylesheet",
+        href: appCss,
+      },
+    ],
+  }),
+  shellComponent: RootShell,
+  component: RootComponent,
+  notFoundComponent: NotFoundComponent,
+  errorComponent: ErrorComponent,
+});
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
