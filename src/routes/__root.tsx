@@ -1,3 +1,4 @@
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
   Link,
@@ -7,7 +8,6 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 
-// Import your global layout components
 import { Navbar } from "@/components/varjay/Navbar";
 import { Footer } from "@/components/varjay/Footer";
 import { Floating } from "@/components/varjay/Floating";
@@ -59,7 +59,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
           >
             Try again
           </button>
-          <a
+          
             href="/"
             className="inline-flex items-center justify-center rounded-full border border-[#5BB8E8]/30 bg-transparent px-6 py-3 text-sm font-bold text-[#5BB8E8] transition-colors hover:bg-[#5BB8E8]/10"
           >
@@ -84,10 +84,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
     ],
     links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
+      { rel: "stylesheet", href: appCss },
+      { rel: "icon", href: "https://i.ibb.co/NgF2TmRj/favicon.jpg", type: "image/jpeg" },
+      { rel: "apple-touch-icon", href: "https://i.ibb.co/N6QGXyrD/android-chrome-512x512.png" },
+      { rel: "icon", href: "https://i.ibb.co/N6QGXyrD/android-chrome-512x512.png", type: "image/png", sizes: "512x512" },
     ],
   }),
   shellComponent: RootShell,
@@ -115,13 +115,9 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Global Theme Wrapper applying INK background and IVORY text */}
       <div className="min-h-screen bg-[#0A0F1E] text-[#F9F3E8] selection:bg-[#F4813A] selection:text-[#0A0F1E] font-sans">
         <Navbar />
-
-        {/* Required: nested routes render here. */}
         <Outlet />
-
         <Footer />
         <Floating />
       </div>
