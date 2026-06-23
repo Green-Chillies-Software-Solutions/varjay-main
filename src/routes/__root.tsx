@@ -85,7 +85,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "https://i.ibb.co/NgF2TmRj/favicon.jpg", type: "image/jpeg" },
+      { rel: "icon", href: "https://i.ibb.co/N6QGXyrD/android-chrome-512x512.png" },
       { rel: "apple-touch-icon", href: "https://i.ibb.co/N6QGXyrD/android-chrome-512x512.png" },
       { rel: "icon", href: "https://i.ibb.co/N6QGXyrD/android-chrome-512x512.png", type: "image/png", sizes: "512x512" },
     ],
