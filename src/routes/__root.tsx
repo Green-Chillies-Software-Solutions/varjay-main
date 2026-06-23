@@ -60,7 +60,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
             Try again
           </button>
           
-            href="/"
+           <a href="/"
             className="inline-flex items-center justify-center rounded-full border border-[#5BB8E8]/30 bg-transparent px-6 py-3 text-sm font-bold text-[#5BB8E8] transition-colors hover:bg-[#5BB8E8]/10"
           >
             Go home
@@ -70,7 +70,6 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
     </div>
   );
 }
-
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   meta: [
     { charSet: "utf-8" },
