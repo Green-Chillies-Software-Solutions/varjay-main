@@ -198,7 +198,7 @@ export function Navbar() {
         {/* Drawer header */}
         <div className="flex items-center justify-between px-5 py-4 border-b border-[#EBF5FB]">
           <img
-            src="https://varjaymusic.com/wp-content/uploads/2024/05/logo.png"
+            src="https://i.ibb.co/QjkCYhYB/logovarjay.png"
             alt="Varjay"
             className="h-9 w-auto"
           />
