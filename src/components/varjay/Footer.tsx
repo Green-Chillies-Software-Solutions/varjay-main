@@ -56,7 +56,7 @@ export function Footer() {
               <motion.img
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300 }}
-                src="https://varjaymusic.com/wp-content/uploads/2024/05/logo.png"
+                src="https://i.ibb.co/QjkCYhYB/logovarjay.png"
                 alt="Varjay"
                 className="h-20 md:h-24 bg-white rounded-2xl p-3 inline-block shadow-[0_0_25px_rgba(255,255,255,0.05)] hover:shadow-[0_0_25px_rgba(244,129,58,0.2)] transition-shadow duration-500"
               />
