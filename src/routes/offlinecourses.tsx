@@ -279,7 +279,7 @@ function TablaDholakSection() {
           style={{ boxShadow: `0 12px 40px rgba(232,184,75,0.18)`, aspectRatio: "4/3" }}
         >
           <img
-            src="https://varjaymusic.com/wp-content/uploads/2024/08/tabla-details.jpg"
+            src="https://i.ibb.co/Z637L6hL/tabala.jpg"
             alt="Tabla"
             className="absolute inset-0 w-full h-full object-center "
             loading="lazy"
