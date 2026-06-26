@@ -25,6 +25,7 @@ export const Route = createFileRoute("/onlinecourses")({
         content:
           "Certified online music lessons — Hindustani, Carnatic & Western. Flexible timings.",
       },
+      { name: "robots", content: "index, follow" },
     ],
     links: [
       { rel: "canonical", href: "https://varjaymusic.com/online-courses" },
