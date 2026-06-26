@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { CheckCircle2, ArrowRight, Phone, MessageCircle } from "lucide-react";
 
-const URL = "https://instrument-story-spark.lovable.app/thank-you";
+const URL = "https://varjaymusic.com/thank-you";
 
 // ─── HERO PALETTE ────────────────────────────────────────────────────────────
 const INK = "#0A0F1E";
@@ -20,6 +20,7 @@ export const Route = createFileRoute("/thank-you")({
       { name: "description", content: "Thanks for your enquiry. We'll get back within a few hours." },
       { name: "robots", content: "noindex, follow" },
       { property: "og:url", content: URL },
+      { name: "robots", content: "index, follow" },
     ],
     links: [{ rel: "canonical", href: "https://varjaymusic.com/thank-you" }],
   }),
