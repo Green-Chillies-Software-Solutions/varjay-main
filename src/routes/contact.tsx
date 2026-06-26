@@ -5,7 +5,8 @@ import { MapPin, Phone, Mail, Send, Loader2 } from "lucide-react";
 
 import { breadcrumbSchema, ldJson, localBusinessSchema } from "@/components/varjay/schema";
 
-const URL = "https://instrument-story-spark.lovable.app/contact";
+// ─── UPDATED PRODUCTION URL ──────────────────────────────────────────────────
+const URL = "https://varjaymusic.com/contact";
 
 // REPLACE THIS WITH YOUR NEW APPS SCRIPT DEPLOYMENT URL
 const SHEETS_URL = "https://script.google.com/macros/s/AKfycbyPFjEVM13qY-y9SQ8yksr3S8fVRprIiERXvJQEwK7i6ZBk-_sqeGP6UsmBKWAEZ2ZJ/exec";
@@ -18,7 +19,6 @@ const WHITE = "#FFFFFF";
 
 const notes = ["♩", "♪", "♫", "♬", "𝄞"];
 
-// Helper: Exponential Backoff Retry for robustness against network or GAS timeouts
 // Helper: Exponential Backoff Retry for robustness against network or GAS timeouts
 async function fetchWithRetry(url: string, options: RequestInit, retries = 3): Promise<any> {
   for (let i = 0; i < retries; i++) {
@@ -45,11 +45,16 @@ export const Route = createFileRoute("/contact")({
       { name: "description", content: "Call +91 777 000 3036 or send an enquiry. Studio in Sanpada, Navi Mumbai. Online classes worldwide. Mon–Sat, 10 AM – 8 PM." },
       { property: "og:title", content: "Contact Varjay Music Academy" },
       { property: "og:url", content: URL },
+      // Added Robots Meta Tag
+      { name: "robots", content: "index, follow" },
     ],
-    links: [{ rel: "canonical", href: URL }],
+    links: [
+      // Canonical link automatically utilizes the updated URL constant
+      { rel: "canonical", href: URL }
+    ],
     scripts: [
       ldJson(localBusinessSchema()),
-      ldJson(breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Contact", url: "/contact" }])),
+      ldJson(breadcrumbSchema([{ name: "Home", url: "https://varjaymusic.com/" }, { name: "Contact", url: URL }])),
     ],
   }),
   component: ContactPage,
@@ -221,81 +226,4 @@ function ContactPage() {
               </li>
 
               <li className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-white border border-[#5BB8E8]/30 shadow-sm flex items-center justify-center shrink-0">
-                  <Mail className="w-5 h-5 text-[#5BB8E8]" />
-                </div>
-                <div>
-                  <p className="font-semibold text-[#0B1F3A] text-lg">
-                    <a href="mailto:varjaymusic@gmail.com" className="hover:text-[#5BB8E8] transition-colors">varjaymusic@gmail.com</a>
-                  </p>
-                  <p className="text-[#0B1F3A]/60 mt-1">We typically reply within 24 hours</p>
-                </div>
-              </li>
-            </ul>
-          </motion.div>
-
-          {/* Right: Form */}
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
-            className="rounded-3xl p-8 sm:p-10 relative overflow-hidden bg-white shadow-xl border border-[#A8D8F0]/50">
-
-            <form onSubmit={onSubmit} className="relative z-10 grid gap-6" noValidate>
-              <div className="grid sm:grid-cols-2 gap-6">
-                <div>
-                  <label className={labelStyles}>Name</label>
-                  <input name="name" required type="text" placeholder="Your full name" className={inputStyles} />
-                  {errors.name && <p className="text-xs text-red-500 mt-1">{errors.name}</p>}
-                </div>
-                <div>
-                  <label className={labelStyles}>Contact Number</label>
-                  <input name="phone" required type="tel" placeholder="+91 ..." className={inputStyles} />
-                  {errors.phone && <p className="text-xs text-red-500 mt-1">{errors.phone}</p>}
-                </div>
-              </div>
-
-              <div>
-                <label className={labelStyles}>Email Address</label>
-                <input name="email" required type="email" placeholder="you@example.com" className={inputStyles} />
-                {errors.email && <p className="text-xs text-red-500 mt-1">{errors.email}</p>}
-              </div>
-
-              <div>
-                <label className={labelStyles}>Message</label>
-                <textarea name="message" required rows={4} placeholder="How can we help you start your musical journey?" className={`${inputStyles} resize-none`} />
-              </div>
-
-              {submitError && (
-                <p className="text-sm text-red-500 bg-red-50 border border-red-100 rounded-xl px-4 py-3">{submitError}</p>
-              )}
-
-              <button type="submit" disabled={submitting}
-                className="mt-2 w-full inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-semibold transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed bg-[#0B1F3A] text-[#5BB8E8] hover:bg-[#162F52] shadow-md shadow-[#0B1F3A]/10">
-                {submitting
-                  ? <><Loader2 className="w-5 h-5 animate-spin" /> Sending...</>
-                  : <>Send Message <Send className="w-4 h-4" /></>}
-              </button>
-            </form>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ─── MAP ───────────────────────────────────────────────────────────── */}
-      {/* ─── MAP ───────────────────────────────────────────────────────────── */}
-      <section className="relative z-20 pb-24 pt-10 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
-            className="rounded-3xl overflow-hidden shadow-lg border border-[#A8D8F0]/30 transition-all">
-            <iframe
-              title="Varjay Music Academy — Sanpada, Navi Mumbai"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6071.253390655967!2d73.00133280709336!3d19.06256699373783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c14ff1555555%3A0x14f6d1028ac46b89!2sVarjay%20Music%20Academy!5e0!3m2!1sen!2sin!4v1781597302141!5m2!1sen!2sin"
-              className="w-full h-[420px] border-0"
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </motion.div>
-        </div>
-      </section>
-
-    </main>
-  );
-}
+                <div className="w-12 h-12 rounded-full bg-white border border-[#5BB
