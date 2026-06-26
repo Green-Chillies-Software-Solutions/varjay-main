@@ -5,7 +5,7 @@ import { CheckCircle2 } from "lucide-react";
 import { EnquiryForm } from "@/components/varjay/EnquiryForm";
 import { breadcrumbSchema, ldJson } from "@/components/varjay/schema";
 
-const URL = "https://instrument-story-spark.lovable.app/register";
+const URL = "https://varjaymusic.com/register";
 
 const perks = [
   "No admission fee · No registration fee",
@@ -35,6 +35,7 @@ export const Route = createFileRoute("/register")({
       },
       { property: "og:title", content: "Register — Varjay Music Academy" },
       { property: "og:url", content: URL },
+      { name: "robots", content: "index, follow" },
     ],
     links: [{ rel: "canonical", href: URL }],
     scripts: [
