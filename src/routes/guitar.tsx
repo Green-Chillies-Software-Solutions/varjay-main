@@ -5,7 +5,7 @@ import { CheckCircle2 } from "lucide-react";
 import { ContactStrip } from "@/components/varjay/ContactStrip";
 import { breadcrumbSchema, courseSchema, ldJson } from "@/components/varjay/schema";
 
-const URL = "https://instrument-story-spark.lovable.app/guitar";
+const URL = "https://varjaymusic.com/guitar";
 
 const TOPICS = [
   "Open chords, barre chords, power chords",
@@ -48,6 +48,7 @@ export const Route = createFileRoute("/guitar")({
       { property: "og:title", content: "Guitar & Keyboard Classes — Varjay" },
       { property: "og:url", content: URL },
       { property: "og:image", content: "https://varjaymusic.com/wp-content/uploads/2024/05/how-to-play-acous123tic-guitar.jpg" },
+      { name: "robots", content: "index, follow" },
     ],
     links: [{ rel: "canonical", href: URL }],
     scripts: [
