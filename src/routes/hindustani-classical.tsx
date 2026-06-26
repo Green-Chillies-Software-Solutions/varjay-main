@@ -5,7 +5,7 @@ import { CheckCircle2 } from "lucide-react";
 import { ContactStrip } from "@/components/varjay/ContactStrip";
 import { breadcrumbSchema, courseSchema, ldJson } from "@/components/varjay/schema";
 
-const URL = "https://instrument-story-spark.lovable.app/hindustani-classical";
+const URL = "https://varjaymusic.com/hindustani-classical";
 
 const SYLLABUS = [
   { level: "Beginner", exams: ["Prarambhik (Base Level)", "Praveshika Pratham (Entry Level)", "Praveshika Poorna (Entry Level)"], color: "#17C8A3" },
@@ -35,6 +35,7 @@ export const Route = createFileRoute("/hindustani-classical")({
       },
       { property: "og:title", content: "Hindustani Vocal & Harmonium — Varjay" },
       { property: "og:url", content: URL },
+      { name: "robots", content: "index, follow" },
     ],
     links: [{ rel: "canonical", href: URL }],
     scripts: [
