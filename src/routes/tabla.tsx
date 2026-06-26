@@ -75,7 +75,7 @@ export const Route = createFileRoute("/tabla")({
       { property: "og:url", content: URL },
       { property: "og:image", content: "https://varjaymusic.com/wp-content/uploads/2024/07/tabla.jpg" },
     ],
-    links: [{ rel: "canonical", href: URL }],
+    links: [{ rel: "canonical", href: "https://varjaymusic.com/tabla"}],
     scripts: [
       ldJson(
         courseSchema({
