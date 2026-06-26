@@ -18,11 +18,12 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Varjay Music Academy" },
       { property: "og:description", content: "9 instruments. 150+ students. Certified curriculum. Online & offline." },
       { property: "og:image", content: "https://varjaymusic.com/wp-content/uploads/2024/07/tabla.jpg" },
-      {property : "canonical",content : "https://varjaymusic.com/"}, 
+    //{ property : "canonical", content: "https://varjaymusic.com/" }, 
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      { rel: "canonical", href: "https://varjaymusic.com/" },
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Tiro+Devanagari+Hindi&display=swap",
