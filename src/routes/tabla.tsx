@@ -5,7 +5,7 @@ import { CheckCircle2 } from "lucide-react";
 import { ContactStrip } from "@/components/varjay/ContactStrip";
 import { breadcrumbSchema, courseSchema, ldJson } from "@/components/varjay/schema";
 
-const URL = "https://instrument-story-spark.lovable.app/tabla";
+const URL = "https://varjaymusic.com/tabla";
 
 const TOPICS = [
   "Hand technique — Na, Tin, Tete, Dha, Dhin",
@@ -74,6 +74,7 @@ export const Route = createFileRoute("/tabla")({
       { property: "og:title", content: "Tabla & Dholak Classes — Varjay" },
       { property: "og:url", content: URL },
       { property: "og:image", content: "https://varjaymusic.com/wp-content/uploads/2024/07/tabla.jpg" },
+      { name: "robots", content: "index, follow" },
     ],
     links: [{ rel: "canonical", href: "https://varjaymusic.com/tabla"}],
     scripts: [
