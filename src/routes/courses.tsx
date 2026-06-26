@@ -6,7 +6,8 @@ import { ContactStrip } from "@/components/varjay/ContactStrip";
 import { INSTRUMENTS } from "@/components/varjay/data";
 import { breadcrumbSchema, courseSchema, ldJson } from "@/components/varjay/schema";
 
-const URL = "https://instrument-story-spark.lovable.app/courses";
+// ─── UPDATED PRODUCTION URL ──────────────────────────────────────────────────
+const URL = "https://varjaymusic.com/courses";
 
 const SLUG: Record<string, string> = {
   Tabla: "/tabla",
@@ -34,13 +35,18 @@ export const Route = createFileRoute("/courses")({
       { property: "og:title", content: "Courses — Varjay Music Academy" },
       { property: "og:description", content: "9 instruments, certified curriculum." },
       { property: "og:url", content: URL },
+      // Added Robots Meta Tag
+      { name: "robots", content: "index, follow" },
     ],
-    links: [{ rel: "canonical", href: URL }],
+    links: [
+      // Canonical link automatically utilizes the updated URL constant
+      { rel: "canonical", href: URL }
+    ],
     scripts: [
       ldJson(
         breadcrumbSchema([
-          { name: "Home", url: "/" },
-          { name: "Courses", url: "/courses" },
+          { name: "Home", url: "https://varjaymusic.com/" },
+          { name: "Courses", url: URL },
         ]),
       ),
       ...INSTRUMENTS.map((i) =>
