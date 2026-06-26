@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { ContactStrip } from "@/components/varjay/ContactStrip";
 import { breadcrumbSchema, ldJson } from "@/components/varjay/schema";
 
-const URL = "https://instrument-story-spark.lovable.app/guru-poornima-2025";
+const URL = "https://varjaymusic.com/guru-poornima-2025";
 
 const PHOTOS = Array.from({ length: 18 }, (_, i) => {
   const n = String(i + 1).padStart(2, "0");
@@ -32,6 +32,7 @@ export const Route = createFileRoute("/guru-poornima-2025")({
       { property: "og:title", content: "Guru Poornima 2025" },
       { property: "og:url", content: URL },
       { property: "og:image", content: PHOTOS[0] },
+      { name: "robots", content: "index, follow" },
     ],
     links: [{ rel: "canonical", href: URL }],
     scripts: [
