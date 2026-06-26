@@ -18,6 +18,7 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Varjay Music Academy" },
       { property: "og:description", content: "9 instruments. 150+ students. Certified curriculum. Online & offline." },
       { property: "og:image", content: "https://varjaymusic.com/wp-content/uploads/2024/07/tabla.jpg" },
+      {property : "canonical",content : "https://varjaymusic.com/"}, 
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
