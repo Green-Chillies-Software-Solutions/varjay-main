@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { ContactStrip } from "@/components/varjay/ContactStrip";
 import { breadcrumbSchema, faqSchema, ldJson } from "@/components/varjay/schema";
 
-const URL = "https://instrument-story-spark.lovable.app/faqs";
+const URL = "https://varjaymusic.com/faqs";
 
 const FAQS = [
   {
@@ -77,6 +77,7 @@ export const Route = createFileRoute("/faqs")({
       },
       { property: "og:title", content: "FAQs — Varjay Music Academy" },
       { property: "og:url", content: URL },
+      { name: "robots", content: "index, follow" },
     ],
     links: [{ rel: "canonical", href: URL }],
     scripts: [
