@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { ContactStrip } from "@/components/varjay/ContactStrip";
 import { breadcrumbSchema, ldJson } from "@/components/varjay/schema";
 
-const PAGE_URL = "https://instrument-story-spark.lovable.app/offline-courses";
+const PAGE_URL = "https://varjaymusic/offlinecourses";
 
 // ─── PALETTE ─────────────────────────────────────────────────────────────────
 const INK = "#0A0F1E";
@@ -29,6 +29,7 @@ export const Route = createFileRoute("/offlinecourses")({
       },
       { property: "og:title", content: "Offline Courses — Varjay Music Academy" },
       { property: "og:url", content: PAGE_URL },
+      { name: "robots", content: "index, follow" },
     ],
     links: [{ rel: "canonical", href: PAGE_URL }],
     scripts: [
