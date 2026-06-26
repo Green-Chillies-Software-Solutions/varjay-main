@@ -4,7 +4,8 @@ import { motion } from "framer-motion";
 import { ContactStrip } from "@/components/varjay/ContactStrip";
 import { breadcrumbSchema, ldJson } from "@/components/varjay/schema";
 
-const URL = "https://instrument-story-spark.lovable.app/certificates";
+// ─── UPDATED PRODUCTION URL ──────────────────────────────────────────────────
+const URL = "https://varjaymusic.com/certificates";
 
 const CERTS = [
   { img: "https://varjaymusic.com/wp-content/uploads/2025/06/Advait-Prarambhik.jpg", name: "Advait", level: "Prarambhik" },
@@ -36,13 +37,18 @@ export const Route = createFileRoute("/certificates")({
       },
       { property: "og:title", content: "Student Certificates" },
       { property: "og:url", content: URL },
+      // Added Robots Meta Tag
+      { name: "robots", content: "index, follow" },
     ],
-    links: [{ rel: "canonical", href: URL }],
+    links: [
+      // Canonical link automatically utilizes the updated URL constant
+      { rel: "canonical", href: URL }
+    ],
     scripts: [
       ldJson(
         breadcrumbSchema([
-          { name: "Home", url: "/" },
-          { name: "Certificates", url: "/certificates" },
+          { name: "Home", url: "https://varjaymusic.com/" },
+          { name: "Certificates", url: URL },
         ]),
       ),
     ],
