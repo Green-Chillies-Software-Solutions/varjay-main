@@ -5,7 +5,7 @@ import { ContactStrip } from "@/components/varjay/ContactStrip";
 import { GALLERY } from "@/components/varjay/data";
 import { breadcrumbSchema, ldJson } from "@/components/varjay/schema";
 
-const URL = "https://instrument-story-spark.lovable.app/gallery";
+const URL = "https://varjaymusic.com/gallery";
 
 const EXTRA = [
   "https://i.ibb.co/MDGNcnCY/IMG20250727190819.jpg",
@@ -98,6 +98,7 @@ export const Route = createFileRoute("/gallery")({
       },
       { property: "og:title", content: "Gallery — Varjay Music Academy" },
       { property: "og:url", content: URL },
+      { name: "robots", content: "index, follow" },
     ],
     links: [{ rel: "canonical", href: URL }],
     scripts: [
