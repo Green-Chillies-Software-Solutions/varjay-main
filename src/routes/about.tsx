@@ -8,7 +8,8 @@ import { WhyVarjay } from "@/components/varjay/WhyVarjay";
 import { Stats } from "@/components/varjay/Stats";
 import { breadcrumbSchema, ldJson, organizationSchema } from "@/components/varjay/schema";
 
-const URL = "https://instrument-story-spark.lovable.app/about";
+// ─── UPDATED PRODUCTION URL ──────────────────────────────────────────────────
+const URL = "https://varjaymusic.com/about";
 
 // ─── HERO PALETTE ────────────────────────────────────────────────────────────
 const INK = "#0A0F1E";
@@ -31,14 +32,19 @@ export const Route = createFileRoute("/about")({
       { property: "og:title", content: "About Varjay Music Academy" },
       { property: "og:description", content: "Where talent meets tradition." },
       { property: "og:url", content: URL },
+      // Added Robots Meta Tag
+      { name: "robots", content: "index, follow" },
     ],
-    links: [{ rel: "canonical", href: URL }],
+    links: [
+      // Updated Canonical Link
+      { rel: "canonical", href: URL }
+    ],
     scripts: [
       ldJson(organizationSchema()),
       ldJson(
         breadcrumbSchema([
-          { name: "Home", url: "/" },
-          { name: "About", url: "/about" },
+          { name: "Home", url: "https://varjaymusic.com/" },
+          { name: "About", url: URL },
         ]),
       ),
     ],
@@ -139,8 +145,6 @@ function AboutPage() {
       </section>
 
       {/* ─── EXISTING SECTIONS ──────────────────────────────────────────────── */}
-      {/* Note: These components will still have their old light backgrounds 
-          until we update their individual files to match the new dark theme! */}
       <AboutSection />
       <Faculty />
       <WhyVarjay />
