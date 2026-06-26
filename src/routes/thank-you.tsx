@@ -21,7 +21,7 @@ export const Route = createFileRoute("/thank-you")({
       { name: "robots", content: "noindex, follow" },
       { property: "og:url", content: URL },
     ],
-    links: [{ rel: "canonical", href: URL }],
+    links: [{ rel: "canonical", href: "https://varjaymusic.com/thank-you" }],
   }),
   component: ThankYouPage,
 });
