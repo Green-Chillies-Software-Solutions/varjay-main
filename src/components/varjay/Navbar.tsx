@@ -65,7 +65,6 @@ export function Navbar() {
         </Link>
 
         {/* Desktop nav links */}
-        {/* Order: Home → About → Courses → Gallery → FAQs → Contact */}
         <div className="hidden lg:flex items-center gap-6 lg:gap-8">
           {/* 1. Home */}
           <Link
@@ -161,10 +160,10 @@ export function Navbar() {
         <div className="hidden lg:block ml-2">
           <Link
             to="/register"
-            hash="enquiry-form"        {/* ✅ add this */}
-            className="group relative inline-flex items-center justify-center px-7 py-2.5 ..."
+            hash="enquiry-form"
+            className="group relative inline-flex items-center justify-center px-7 py-2.5 bg-[#EBF5FB] text-[#0B1F3A] font-bold text-sm rounded-full overflow-hidden border border-[#A8D8F0]/60 hover:border-[#5BB8E8] transition-colors"
           >
-            <span className="relative z-10">Register Now</span>
+            <span className="relative z-10 group-hover:text-white transition-colors duration-300">Register Now</span>
             <div className="absolute inset-0 bg-[#5BB8E8] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </Link>
         </div>
@@ -180,8 +179,6 @@ export function Navbar() {
       </nav>
 
       {/* Mobile Menu — compact slide-in drawer */}
-      {/* Order: Home → About → Courses → Gallery → FAQs → Contact → Register Now */}
-
       {/* Backdrop */}
       <div
         onClick={closeMenu}
@@ -301,9 +298,9 @@ export function Navbar() {
         <div className="px-4 py-4 border-t border-[#EBF5FB]">
           <Link
             to="/register"
-            hash="enquiry-form"        {/* ✅ add this */}
+            hash="enquiry-form"
             onClick={closeMenu}
-            className="flex w-full items-center justify-center px-6 py-3 ..."
+            className="flex w-full items-center justify-center px-6 py-3 rounded-xl bg-[#5BB8E8] text-white font-bold tracking-wide hover:bg-[#4BA5D4] transition-colors"
           >
             Register Now
           </Link>
