@@ -63,7 +63,6 @@ const YOUTUBE_VIDEOS = [
   "https://www.youtube.com/embed/y3R6O_kYpbE",
   "https://www.youtube.com/embed/AjFjXt6BWss",
   "https://www.youtube.com/embed/wNK0m7fJAek",
-  "https://www.youtube.com/embed/nndl_TORWqU",
   "https://www.youtube.com/embed/o8ixU-7JxXU",
   "https://www.youtube.com/embed/OtplWm3UKFc",
   "https://www.youtube.com/embed/qpSgZVCz5YQ",
