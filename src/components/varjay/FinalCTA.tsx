@@ -120,7 +120,7 @@ export function FinalCTA() {
             Register Now <ArrowRight className="w-5 h-5" />
           </Link>
 
-          
+          <a
             href="tel:+917770003037"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300"
             style={{
