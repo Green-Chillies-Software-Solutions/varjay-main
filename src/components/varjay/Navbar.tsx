@@ -161,7 +161,8 @@ export function Navbar() {
         <div className="hidden lg:block ml-2">
           <Link
             to="/register"
-            className="group relative inline-flex items-center justify-center px-7 py-2.5 rounded-full bg-[#0B1F3A] text-white font-bold text-sm transition-all duration-300 hover:shadow-[0_0_20px_rgba(11,31,58,0.3)] hover:-translate-y-0.5 overflow-hidden border border-[#0B1F3A]"
+            hash="enquiry-form"        {/* ✅ add this */}
+            className="group relative inline-flex items-center justify-center px-7 py-2.5 ..."
           >
             <span className="relative z-10">Register Now</span>
             <div className="absolute inset-0 bg-[#5BB8E8] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -300,8 +301,9 @@ export function Navbar() {
         <div className="px-4 py-4 border-t border-[#EBF5FB]">
           <Link
             to="/register"
+            hash="enquiry-form"        {/* ✅ add this */}
             onClick={closeMenu}
-            className="flex w-full items-center justify-center px-6 py-3 rounded-full bg-[#0B1F3A] text-white font-bold text-sm shadow-md shadow-[#0B1F3A]/15 active:scale-95 transition-transform"
+            className="flex w-full items-center justify-center px-6 py-3 ..."
           >
             Register Now
           </Link>
