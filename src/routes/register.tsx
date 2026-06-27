@@ -163,7 +163,7 @@ function RegisterPage() {
 
       {/* ─── CONTENT GRID (DARK MODE UPDATED) ─────────────────────────────── */}
       {/* ✅ ref attached here so the button scrolls to this section */}
-      <section ref={formRef} className="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-[1fr_1.1fr] gap-16 items-start relative z-20">
+      <section id="enquiry-form" ref={formRef} className="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-[1fr_1.1fr] gap-16 items-start relative z-20">
 
         {/* Left Side: Perks */}
         <div>
