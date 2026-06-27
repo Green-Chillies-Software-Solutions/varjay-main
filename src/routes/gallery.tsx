@@ -60,19 +60,15 @@ const YOUTUBE_VIDEOS = [
   "https://www.youtube.com/embed/v3UblXP6JrM",
   "https://www.youtube.com/embed/QIdfJMdqH5U",
   "https://www.youtube.com/embed/dr07SwBdzaY",
-  "https://www.youtube.com/embed/YUBh6Ot2h1k",
-  "https://www.youtube.com/embed/-6VlidjwsXY",
   "https://www.youtube.com/embed/y3R6O_kYpbE",
   "https://www.youtube.com/embed/AjFjXt6BWss",
   "https://www.youtube.com/embed/wNK0m7fJAek",
   "https://www.youtube.com/embed/nndl_TORWqU",
-  "https://www.youtube.com/embed/XZBh85lGV2o",
   "https://www.youtube.com/embed/o8ixU-7JxXU",
   "https://www.youtube.com/embed/OtplWm3UKFc",
   "https://www.youtube.com/embed/qpSgZVCz5YQ",
   "https://www.youtube.com/embed/CQ7rcK7pWCM",
   "https://www.youtube.com/embed/LDdRb41L4-M",
-  "https://www.youtube.com/embed/Kqp4EFoDc8g"
 ];
 
 // Split the videos for the two vertical sliders
