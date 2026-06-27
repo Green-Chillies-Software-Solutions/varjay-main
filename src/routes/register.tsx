@@ -214,7 +214,7 @@ function RegisterPage() {
             <p className="font-serif text-2xl font-semibold mb-2" style={{ color: IVORY }}>
               Already decided? Call directly.
             </p>
-            
+            <a
               href="tel:+917770003036"
               className="inline-block text-3xl font-serif transition-colors hover:opacity-80"
               style={{ color: TEAL }}
