@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, ArrowDown } from "lucide-react";
+import { useRef } from "react";
 
 import { EnquiryForm } from "@/components/varjay/EnquiryForm";
 import { breadcrumbSchema, ldJson } from "@/components/varjay/schema";
@@ -15,9 +16,8 @@ const perks = [
   "Stage performance opportunities every year",
 ];
 
-// ─── HERO PALETTE ────────────────────────────────────────────────────────────
 const INK = "#0A0F1E";
-const TEAL = "#17C8A3"; // Primary accent for Action/Register
+const TEAL = "#17C8A3";
 const INDIGO = "#3D5AF1";
 const SAFFRON = "#F4813A";
 const IVORY = "#F9F3E8";
@@ -51,6 +51,12 @@ export const Route = createFileRoute("/register")({
 });
 
 function RegisterPage() {
+  const formRef = useRef<HTMLDivElement>(null);
+
+  const scrollToForm = () => {
+    formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <main className="w-full overflow-hidden">
 
@@ -139,11 +145,25 @@ function RegisterPage() {
               Fill the form below and we'll schedule your free trial class within 24 hours.
             </p>
           </motion.div>
+
+          {/* ✅ Scroll-to-form CTA button */}
+          <motion.button
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.65 }}
+            onClick={scrollToForm}
+            className="mt-10 self-start inline-flex items-center gap-3 px-8 py-4 rounded-full font-semibold text-sm tracking-wide transition-all hover:scale-105 active:scale-95 cursor-pointer"
+            style={{ background: TEAL, color: INK }}
+          >
+            Register Now
+            <ArrowDown className="w-4 h-4" />
+          </motion.button>
         </div>
       </section>
 
       {/* ─── CONTENT GRID (DARK MODE UPDATED) ─────────────────────────────── */}
-      <section className="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-[1fr_1.1fr] gap-16 items-start relative z-20">
+      {/* ✅ ref attached here so the button scrolls to this section */}
+      <section ref={formRef} className="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-[1fr_1.1fr] gap-16 items-start relative z-20">
 
         {/* Left Side: Perks */}
         <div>
@@ -194,7 +214,7 @@ function RegisterPage() {
             <p className="font-serif text-2xl font-semibold mb-2" style={{ color: IVORY }}>
               Already decided? Call directly.
             </p>
-            <a
+            
               href="tel:+917770003036"
               className="inline-block text-3xl font-serif transition-colors hover:opacity-80"
               style={{ color: TEAL }}
@@ -211,7 +231,6 @@ function RegisterPage() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          {/* Note: EnquiryForm component may need a dark-mode update inside its own file next! */}
           <EnquiryForm title="Register now" subtitle="Pick your instrument and we'll handle the rest." />
         </motion.div>
       </section>
