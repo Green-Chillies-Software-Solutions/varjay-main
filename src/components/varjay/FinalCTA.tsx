@@ -1,5 +1,6 @@
 import { ArrowRight, Phone } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from "@tanstack/react-router";
 
 // ─── COLOUR PALETTE ──────────────────────────────────────────────────────────
 const BLUE     = "#5BB8E8";
@@ -97,8 +98,10 @@ export function FinalCTA() {
           transition={{ delay: 0.35 }}
           className="mt-10 flex flex-wrap gap-4 justify-center"
         >
-          <a
-            href="/register"
+          {/* ✅ Changed from <a href> to <Link> with hash */}
+          <Link
+            to="/register"
+            hash="enquiry-form"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300"
             style={{
               background: BLUE,
@@ -115,9 +118,9 @@ export function FinalCTA() {
             }}
           >
             Register Now <ArrowRight className="w-5 h-5" />
-          </a>
+          </Link>
 
-          <a
+          
             href="tel:+917770003037"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300"
             style={{
