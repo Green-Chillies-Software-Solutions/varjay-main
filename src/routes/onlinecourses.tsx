@@ -13,11 +13,11 @@ import { ContactStrip } from "@/components/varjay/ContactStrip";
 export const Route = createFileRoute("/onlinecourses")({
   head: () => ({
     meta: [
-      { title: "Online Courses — Varjay Music Academy" },
+      { title: " Learn Online Music Dholak Classes Courses for Beginners" },
       {
         name: "description",
         content:
-          "Learn Tabla, Dholak, Keyboard, Guitar, Violin, Flute, Vocal, Harmonium, Ukulele, Mandolin, Sitar & Veena online with certified Hindustani and Carnatic faculty at Varjay Music Academy.",
+          "Learn Online Music Dholak Classes Courses for Beginners, Tabla, Keyboard, Guitar, Violin, Flute, Vocal,Harmonium, Ukulele, Mandolin, Sitar & Veena online classes with certified Hindustani and Carnatic faculty at Varjay Music Academy.",
       },
       { property: "og:title", content: "Online Courses — Varjay Music Academy" },
       {
