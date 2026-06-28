@@ -402,7 +402,69 @@ function Page() {
       ))}
 
       {/* ─── WHY CHOOSE VARJAY ─────────────────────────────────────────────── */}
-      
+      <section className="py-20" style={{ background: LIGHT_BG }}>
+        <div className="max-w-5xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <p className="font-mono text-xs font-bold tracking-widest uppercase text-center mb-3" style={{ color: CRIMSON }}>
+              WHY CHOOSE US
+            </p>
+            <h2 className="font-serif text-3xl font-semibold text-center mb-4" style={{ color: NAVY }}>
+              Why Choose <em style={{ color: CRIMSON }}>Varjay</em> Music Academy?
+            </h2>
+            <p className="text-center text-sm mb-12 max-w-xl mx-auto" style={{ color: `${NAVY}70` }}>
+              Varjay Music Academy has built a learning environment where students can confidently pursue their passion for music, welcoming learners of all ages and experience levels.
+            </p>
+
+            <ul className="space-y-3">
+              {WHY_POINTS.map((point, i) => (
+                <motion.li
+                  key={point}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.08 * i }}
+                  className="flex items-start gap-4 p-4 rounded-2xl bg-white border transition-colors"
+                  style={{ borderColor: "#A8D8F0" }}
+                  onMouseEnter={e => (e.currentTarget.style.borderColor = `${CRIMSON}40`)}
+                  onMouseLeave={e => (e.currentTarget.style.borderColor = "#A8D8F0")}
+                >
+                  <CheckCircle2 className="w-5 h-5 mt-0.5 shrink-0" style={{ color: TEAL }} />
+                  <span className="text-base leading-snug" style={{ color: `${NAVY}CC` }}>{point}</span>
+                </motion.li>
+              ))}
+            </ul>
+
+            {/* Closing copy */}
+            <div
+              className="mt-10 rounded-3xl bg-white p-8 md:p-10"
+              style={{ border: `1px solid ${GOLD}25`, boxShadow: `0 4px 20px ${GOLD}10` }}
+            >
+              <p className="text-base leading-relaxed text-center" style={{ color: `${NAVY}BB` }}>
+                If you are looking for the best classical music singing classes in Navi Mumbai, or searching for reliable classical music singing classes in Vashi or classical music singing classes in Sanpada, Varjay Music Academy provides professional instruction designed to help students grow as musicians. With experienced faculty, flexible online and offline learning options, and a student-focused teaching approach, the academy continues to help aspiring singers build confidence, strengthen their musical foundation, and enjoy the lifelong journey of learning classical music.
+              </p>
+
+              {/* Location tags */}
+              <div className="flex flex-wrap justify-center gap-3 mt-6">
+                {LOCATIONS.map((loc) => (
+                  <span
+                    key={loc.label}
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-mono font-semibold"
+                    style={{ background: `${loc.color}15`, color: loc.color, border: `1px solid ${loc.color}40` }}
+                  >
+                    <MapPin className="w-3.5 h-3.5" />
+                    {loc.label}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
       <ContactStrip defaultCourse="Classical Vocal" />
     </main>
