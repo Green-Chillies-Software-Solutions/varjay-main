@@ -21,17 +21,17 @@ const TEAL = "#17C8A3";
 export const Route = createFileRoute("/offlinecourses")({
   head: () => ({
     meta: [
-      { title: "Offline Courses — Varjay Music Academy, Navi Mumbai" },
+      { title: " Offline Tabla & Dholak Classes Courses in Navi Mumbai | Varjay Music Academy, Navi Mumbai" },
       {
         name: "description",
         content:
-          "Tabla & Dholak, Guitar & Keyboard, and Hindustani Vocal & Harmonium offline classes at Varjay Music Academy, Sanpada, Navi Mumbai.",
+          " Offline Tabla & Dholak Classes Courses in Navi Mumbai, Guitar & Keyboard, and Hindustani Vocal & Harmonium offline classes at Varjay Music Academy, Sanpada, Navi Mumbai.",
       },
       { property: "og:title", content: "Offline Courses — Varjay Music Academy" },
       { property: "og:url", content: PAGE_URL },
       { name: "robots", content: "index, follow" },
     ],
-    links: [{ rel: "canonical", href: PAGE_URL }],
+    links: [{ rel: "canonical", href: "https://varjaymusic/offlinecourses" }],
     scripts: [
       ldJson(
         breadcrumbSchema([
