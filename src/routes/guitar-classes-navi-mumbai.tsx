@@ -78,7 +78,7 @@ export const Route = createFileRoute("/guitar-classes-navi-mumbai")({
       { property: "og:url",   content: PAGE_URL  },
       { property: "og:image", content: GUITAR_IMG },
     ],
-    links: [{ rel: "canonical", href: PAGE_URL }],
+    links: [{ rel: "canonical", href: "https://www.varjaymusic.com/guitar-classes-navi-mumbai" }],
     scripts: [
       ldJson(
         courseSchema({
@@ -278,7 +278,7 @@ function Page() {
       <section className="py-24" style={{ background: LIGHT_BG }}>
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-[1fr_1.1fr] gap-12 items-center">
 
-          {/* Image */}
+          {/* YouTube video */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -290,18 +290,23 @@ function Page() {
               className="absolute inset-0 blur-3xl opacity-15 rounded-3xl"
               style={{ background: `linear-gradient(to top right, ${CRIMSON}, ${INDIGO})` }}
             />
-            <img
-              src={GUITAR_IMG}
-              alt="Guitar Classes in Navi Mumbai, Vashi & Sanpada"
-              className="rounded-3xl w-full object-cover relative z-10"
+            <div
+              className="relative rounded-3xl overflow-hidden z-10"
               style={{
-                border: "1px solid #A8D8F0",
+                border: `1px solid ${CRIMSON}35`,
                 boxShadow: `0 12px 40px rgba(232,54,93,0.12)`,
-                maxHeight: "420px",
-                objectFit: "cover",
+                aspectRatio: "16/9",
               }}
-              loading="lazy"
-            />
+            >
+              <iframe
+                src="https://www.youtube.com/embed/TSMSVuhv9Cw"
+                title="Guitar Classes at Varjay Music Academy — Navi Mumbai, Vashi & Sanpada"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full"
+                loading="lazy"
+              />
+            </div>
           </motion.div>
 
           {/* Intro copy */}
@@ -393,47 +398,6 @@ function Page() {
                 </motion.li>
               ))}
             </ul>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ─── BEGIN YOUR JOURNEY ────────────────────────────────────────────── */}
-      <section className="py-20" style={{ background: LIGHT_BG }}>
-        <div className="max-w-5xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="rounded-3xl bg-white p-10 md:p-14 text-center"
-            style={{ border: `1px solid ${CRIMSON}25`, boxShadow: `0 8px 32px rgba(232,54,93,0.08)` }}
-          >
-            <p className="font-mono text-xs font-bold tracking-widest uppercase mb-3" style={{ color: CRIMSON }}>
-              BEGIN YOUR MUSICAL JOURNEY
-            </p>
-            <h2 className="font-serif text-3xl font-semibold mb-6" style={{ color: NAVY }}>
-              The right place to start playing.
-            </h2>
-            <p className="text-base leading-relaxed max-w-2xl mx-auto mb-6" style={{ color: `${NAVY}BB` }}>
-              Choosing the right music academy plays an important role in your learning experience. If you are searching for reliable guitar classes in Navi Mumbai, guitar classes in Vashi, or guitar classes in Sanpada, Varjay Music Academy offers a structured and student-focused approach to learning guitar.
-            </p>
-            <p className="text-base leading-relaxed max-w-2xl mx-auto" style={{ color: `${NAVY}BB` }}>
-              With experienced faculty, personalised guidance, flexible learning options, and a commitment to quality music education, the academy helps students build confidence and develop their guitar skills step by step. Whether your goal is to learn for personal enjoyment or to strengthen your musical abilities, Varjay Music Academy provides the right environment to begin and continue your guitar learning journey.
-            </p>
-
-            {/* Location tags */}
-            <div className="flex flex-wrap justify-center gap-3 mt-8">
-              {LOCATIONS.map((loc) => (
-                <span
-                  key={loc.label}
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-mono font-semibold"
-                  style={{ background: `${loc.color}15`, color: loc.color, border: `1px solid ${loc.color}40` }}
-                >
-                  <MapPin className="w-3.5 h-3.5" />
-                  {loc.label}
-                </span>
-              ))}
-            </div>
           </motion.div>
         </div>
       </section>
