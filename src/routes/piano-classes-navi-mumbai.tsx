@@ -6,7 +6,7 @@ import { ContactStrip } from "@/components/varjay/ContactStrip";
 import { breadcrumbSchema, courseSchema, ldJson } from "@/components/varjay/schema";
 
 const PAGE_URL      = "https://www.varjaymusic.com/piano-classes-navi-mumbai";
-const HERO_IMG      = "https://varjaymusic.com/wp-content/uploads/2024/05/piano-classes.jpg";
+const HERO_IMG      = "https://images.unsplash.com/photo-1632008341003-5c6767c7d237?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 const YOUTUBE_EMBED = "https://www.youtube.com/embed/TSMSVuhv9Cw";
 
 // ─── PALETTE ────────────────────────────────────────────────────────────────
