@@ -20,9 +20,21 @@ export const Route = createFileRoute("/thank-you")({
       { name: "description", content: "Thanks for your enquiry. We'll get back within a few hours." },
       { name: "robots", content: "noindex, follow" },
       { property: "og:url", content: URL },
-      { name: "robots", content: "index, follow" },
     ],
     links: [{ rel: "canonical", href: "https://varjaymusic.com/thank-you" }],
+    scripts: [
+      // Google tag (gtag.js)
+      {
+        src: "https://www.googletagmanager.com/gtag/js?id=AW-18276813430",
+        async: true,
+      },
+      {
+        children: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'AW-18276813430');`,
+      },
+    ],
   }),
   component: ThankYouPage,
 });
