@@ -45,6 +45,17 @@ export const Route = createFileRoute("/register")({
           { name: "Register", url: "/register" },
         ]),
       ),
+      // Google tag (gtag.js)
+      {
+        src: "https://www.googletagmanager.com/gtag/js?id=AW-18276813430",
+        async: true,
+      },
+      {
+        children: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'AW-18276813430');`,
+      },
     ],
   }),
   component: RegisterPage,
