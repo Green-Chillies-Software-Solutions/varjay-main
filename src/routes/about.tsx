@@ -40,6 +40,16 @@ export const Route = createFileRoute("/about")({
       { rel: "canonical", href: URL }
     ],
     scripts: [
+      // Google tag (gtag.js)
+      {
+        async: true,
+        src: "https://www.googletagmanager.com/gtag/js?id=AW-18276813430",
+      },
+      {
+        children: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());`,
+      },
       ldJson(organizationSchema()),
       ldJson(
         breadcrumbSchema([
