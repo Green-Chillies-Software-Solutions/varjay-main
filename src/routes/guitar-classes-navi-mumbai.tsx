@@ -80,6 +80,17 @@ export const Route = createFileRoute("/guitar-classes-navi-mumbai")({
     ],
     links: [{ rel: "canonical", href: "https://www.varjaymusic.com/guitar-classes-navi-mumbai" }],
     scripts: [
+      // Google tag (gtag.js)
+      {
+        async: true,
+        src: "https://www.googletagmanager.com/gtag/js?id=AW-18276813430",
+      },
+      {
+        children: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'AW-18276813430');`,
+      },
       ldJson(
         courseSchema({
           name: "Guitar Classes in Navi Mumbai, Vashi & Sanpada",
