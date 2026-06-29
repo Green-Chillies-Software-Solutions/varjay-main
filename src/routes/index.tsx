@@ -32,7 +32,7 @@ export const Route = createFileRoute("/")({
         href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Tiro+Devanagari+Hindi&display=swap",
       },
     ],
-    // Google Analytics (GA4) Scripts
+    // Combined Google tag (gtag.js) with both GA4 and Google Ads
     scripts: [
       {
         async: true,
@@ -44,6 +44,7 @@ export const Route = createFileRoute("/")({
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', 'G-KZQ78D3JNH');
+          gtag('config', 'AW-18276813430');
         `,
       },
     ],
