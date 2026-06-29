@@ -81,6 +81,17 @@ export const Route = createFileRoute("/faqs")({
     ],
     links: [{ rel: "canonical", href: URL }],
     scripts: [
+      // Google tag (gtag.js)
+      {
+        async: true,
+        src: "https://www.googletagmanager.com/gtag/js?id=AW-18276813430",
+      },
+      {
+        children: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'AW-18276813430');`,
+      },
       ldJson(faqSchema(FAQS)),
       ldJson(
         breadcrumbSchema([
