@@ -151,7 +151,6 @@ const ONLINE_INSTRUMENTS = [
     ],
   },
   {
-
     id: "hindustani guitar",
     name: "Hindustani Guitar",
     style: "Hindustani",
@@ -729,4 +728,147 @@ function OnlineCoursesPage() {
           <div
             className="absolute inset-0"
             style={{
-              background: `linear-gradient(to bottom, ${NAVY}66, transparent 30
+              background: `linear-gradient(to bottom, ${NAVY}66, transparent 30%, transparent 58%, ${NAVY} 100%)`,
+            }}
+          />
+        </div>
+
+        {/* Hero content */}
+        <div
+          className="relative z-20 flex flex-col justify-center min-h-[75svh] pb-16 pt-24"
+          style={{
+            maxWidth: "55%",
+            paddingLeft: "max(3rem,5vw)",
+            paddingRight: "max(2rem,4vw)",
+          }}
+        >
+          <motion.div
+            initial={{ opacity: 0, y: -12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="inline-flex self-start items-center gap-2 px-4 py-2 rounded-full font-mono text-[10px] mb-8 tracking-widest uppercase"
+            style={{ border: `1px solid ${BLUE}45`, background: `${BLUE}12`, color: BLUE }}
+          >
+            <Wifi className="w-3 h-3" />
+            Online Courses
+          </motion.div>
+
+          <div className="max-w-lg">
+            <h1
+              className="font-serif leading-[1.05] tracking-tight"
+              style={{ fontSize: "clamp(2.6rem,5vw,5rem)" }}
+            >
+              <motion.span
+                initial={{ opacity: 0, x: -40 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.2, duration: 0.8 }}
+                className="block"
+                style={{ color: LIGHT }}
+              >
+                Learn music
+              </motion.span>
+              <motion.span
+                initial={{ opacity: 0, x: -40 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.35, duration: 0.8 }}
+                className="block italic"
+                style={{ color: BLUE, textShadow: `0 0 50px ${BLUE}40` }}
+              >
+                from anywhere.
+              </motion.span>
+            </h1>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            className="mt-8 max-w-md"
+          >
+            <div
+              className="w-10 h-[2px] mb-5 rounded-full"
+              style={{ background: `linear-gradient(to right, ${BLUE}, ${ACCENT})` }}
+            />
+            <p className="text-lg leading-relaxed" style={{ color: `${LIGHT}CC` }}>
+              Live one-on-one lessons in Tabla, Dholak, Keyboard, Guitar, Violin,
+              Flute, Vocal, Harmonium, Ukulele, Mandolin, Sitar & Veena —
+              Hindustani, Carnatic and Western. Flexible timings, certified faculty.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── WHY ONLINE ────────────────────────────────────────────────────── */}
+      <section className="py-14" style={{ background: LIGHT }}>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid sm:grid-cols-3 gap-6 text-center">
+            {[
+              {
+                icon: (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={BLUE} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M2 12h20" />
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                  </svg>
+                ),
+                title: "Learn from Anywhere",
+                desc: "Join from any city, country, or time zone. All you need is a device and a stable connection.",
+              },
+              {
+                icon: (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={BLUE} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="8" r="4" />
+                    <path d="M6 20v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" />
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                    <path d="M22 20v-2a4 4 0 0 0-3-3.87" />
+                  </svg>
+                ),
+                title: "Certified Faculty",
+                desc: "All teachers are certified professionals with years of performance and teaching experience.",
+              },
+              {
+                icon: (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={BLUE} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                    <line x1="16" y1="2" x2="16" y2="6" />
+                    <line x1="8" y1="2" x2="8" y2="6" />
+                    <line x1="3" y1="10" x2="21" y2="10" />
+                    <path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01" />
+                  </svg>
+                ),
+                title: "Flexible Scheduling",
+                desc: "Timings are mutually decided between faculty and student to suit your lifestyle.",
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="rounded-2xl bg-white p-7 border border-[#A8D8F0]/40 flex flex-col items-center"
+              >
+                <div
+                  className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4"
+                  style={{ background: `${BLUE}15`, border: `1.5px solid ${BLUE}30` }}
+                >
+                  {item.icon}
+                </div>
+                <p className="font-semibold text-[#0B1F3A] mb-1.5">{item.title}</p>
+                <p className="text-sm text-[#0B1F3A]/60 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── INSTRUMENT SECTIONS ───────────────────────────────────────────── */}
+      <section className="py-20 bg-white">
+        <div className="max-w-5xl mx-auto px-6 space-y-24">
+          {ONLINE_INSTRUMENTS.map((instrument, index) => (
+            <InstrumentSection key={instrument.id} instrument={instrument} index={index} />
+          ))}
+        </div>
+      </section>
+
+      {/* ── ENQUIRY SECTION ───────────────────────────────────────────────── */}
+      <ContactStrip defaultCourse="Not sure yet" />
+    </main>
+  );
+}
