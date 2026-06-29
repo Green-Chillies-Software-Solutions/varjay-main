@@ -104,6 +104,17 @@ export const Route = createFileRoute("/classical-music-singing-classes-navi-mumb
     ],
     links: [{ rel: "canonical", href: PAGE_URL }],
     scripts: [
+      // Google tag (gtag.js)
+      {
+        async: true,
+        src: "https://www.googletagmanager.com/gtag/js?id=AW-18276813430",
+      },
+      {
+        children: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'AW-18276813430');`,
+      },
       ldJson(
         courseSchema({
           name: "Classical Music Singing Classes in Navi Mumbai, Vashi & Sanpada",
