@@ -28,21 +28,21 @@ const HIGHLIGHTS = [
 ];
 
 const WHY_POINTS = [
-  "Live one-to-one online classes[cite: 5]",
-  "Experienced and trained faculty[cite: 5]",
-  "Certified curriculum[cite: 5]",
-  "Flexible online learning[cite: 5]",
-  "Beginner to advanced learning levels[cite: 5]",
-  "Examination preparation[cite: 5]",
-  "Students from India and abroad[cite: 5]",
-  "Personalized guidance during every session[cite: 5]"
+  "Live one-to-one online classes",
+  "Experienced and trained faculty",
+  "Certified curriculum",
+  "Flexible online learning",
+  "Beginner to advanced learning levels",
+  "Examination preparation",
+  "Students from India and abroad",
+  "Personalized guidance during every session"
 ];
 
 const LEVELS = [
-  "Beginner Level[cite: 5]",
-  "Intermediate Level[cite: 5]",
-  "Advanced Level[cite: 5]",
-  "Examination Preparation[cite: 5]"
+  "Beginner Level",
+  "Intermediate Level",
+  "Advanced Level",
+  "Examination Preparation"
 ];
 
 const SECTIONS = [
@@ -56,9 +56,9 @@ const SECTIONS = [
       </>
     ),
     body: [
-      "Varjay Music Academy believes quality music education should be accessible regardless of location. Through live online sessions, students can learn directly from experienced instructors while enjoying the flexibility of studying from home.[cite: 5]",
-      "The academy follows a personalized teaching approach where every student receives one-to-one attention during each lesson. This allows instructors to understand individual learning progress, provide regular feedback, and guide students according to their learning pace.[cite: 5]",
-      "Students from India as well as other countries continue their music education through the academy's online learning platform, making quality instruction available wherever they are.[cite: 5]"
+      "Varjay Music Academy believes quality music education should be accessible regardless of location. Through live online sessions, students can learn directly from experienced instructors while enjoying the flexibility of studying from home.",
+      "The academy follows a personalized teaching approach where every student receives one-to-one attention during each lesson. This allows instructors to understand individual learning progress, provide regular feedback, and guide students according to their learning pace.",
+      "Students from India as well as other countries continue their music education through the academy's online learning platform, making quality instruction available wherever they are."
     ],
   },
   {
@@ -71,9 +71,9 @@ const SECTIONS = [
       </>
     ),
     body: [
-      "A well-organized curriculum helps students develop confidence while learning music. Varjay Music Academy follows a structured teaching methodology that allows students to progress gradually.[cite: 5]",
-      "This progressive structure helps beginners establish strong fundamentals before moving toward more advanced learning. Students continue building their skills through guided lessons supported by experienced teachers.[cite: 5]",
-      "The academy emphasizes consistent improvement rather than rushing through lessons, allowing students to enjoy every stage of their piano learning journey.[cite: 5]"
+      "A well-organized curriculum helps students develop confidence while learning music. Varjay Music Academy follows a structured teaching methodology that allows students to progress gradually.",
+      "This progressive structure helps beginners establish strong fundamentals before moving toward more advanced learning. Students continue building their skills through guided lessons supported by experienced teachers.",
+      "The academy emphasizes consistent improvement rather than rushing through lessons, allowing students to enjoy every stage of their piano learning journey."
     ],
   },
   {
@@ -86,9 +86,9 @@ const SECTIONS = [
       </>
     ),
     body: [
-      "One of the key advantages of the academy's online piano classes is the focus on individualized instruction.[cite: 5]",
-      "Every online session is conducted on a one-to-one basis, enabling teachers to understand each student's learning style, provide focused guidance, monitor individual progress, help students improve gradually, and encourage regular practice.[cite: 5]",
-      "This personalized approach creates an effective learning environment where students receive dedicated attention throughout their musical journey.[cite: 5]"
+      "One of the key advantages of the academy's online piano classes is the focus on individualized instruction.",
+      "Every online session is conducted on a one-to-one basis, enabling teachers to understand each student's learning style, provide focused guidance, monitor individual progress, help students improve gradually, and encourage regular practice.",
+      "This personalized approach creates an effective learning environment where students receive dedicated attention throughout their musical journey."
     ],
   },
   {
@@ -101,9 +101,9 @@ const SECTIONS = [
       </>
     ),
     body: [
-      "Learning from experienced teachers can make a significant difference in music education. Varjay Music Academy is supported by qualified and trained faculty members who guide students through structured lessons and practical learning.[cite: 5]",
-      "The academy is led by Founder and Head of Tabla, Arvind V. Rao, who has over fifteen years of learning experience and more than ten years of teaching experience. Under the academy's commitment to quality education, students benefit from experienced instructors who encourage steady musical growth through professional guidance.[cite: 5]",
-      "According to the information available on the website, students learn through Trinity-certified and ABGMV-certified curriculum while also following the local university syllabus. By combining structured learning with personalized instruction, the academy provides a clear pathway for students pursuing piano education.[cite: 5]"
+      "Learning from experienced teachers can make a significant difference in music education. Varjay Music Academy is supported by qualified and trained faculty members who guide students through structured lessons and practical learning.",
+      "The academy is led by Founder and Head of Tabla, Arvind V. Rao, who has over fifteen years of learning experience and more than ten years of teaching experience. Under the academy's commitment to quality education, students benefit from experienced instructors who encourage steady musical growth through professional guidance.",
+      "According to the information available on the website, students learn through Trinity-certified and ABGMV-certified curriculum while also following the local university syllabus. By combining structured learning with personalized instruction, the academy provides a clear pathway for students pursuing piano education."
     ],
   },
 ];
@@ -324,7 +324,7 @@ function Page() {
           >
             <div className="w-12 h-[2px] mb-6 rounded-full" style={{ background: `linear-gradient(to right, ${TEAL}, ${CRIMSON})` }} />
             <p className="text-lg leading-relaxed" style={{ color: `${IVORY}CC` }}>
-              Join online piano classes with live one-to-one lessons, experienced faculty, certified curriculum, and flexible online piano courses.[cite: 5]
+              Join online piano classes with live one-to-one lessons, experienced faculty, certified curriculum, and flexible online piano courses.
             </p>
 
             {/* Highlights pills */}
@@ -361,13 +361,13 @@ function Page() {
               Personalized Live Learning
             </h2>
             <p className="text-lg leading-relaxed" style={{ color: `${NAVY}CC` }}>
-              Learning the piano has become more convenient with flexible online education that allows students to build their musical skills from the comfort of home.[cite: 5]
+              Learning the piano has become more convenient with flexible online education that allows students to build their musical skills from the comfort of home.
             </p>
             <p className="text-lg leading-relaxed" style={{ color: `${NAVY}CC` }}>
-              At Varjay Music Academy, online piano classes are designed to provide personalized learning through live one-to-one sessions conducted by experienced faculty. Established in 2021, the academy has been dedicated to offering structured music education for students across India and abroad through both online and offline learning options.[cite: 5]
+              At Varjay Music Academy, online piano classes are designed to provide personalized learning through live one-to-one sessions conducted by experienced faculty. Established in 2021, the academy has been dedicated to offering structured music education for students across India and abroad through both online and offline learning options.
             </p>
             <p className="text-lg leading-relaxed" style={{ color: `${NAVY}CC` }}>
-              Whether you are starting your musical journey or looking to improve your existing skills, the academy's online piano courses are designed to support learners at every stage with a systematic curriculum and individual guidance.[cite: 5]
+              Whether you are starting your musical journey or looking to improve your existing skills, the academy's online piano courses are designed to support learners at every stage with a systematic curriculum and individual guidance.
             </p>
           </motion.div>
         </div>
@@ -426,7 +426,7 @@ function Page() {
               Structured Learning Pathway
             </h2>
             <p className="text-center text-sm mb-12 max-w-xl mx-auto" style={{ color: `${NAVY}70` }}>
-              The learning pathway guides students clearly from foundational techniques to advanced examination preparation.[cite: 5]
+              The learning pathway guides students clearly from foundational techniques to advanced examination preparation.
             </p>
 
             {/* Levels */}
@@ -461,7 +461,7 @@ function Page() {
               Why Choose Varjay Music Academy?
             </h2>
             <p className="text-center text-sm mb-12 max-w-xl mx-auto" style={{ color: `${NAVY}70` }}>
-              Students choose Varjay Music Academy because of its student-focused approach and structured learning environment.[cite: 5]
+              Students choose Varjay Music Academy because of its student-focused approach and structured learning environment.
             </p>
 
             <ul className="grid sm:grid-cols-2 gap-4">
@@ -492,10 +492,10 @@ function Page() {
                 More Than Just Piano Learning
               </h3>
               <p className="text-base leading-relaxed text-center mb-4" style={{ color: `${NAVY}BB` }}>
-                Varjay Music Academy focuses on helping students grow through both learning and performance opportunities. The academy regularly shares student performances, musical events, annual stage performances, and examination activities that showcase students' progress. These activities encourage learners to apply their skills while building confidence through practical musical experiences.[cite: 5]
+                Varjay Music Academy focuses on helping students grow through both learning and performance opportunities. The academy regularly shares student performances, musical events, annual stage performances, and examination activities that showcase students' progress. These activities encourage learners to apply their skills while building confidence through practical musical experiences.
               </p>
               <p className="text-base leading-relaxed text-center" style={{ color: `${NAVY}BB` }}>
-                If you are looking for online piano classes that combine flexibility with personalized teaching, Varjay Music Academy offers a structured learning experience designed for students of different age groups and learning levels. Through live one-to-one instruction, experienced faculty, and certified curriculum, the academy helps students develop their musical skills with confidence.[cite: 5]
+                If you are looking for online piano classes that combine flexibility with personalized teaching, Varjay Music Academy offers a structured learning experience designed for students of different age groups and learning levels. Through live one-to-one instruction, experienced faculty, and certified curriculum, the academy helps students develop their musical skills with confidence.
               </p>
             </div>
           </motion.div>
