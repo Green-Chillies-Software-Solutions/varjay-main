@@ -28,21 +28,21 @@ const HIGHLIGHTS = [
 ];
 
 const WHY_POINTS = [
-  "Live one-to-one online classes[cite: 7]",
-  "Experienced and trained faculty[cite: 7]",
-  "Certified curriculum[cite: 7]",
-  "Flexible online learning[cite: 7]",
-  "Beginner to advanced learning levels[cite: 7]",
-  "Examination preparation[cite: 7]",
-  "Students from India and abroad[cite: 7]",
-  "Individual attention during every session[cite: 7]"
+  "Live one-to-one online classes",
+  "Experienced and trained faculty",
+  "Certified curriculum",
+  "Flexible online learning",
+  "Beginner to advanced learning levels",
+  "Examination preparation",
+  "Students from India and abroad",
+  "Individual attention during every session"
 ];
 
 const LEVELS = [
-  "Beginner Level[cite: 7]",
-  "Intermediate Level[cite: 7]",
-  "Advanced Level[cite: 7]",
-  "Examination Preparation[cite: 7]"
+  "Beginner Level",
+  "Intermediate Level",
+  "Advanced Level",
+  "Examination Preparation"
 ];
 
 const SECTIONS = [
@@ -56,9 +56,9 @@ const SECTIONS = [
       </>
     ),
     body: [
-      "Varjay Music Academy offers live online learning that enables students to receive professional music instruction without geographical limitations.[cite: 7]",
-      "Through one-to-one online sessions, every learner receives individual attention, allowing teachers to guide them according to their learning pace and progress. The academy's online learning model makes it convenient for students to continue their music education from home while maintaining regular interaction with experienced faculty.[cite: 7]",
-      "This personalized approach helps students stay focused throughout their musical journey and receive continuous guidance during every lesson.[cite: 7]"
+      "Varjay Music Academy offers live online learning that enables students to receive professional music instruction without geographical limitations.",
+      "Through one-to-one online sessions, every learner receives individual attention, allowing teachers to guide them according to their learning pace and progress. The academy's online learning model makes it convenient for students to continue their music education from home while maintaining regular interaction with experienced faculty.",
+      "This personalized approach helps students stay focused throughout their musical journey and receive continuous guidance during every lesson."
     ],
   },
   {
@@ -71,9 +71,9 @@ const SECTIONS = [
       </>
     ),
     body: [
-      "One of the defining features of Varjay Music Academy is its personalized teaching methodology.[cite: 7]",
-      "Every online class is conducted on a one-to-one basis, allowing instructors to focus completely on each student. This enables teachers to understand individual learning needs, provide immediate feedback, monitor student progress, encourage regular practice, and support gradual improvement.[cite: 7]",
-      "The academy believes that personal attention creates a more effective learning environment and helps students develop confidence as they continue their musical education.[cite: 7]"
+      "One of the defining features of Varjay Music Academy is its personalized teaching methodology.",
+      "Every online class is conducted on a one-to-one basis, allowing instructors to focus completely on each student. This enables teachers to understand individual learning needs, provide immediate feedback, monitor student progress, encourage regular practice, and support gradual improvement.",
+      "The academy believes that personal attention creates a more effective learning environment and helps students develop confidence as they continue their musical education."
     ],
   },
   {
@@ -86,9 +86,9 @@ const SECTIONS = [
       </>
     ),
     body: [
-      "Quality teaching plays an important role in music education. Varjay Music Academy is supported by experienced and trained faculty members who guide students through structured online learning.[cite: 7]",
-      "Founder and Head of Tabla, Arvind V. Rao, has more than fifteen years of learning experience and over ten years of teaching experience. The academy continues to provide professional music education through qualified instructors who are committed to helping students achieve their musical goals.[cite: 7]",
-      "Students benefit from direct interaction with teachers who provide continuous support throughout every stage of learning.[cite: 7]"
+      "Quality teaching plays an important role in music education. Varjay Music Academy is supported by experienced and trained faculty members who guide students through structured online learning.",
+      "Founder and Head of Tabla, Arvind V. Rao, has more than fifteen years of learning experience and over ten years of teaching experience. The academy continues to provide professional music education through qualified instructors who are committed to helping students achieve their musical goals.",
+      "Students benefit from direct interaction with teachers who provide continuous support throughout every stage of learning."
     ],
   },
   {
@@ -101,9 +101,9 @@ const SECTIONS = [
       </>
     ),
     body: [
-      "Varjay Music Academy follows a certified curriculum that supports organized and progressive music education.[cite: 7]",
-      "According to the academy's website, students learn through Trinity-certified and ABGMV-certified curriculum while also following the local university syllabus. This structured learning framework allows students to prepare for examinations while developing their musical knowledge in a systematic manner.[cite: 7]",
-      "The curriculum helps learners move confidently from beginner lessons to advanced learning with clearly defined educational milestones.[cite: 7]"
+      "Varjay Music Academy follows a certified curriculum that supports organized and progressive music education.",
+      "According to the academy's website, students learn through Trinity-certified and ABGMV-certified curriculum while also following the local university syllabus. This structured learning framework allows students to prepare for examinations while developing their musical knowledge in a systematic manner.",
+      "The curriculum helps learners move confidently from beginner lessons to advanced learning with clearly defined educational milestones."
     ],
   },
 ];
@@ -324,7 +324,7 @@ function Page() {
           >
             <div className="w-12 h-[2px] mb-6 rounded-full" style={{ background: `linear-gradient(to right, ${TEAL}, ${CRIMSON})` }} />
             <p className="text-lg leading-relaxed" style={{ color: `${IVORY}CC` }}>
-              Join online Carnatic music classes courses at Varjay Music Academy with live one-to-one lessons, certified curriculum, experienced faculty, and flexible online learning.[cite: 7]
+              Join online Carnatic music classes courses at Varjay Music Academy with live one-to-one lessons, certified curriculum, experienced faculty, and flexible online learning.
             </p>
 
             {/* Highlights pills */}
@@ -361,13 +361,13 @@ function Page() {
               Personalized Carnatic Music Learning
             </h2>
             <p className="text-lg leading-relaxed" style={{ color: `${NAVY}CC` }}>
-              Carnatic music is a timeless form of Indian classical music that inspires students to develop discipline, musical understanding, and vocal skills through consistent practice. At Varjay Music Academy, online Carnatic music classes are designed to make quality music education accessible to learners from the comfort of their homes.[cite: 7]
+              Carnatic music is a timeless form of Indian classical music that inspires students to develop discipline, musical understanding, and vocal skills through consistent practice. At Varjay Music Academy, online Carnatic music classes are designed to make quality music education accessible to learners from the comfort of their homes.
             </p>
             <p className="text-lg leading-relaxed" style={{ color: `${NAVY}CC` }}>
-              Established in 2021, the academy provides structured music education through experienced faculty, certified curriculum, and personalized one-to-one online sessions. Students from India and abroad can join live online classes and learn through an organized teaching approach that supports steady musical growth.[cite: 7]
+              Established in 2021, the academy provides structured music education through experienced faculty, certified curriculum, and personalized one-to-one online sessions. Students from India and abroad can join live online classes and learn through an organized teaching approach that supports steady musical growth.
             </p>
             <p className="text-lg leading-relaxed" style={{ color: `${NAVY}CC` }}>
-              Whether you are beginning your musical journey or looking to continue your learning, the academy offers flexible online Carnatic music courses tailored to different learning levels.[cite: 7]
+              Whether you are beginning your musical journey or looking to continue your learning, the academy offers flexible online Carnatic music courses tailored to different learning levels.
             </p>
           </motion.div>
         </div>
@@ -426,7 +426,7 @@ function Page() {
               Structured Online Carnatic Music Courses
             </h2>
             <p className="text-center text-sm mb-12 max-w-xl mx-auto" style={{ color: `${NAVY}70` }}>
-              A systematic curriculum is essential for building a strong musical foundation. Varjay Music Academy follows a structured learning pathway that helps students progress gradually through different stages of music education.[cite: 7]
+              A systematic curriculum is essential for building a strong musical foundation. Varjay Music Academy follows a structured learning pathway that helps students progress gradually through different stages of music education.
             </p>
 
             {/* Levels */}
@@ -442,7 +442,7 @@ function Page() {
               </div>
             </div>
             <p className="text-center text-sm mt-8 max-w-xl mx-auto" style={{ color: `${NAVY}70` }}>
-              Each stage is designed to help students improve their musical knowledge step by step while receiving professional instruction from experienced teachers. This organized approach makes the academy's online Carnatic music courses suitable for learners who want consistent and progressive music education.[cite: 7]
+              Each stage is designed to help students improve their musical knowledge step by step while receiving professional instruction from experienced teachers. This organized approach makes the academy's online Carnatic music courses suitable for learners who want consistent and progressive music education.
             </p>
           </motion.div>
         </div>
@@ -464,7 +464,7 @@ function Page() {
               Why Choose Varjay Music Academy?
             </h2>
             <p className="text-center text-sm mb-12 max-w-xl mx-auto" style={{ color: `${NAVY}70` }}>
-              Students choose Varjay Music Academy because of its personalized learning approach and structured educational system.[cite: 7]
+              Students choose Varjay Music Academy because of its personalized learning approach and structured educational system.
             </p>
 
             <ul className="grid sm:grid-cols-2 gap-4">
@@ -495,13 +495,13 @@ function Page() {
                 Performance and Practical Learning
               </h3>
               <p className="text-base leading-relaxed text-center mb-4" style={{ color: `${NAVY}BB` }}>
-                The academy encourages students to develop confidence through practical musical experiences alongside regular lessons. Varjay Music Academy regularly showcases student performances, musical events, annual stage performances, examination activities, and student gallery highlights.[cite: 7]
+                The academy encourages students to develop confidence through practical musical experiences alongside regular lessons. Varjay Music Academy regularly showcases student performances, musical events, annual stage performances, examination activities, and student gallery highlights.
               </p>
               <p className="text-base leading-relaxed text-center mb-4" style={{ color: `${NAVY}BB` }}>
-                These opportunities allow students to demonstrate their learning while becoming part of an active music-learning community. The academy currently serves more than 150 students from India and around the world, reflecting its commitment to making quality music education widely accessible.[cite: 7]
+                These opportunities allow students to demonstrate their learning while becoming part of an active music-learning community. The academy currently serves more than 150 students from India and around the world, reflecting its commitment to making quality music education widely accessible.
               </p>
               <p className="text-base leading-relaxed text-center" style={{ color: `${NAVY}BB` }}>
-                If you are looking for online Carnatic music classes or online Carnatic music courses, Varjay Music Academy offers a structured learning experience designed to support students at every stage of their musical development. Through live one-to-one instruction, experienced faculty, certified curriculum, and flexible online learning, the academy helps students build confidence while learning Carnatic music from home.[cite: 7]
+                If you are looking for online Carnatic music classes or online Carnatic music courses, Varjay Music Academy offers a structured learning experience designed to support students at every stage of their musical development. Through live one-to-one instruction, experienced faculty, certified curriculum, and flexible online learning, the academy helps students build confidence while learning Carnatic music from home.
               </p>
             </div>
           </motion.div>
