@@ -28,21 +28,21 @@ const HIGHLIGHTS = [
 ];
 
 const WHY_POINTS = [
-  "Live one-to-one online classes[cite: 6]",
-  "Experienced and trained faculty[cite: 6]",
-  "Certified curriculum[cite: 6]",
-  "Flexible online learning[cite: 6]",
-  "Beginner to advanced learning levels[cite: 6]",
-  "Examination preparation[cite: 6]",
-  "Students from India and abroad[cite: 6]",
-  "Individual attention during every lesson[cite: 6]"
+  "Live one-to-one online classes",
+  "Experienced and trained faculty",
+  "Certified curriculum",
+  "Flexible online learning",
+  "Beginner to advanced learning levels",
+  "Examination preparation",
+  "Students from India and abroad",
+  "Individual attention during every lesson"
 ];
 
 const LEVELS = [
-  "Beginner Level[cite: 6]",
-  "Intermediate Level[cite: 6]",
-  "Advanced Level[cite: 6]",
-  "Examination Preparation[cite: 6]"
+  "Beginner Level",
+  "Intermediate Level",
+  "Advanced Level",
+  "Examination Preparation"
 ];
 
 const SECTIONS = [
@@ -56,9 +56,9 @@ const SECTIONS = [
       </>
     ),
     body: [
-      "Varjay Music Academy believes that quality music education should be available regardless of location. Through live online classes, students receive direct instruction from experienced teachers without the need to travel.[cite: 6]",
-      "Every session is conducted as a one-to-one class, allowing teachers to provide personal attention throughout the learning process. This teaching approach enables instructors to understand each student's strengths, monitor progress, and guide them according to their individual learning pace.[cite: 6]",
-      "Students benefit from interactive online sessions that encourage consistent learning while enjoying the flexibility of attending classes from home.[cite: 6]"
+      "Varjay Music Academy believes that quality music education should be available regardless of location. Through live online classes, students receive direct instruction from experienced teachers without the need to travel.",
+      "Every session is conducted as a one-to-one class, allowing teachers to provide personal attention throughout the learning process. This teaching approach enables instructors to understand each student's strengths, monitor progress, and guide them according to their individual learning pace.",
+      "Students benefit from interactive online sessions that encourage consistent learning while enjoying the flexibility of attending classes from home."
     ],
   },
   {
@@ -71,9 +71,9 @@ const SECTIONS = [
       </>
     ),
     body: [
-      "Students interested in Indian classical music can also explore online violin classes Carnatic through Varjay Music Academy's online learning programs.[cite: 6]",
-      "The academy offers Carnatic Singing as one of its vocal programs and includes violin among its instrumental training courses. Students receive personalized one-to-one instruction while following the academy's certified and structured curriculum.[cite: 6]",
-      "Every online lesson is designed to provide focused learning with regular guidance from experienced teachers, helping students continue their musical education through flexible online sessions.[cite: 6]"
+      "Students interested in Indian classical music can also explore online violin classes Carnatic through Varjay Music Academy's online learning programs.",
+      "The academy offers Carnatic Singing as one of its vocal programs and includes violin among its instrumental training courses. Students receive personalized one-to-one instruction while following the academy's certified and structured curriculum.",
+      "Every online lesson is designed to provide focused learning with regular guidance from experienced teachers, helping students continue their musical education through flexible online sessions."
     ],
   },
   {
@@ -86,8 +86,8 @@ const SECTIONS = [
       </>
     ),
     body: [
-      "One of the defining features of Varjay Music Academy is its commitment to personalized education. Every violin class is conducted individually, allowing teachers to understand each student's learning style, provide immediate feedback during lessons, monitor regular progress, offer personalized guidance, and support continuous improvement.[cite: 6]",
-      "This learning model helps students receive focused attention throughout every class while building confidence in their musical abilities.[cite: 6]"
+      "One of the defining features of Varjay Music Academy is its commitment to personalized education. Every violin class is conducted individually, allowing teachers to understand each student's learning style, provide immediate feedback during lessons, monitor regular progress, offer personalized guidance, and support continuous improvement.",
+      "This learning model helps students receive focused attention throughout every class while building confidence in their musical abilities."
     ],
   },
   {
@@ -100,9 +100,9 @@ const SECTIONS = [
       </>
     ),
     body: [
-      "Learning music from experienced teachers creates a better educational experience. Varjay Music Academy is supported by qualified and trained faculty members who are committed to helping students progress through structured learning.[cite: 6]",
-      "Founder and Head of Tabla, Arvind V. Rao, brings over fifteen years of learning experience and more than ten years of teaching experience. The academy continues to maintain its commitment to quality music education by providing professional instruction through experienced faculty members.[cite: 6]",
-      "According to the academy's website, students learn through Trinity-certified and ABGMV-certified curriculum while also following the local university syllabus. This structured educational framework provides students with clearly defined learning stages, allowing them to prepare confidently for examinations and continued musical development.[cite: 6]"
+      "Learning music from experienced teachers creates a better educational experience. Varjay Music Academy is supported by qualified and trained faculty members who are committed to helping students progress through structured learning.",
+      "Founder and Head of Tabla, Arvind V. Rao, brings over fifteen years of learning experience and more than ten years of teaching experience. The academy continues to maintain its commitment to quality music education by providing professional instruction through experienced faculty members.",
+      "According to the academy's website, students learn through Trinity-certified and ABGMV-certified curriculum while also following the local university syllabus. This structured educational framework provides students with clearly defined learning stages, allowing them to prepare confidently for examinations and continued musical development."
     ],
   },
 ];
@@ -323,7 +323,7 @@ function Page() {
           >
             <div className="w-12 h-[2px] mb-6 rounded-full" style={{ background: `linear-gradient(to right, ${TEAL}, ${CRIMSON})` }} />
             <p className="text-lg leading-relaxed" style={{ color: `${IVORY}CC` }}>
-              Join online violin classes courses and online violin classes Carnatic at Varjay Music Academy with live one-to-one lessons, certified curriculum, and experienced faculty.[cite: 6]
+              Join online violin classes courses and online violin classes Carnatic at Varjay Music Academy with live one-to-one lessons, certified curriculum, and experienced faculty.
             </p>
 
             {/* Highlights pills */}
@@ -360,13 +360,13 @@ function Page() {
               Personalized One-to-One Learning
             </h2>
             <p className="text-lg leading-relaxed" style={{ color: `${NAVY}CC` }}>
-              Learning the violin is a rewarding musical journey that requires proper guidance, regular practice, and structured instruction. At Varjay Music Academy, online violin classes are designed to make quality music education accessible for students who want to learn from the comfort of their homes.[cite: 6]
+              Learning the violin is a rewarding musical journey that requires proper guidance, regular practice, and structured instruction. At Varjay Music Academy, online violin classes are designed to make quality music education accessible for students who want to learn from the comfort of their homes.
             </p>
             <p className="text-lg leading-relaxed" style={{ color: `${NAVY}CC` }}>
-              Since its establishment in 2021, the academy has been dedicated to providing professional music education through experienced faculty, certified curriculum, and personalized one-to-one learning.[cite: 6]
+              Since its establishment in 2021, the academy has been dedicated to providing professional music education through experienced faculty, certified curriculum, and personalized one-to-one learning.
             </p>
             <p className="text-lg leading-relaxed" style={{ color: `${NAVY}CC` }}>
-              Students from India and abroad can join live online sessions that focus on individual learning needs while following a systematic teaching approach. Whether you are learning the violin for the first time or continuing your musical education, the academy offers flexible online classes that support every stage of learning.[cite: 6]
+              Students from India and abroad can join live online sessions that focus on individual learning needs while following a systematic teaching approach. Whether you are learning the violin for the first time or continuing your musical education, the academy offers flexible online classes that support every stage of learning.
             </p>
           </motion.div>
         </div>
@@ -425,7 +425,7 @@ function Page() {
               Structured Online Violin Classes
             </h2>
             <p className="text-center text-sm mb-12 max-w-xl mx-auto" style={{ color: `${NAVY}70` }}>
-              A strong musical foundation begins with organized learning. Varjay Music Academy follows a structured curriculum that supports gradual improvement from beginner level to advanced learning.[cite: 6]
+              A strong musical foundation begins with organized learning. Varjay Music Academy follows a structured curriculum that supports gradual improvement from beginner level to advanced learning.
             </p>
 
             {/* Levels */}
@@ -460,7 +460,7 @@ function Page() {
               Why Choose Varjay Music Academy?
             </h2>
             <p className="text-center text-sm mb-12 max-w-xl mx-auto" style={{ color: `${NAVY}70` }}>
-              Students choose Varjay Music Academy because of its structured approach to learning and personalized teaching experience.[cite: 6]
+              Students choose Varjay Music Academy because of its structured approach to learning and personalized teaching experience.
             </p>
 
             <ul className="grid sm:grid-cols-2 gap-4">
@@ -491,10 +491,10 @@ function Page() {
                 Performance Opportunities and Student Growth
               </h3>
               <p className="text-base leading-relaxed text-center mb-4" style={{ color: `${NAVY}BB` }}>
-                Music learning extends beyond regular lessons. Varjay Music Academy encourages students to participate in activities that showcase their progress and help build confidence. The academy regularly features student performances, musical events, annual stage performances, examination activities, and student gallery highlights.[cite: 6]
+                Music learning extends beyond regular lessons. Varjay Music Academy encourages students to participate in activities that showcase their progress and help build confidence. The academy regularly features student performances, musical events, annual stage performances, examination activities, and student gallery highlights.
               </p>
               <p className="text-base leading-relaxed text-center" style={{ color: `${NAVY}BB` }}>
-                If you are looking for online violin classes or online violin classes Carnatic, Varjay Music Academy offers a structured and flexible learning experience designed to support students at every stage of their musical education. Through live one-to-one instruction, certified curriculum, and experienced faculty, the academy provides personalized guidance that helps learners build strong musical foundations.[cite: 6]
+                If you are looking for online violin classes or online violin classes Carnatic, Varjay Music Academy offers a structured and flexible learning experience designed to support students at every stage of their musical education. Through live one-to-one instruction, certified curriculum, and experienced faculty, the academy provides personalized guidance that helps learners build strong musical foundations.
               </p>
             </div>
           </motion.div>
