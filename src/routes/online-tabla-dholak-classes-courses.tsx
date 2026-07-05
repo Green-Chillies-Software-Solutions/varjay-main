@@ -28,21 +28,21 @@ const HIGHLIGHTS = [
 ];
 
 const WHY_POINTS = [
-  "Live one-to-one online classes[cite: 8]",
-  "Experienced and trained faculty[cite: 8]",
-  "Certified curriculum[cite: 8]",
-  "Flexible online learning[cite: 8]",
-  "Beginner to advanced learning levels[cite: 8]",
-  "Examination preparation[cite: 8]",
-  "Students from India and abroad[cite: 8]",
-  "Individual attention during every class[cite: 8]"
+  "Live one-to-one online classes",
+  "Experienced and trained faculty",
+  "Certified curriculum",
+  "Flexible online learning",
+  "Beginner to advanced learning levels",
+  "Examination preparation",
+  "Students from India and abroad",
+  "Individual attention during every class"
 ];
 
 const LEVELS = [
-  "Beginner Level[cite: 8]",
-  "Intermediate Level[cite: 8]",
-  "Advanced Level[cite: 8]",
-  "Examination Preparation[cite: 8]"
+  "Beginner Level",
+  "Intermediate Level",
+  "Advanced Level",
+  "Examination Preparation"
 ];
 
 const SECTIONS = [
@@ -56,9 +56,9 @@ const SECTIONS = [
       </>
     ),
     body: [
-      "Varjay Music Academy believes that quality music education should be accessible to everyone, regardless of location. Through live online learning, students can attend personalized classes from home while receiving direct guidance from experienced instructors.[cite: 8]",
-      "Every class is conducted individually, allowing teachers to focus on each student's learning style and progress. This one-to-one teaching method ensures that students receive dedicated attention throughout every lesson, making learning more effective and engaging.[cite: 8]",
-      "Students from India and across the world continue their music education through the academy's flexible online learning platform.[cite: 8]"
+      "Varjay Music Academy believes that quality music education should be accessible to everyone, regardless of location. Through live online learning, students can attend personalized classes from home while receiving direct guidance from experienced instructors.",
+      "Every class is conducted individually, allowing teachers to focus on each student's learning style and progress. This one-to-one teaching method ensures that students receive dedicated attention throughout every lesson, making learning more effective and engaging.",
+      "Students from India and across the world continue their music education through the academy's flexible online learning platform."
     ],
   },
   {
@@ -71,9 +71,9 @@ const SECTIONS = [
       </>
     ),
     body: [
-      "One of the major strengths of Varjay Music Academy is its commitment to personalized education.[cite: 8]",
-      "Every online session is conducted on a one-to-one basis, allowing teachers to understand each student's learning pace, provide individual guidance, correct techniques during live sessions, monitor regular progress, and encourage consistent practice.[cite: 8]",
-      "This individualized approach creates a supportive learning environment where students receive focused instruction according to their personal learning goals.[cite: 8]"
+      "One of the major strengths of Varjay Music Academy is its commitment to personalized education.",
+      "Every online session is conducted on a one-to-one basis, allowing teachers to understand each student's learning pace, provide individual guidance, correct techniques during live sessions, monitor regular progress, and encourage consistent practice.",
+      "This individualized approach creates a supportive learning environment where students receive focused instruction according to their personal learning goals."
     ],
   },
   {
@@ -86,9 +86,9 @@ const SECTIONS = [
       </>
     ),
     body: [
-      "Quality instruction is an important part of successful music education. Varjay Music Academy is supported by experienced and trained faculty members who guide students through every stage of learning.[cite: 8]",
-      "The academy's Founder and Head of Tabla, Arvind V. Rao, has more than fifteen years of learning experience and over ten years of teaching experience. His dedication to music education has helped the academy create a learning environment where students receive professional guidance through structured lessons.[cite: 8]",
-      "Students benefit from experienced teachers who encourage gradual improvement while maintaining a positive and engaging learning experience.[cite: 8]"
+      "Quality instruction is an important part of successful music education. Varjay Music Academy is supported by experienced and trained faculty members who guide students through every stage of learning.",
+      "The academy's Founder and Head of Tabla, Arvind V. Rao, has more than fifteen years of learning experience and over ten years of teaching experience. His dedication to music education has helped the academy create a learning environment where students receive professional guidance through structured lessons.",
+      "Students benefit from experienced teachers who encourage gradual improvement while maintaining a positive and engaging learning experience."
     ],
   },
   {
@@ -101,9 +101,9 @@ const SECTIONS = [
       </>
     ),
     body: [
-      "Varjay Music Academy follows a certified curriculum that supports organized music education.[cite: 8]",
-      "According to the academy's website, students learn through Trinity-certified and ABGMV-certified curriculum while also following the local university syllabus. This structured educational framework allows learners to progress confidently from beginner level to examination preparation.[cite: 8]",
-      "The curriculum provides clearly defined learning stages that help students continue their musical education with consistency and confidence.[cite: 8]"
+      "Varjay Music Academy follows a certified curriculum that supports organized music education.",
+      "According to the academy's website, students learn through Trinity-certified and ABGMV-certified curriculum while also following the local university syllabus. This structured educational framework allows learners to progress confidently from beginner level to examination preparation.",
+      "The curriculum provides clearly defined learning stages that help students continue their musical education with consistency and confidence."
     ],
   },
 ];
@@ -324,7 +324,7 @@ function Page() {
           >
             <div className="w-12 h-[2px] mb-6 rounded-full" style={{ background: `linear-gradient(to right, ${TEAL}, ${CRIMSON})` }} />
             <p className="text-lg leading-relaxed" style={{ color: `${IVORY}CC` }}>
-              Join online tabla and dholak classes courses at Varjay Music Academy with live one-to-one learning, certified curriculum, and experienced faculty.[cite: 8]
+              Join online tabla and dholak classes courses at Varjay Music Academy with live one-to-one learning, certified curriculum, and experienced faculty.
             </p>
 
             {/* Highlights pills */}
@@ -361,13 +361,13 @@ function Page() {
               Master Percussion from Home
             </h2>
             <p className="text-lg leading-relaxed" style={{ color: `${NAVY}CC` }}>
-              Rhythm is the foundation of every musical performance, and learning percussion instruments requires proper guidance, regular practice, and a structured approach.[cite: 8]
+              Rhythm is the foundation of every musical performance, and learning percussion instruments requires proper guidance, regular practice, and a structured approach.
             </p>
             <p className="text-lg leading-relaxed" style={{ color: `${NAVY}CC` }}>
-              At Varjay Music Academy, online tabla classes courses and online dholak classes courses are designed to help students learn from experienced faculty through live one-to-one online sessions. Established in 2021, the academy provides quality music education with a focus on personalized learning, certified curriculum, and flexible online classes for students in India and abroad.[cite: 8]
+              At Varjay Music Academy, online tabla classes courses and online dholak classes courses are designed to help students learn from experienced faculty through live one-to-one online sessions. Established in 2021, the academy provides quality music education with a focus on personalized learning, certified curriculum, and flexible online classes for students in India and abroad.
             </p>
             <p className="text-lg leading-relaxed" style={{ color: `${NAVY}CC` }}>
-              Whether you are beginning your musical journey or looking to enhance your percussion skills, Varjay Music Academy offers a structured learning experience that supports every stage of musical development from the comfort of your home.[cite: 8]
+              Whether you are beginning your musical journey or looking to enhance your percussion skills, Varjay Music Academy offers a structured learning experience that supports every stage of musical development from the comfort of your home.
             </p>
           </motion.div>
         </div>
@@ -426,7 +426,7 @@ function Page() {
               Structured Learning for Every Student
             </h2>
             <p className="text-center text-sm mb-12 max-w-xl mx-auto" style={{ color: `${NAVY}70` }}>
-              A systematic learning approach helps students build confidence while developing their musical abilities. Varjay Music Academy follows a structured curriculum designed for gradual improvement.[cite: 8]
+              A systematic learning approach helps students build confidence while developing their musical abilities. Varjay Music Academy follows a structured curriculum designed for gradual improvement.
             </p>
 
             {/* Levels */}
@@ -442,7 +442,7 @@ function Page() {
               </div>
             </div>
             <p className="text-center text-sm mt-8 max-w-xl mx-auto" style={{ color: `${NAVY}70` }}>
-              This step-by-step learning pathway enables students to strengthen their fundamentals before progressing to higher levels. Every stage focuses on continuous improvement through guided instruction and consistent practice. The academy's online tabla classes courses and online dholak classes courses are designed to support students at every phase of their learning journey.[cite: 8]
+              This step-by-step learning pathway enables students to strengthen their fundamentals before progressing to higher levels. Every stage focuses on continuous improvement through guided instruction and consistent practice. The academy's online tabla classes courses and online dholak classes courses are designed to support students at every phase of their learning journey.
             </p>
           </motion.div>
         </div>
@@ -464,7 +464,7 @@ function Page() {
               Why Choose Varjay Music Academy?
             </h2>
             <p className="text-center text-sm mb-12 max-w-xl mx-auto" style={{ color: `${NAVY}70` }}>
-              Students choose Varjay Music Academy because of its structured learning environment and student-focused teaching methodology.[cite: 8]
+              Students choose Varjay Music Academy because of its structured learning environment and student-focused teaching methodology.
             </p>
 
             <ul className="grid sm:grid-cols-2 gap-4">
@@ -495,13 +495,13 @@ function Page() {
                 Performance Opportunities
               </h3>
               <p className="text-base leading-relaxed text-center mb-4" style={{ color: `${NAVY}BB` }}>
-                Learning music becomes even more meaningful when students have opportunities to showcase their progress. Varjay Music Academy regularly highlights student performances, musical events, annual stage performances, examination activities, and student gallery updates.[cite: 8]
+                Learning music becomes even more meaningful when students have opportunities to showcase their progress. Varjay Music Academy regularly highlights student performances, musical events, annual stage performances, examination activities, and student gallery updates.
               </p>
               <p className="text-base leading-relaxed text-center mb-4" style={{ color: `${NAVY}BB` }}>
-                These activities encourage students to apply what they learn during classes while building confidence through practical musical experiences. The academy currently serves more than 150 students from India and around the world, reflecting its commitment to providing accessible music education.[cite: 8]
+                These activities encourage students to apply what they learn during classes while building confidence through practical musical experiences. The academy currently serves more than 150 students from India and around the world, reflecting its commitment to providing accessible music education.
               </p>
               <p className="text-base leading-relaxed text-center" style={{ color: `${NAVY}BB` }}>
-                If you are searching for online tabla classes courses or online dholak classes courses, Varjay Music Academy offers a comprehensive learning experience built around personalized teaching, experienced faculty, and a certified curriculum. Through live one-to-one online sessions, students receive the guidance needed to develop their rhythm, technique, and confidence while learning from home.[cite: 8]
+                If you are searching for online tabla classes courses or online dholak classes courses, Varjay Music Academy offers a comprehensive learning experience built around personalized teaching, experienced faculty, and a certified curriculum. Through live one-to-one online sessions, students receive the guidance needed to develop their rhythm, technique, and confidence while learning from home.
               </p>
             </div>
           </motion.div>
