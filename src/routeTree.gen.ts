@@ -12,15 +12,27 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as ThankYouRouteImport } from './routes/thank-you'
 import { Route as TablaRouteImport } from './routes/tabla'
 import { Route as RegisterRouteImport } from './routes/register'
+import { Route as PianoClassesNaviMumbaiRouteImport } from './routes/piano-classes-navi-mumbai'
 import { Route as OnlinecoursesRouteImport } from './routes/onlinecourses'
+import { Route as OnlineVocalWesternMusicClassesCoursesRouteImport } from './routes/online-vocal-western-music-classes-courses'
+import { Route as OnlineViolinClassesCoursesCarnaticRouteImport } from './routes/online-violin-classes-courses-carnatic'
+import { Route as OnlineTablaDholakClassesCoursesRouteImport } from './routes/online-tabla-dholak-classes-courses'
+import { Route as OnlineSingingClassesRouteImport } from './routes/online-singing-classes'
+import { Route as OnlinePianoClassesCoursesRouteImport } from './routes/online-piano-classes-courses'
+import { Route as OnlineMusicClassesRouteImport } from './routes/online-music-classes'
+import { Route as OnlineClassicalHindustaniMusicClassesCoursesRouteImport } from './routes/online-classical-hindustani-music-classes-courses'
+import { Route as OnlineCarnaticMusicClassesCoursesRouteImport } from './routes/online-carnatic-music-classes-courses'
 import { Route as OfflinecoursesRouteImport } from './routes/offlinecourses'
 import { Route as HindustaniClassicalRouteImport } from './routes/hindustani-classical'
 import { Route as GuruPoornima2025RouteImport } from './routes/guru-poornima-2025'
+import { Route as GuitarClassesNaviMumbaiRouteImport } from './routes/guitar-classes-navi-mumbai'
 import { Route as GuitarRouteImport } from './routes/guitar'
 import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as FluteMusicClassesCoursesOnlineRouteImport } from './routes/flute-music-classes-courses-online'
 import { Route as FaqsRouteImport } from './routes/faqs'
 import { Route as CoursesRouteImport } from './routes/courses'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as ClassicalMusicSingingClassesNaviMumbaiRouteImport } from './routes/classical-music-singing-classes-navi-mumbai'
 import { Route as CertificatesRouteImport } from './routes/certificates'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -40,11 +52,62 @@ const RegisterRoute = RegisterRouteImport.update({
   path: '/register',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PianoClassesNaviMumbaiRoute = PianoClassesNaviMumbaiRouteImport.update({
+  id: '/piano-classes-navi-mumbai',
+  path: '/piano-classes-navi-mumbai',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const OnlinecoursesRoute = OnlinecoursesRouteImport.update({
   id: '/onlinecourses',
   path: '/onlinecourses',
   getParentRoute: () => rootRouteImport,
 } as any)
+const OnlineVocalWesternMusicClassesCoursesRoute =
+  OnlineVocalWesternMusicClassesCoursesRouteImport.update({
+    id: '/online-vocal-western-music-classes-courses',
+    path: '/online-vocal-western-music-classes-courses',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const OnlineViolinClassesCoursesCarnaticRoute =
+  OnlineViolinClassesCoursesCarnaticRouteImport.update({
+    id: '/online-violin-classes-courses-carnatic',
+    path: '/online-violin-classes-courses-carnatic',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const OnlineTablaDholakClassesCoursesRoute =
+  OnlineTablaDholakClassesCoursesRouteImport.update({
+    id: '/online-tabla-dholak-classes-courses',
+    path: '/online-tabla-dholak-classes-courses',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const OnlineSingingClassesRoute = OnlineSingingClassesRouteImport.update({
+  id: '/online-singing-classes',
+  path: '/online-singing-classes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OnlinePianoClassesCoursesRoute =
+  OnlinePianoClassesCoursesRouteImport.update({
+    id: '/online-piano-classes-courses',
+    path: '/online-piano-classes-courses',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const OnlineMusicClassesRoute = OnlineMusicClassesRouteImport.update({
+  id: '/online-music-classes',
+  path: '/online-music-classes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OnlineClassicalHindustaniMusicClassesCoursesRoute =
+  OnlineClassicalHindustaniMusicClassesCoursesRouteImport.update({
+    id: '/online-classical-hindustani-music-classes-courses',
+    path: '/online-classical-hindustani-music-classes-courses',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const OnlineCarnaticMusicClassesCoursesRoute =
+  OnlineCarnaticMusicClassesCoursesRouteImport.update({
+    id: '/online-carnatic-music-classes-courses',
+    path: '/online-carnatic-music-classes-courses',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const OfflinecoursesRoute = OfflinecoursesRouteImport.update({
   id: '/offlinecourses',
   path: '/offlinecourses',
@@ -60,6 +123,11 @@ const GuruPoornima2025Route = GuruPoornima2025RouteImport.update({
   path: '/guru-poornima-2025',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GuitarClassesNaviMumbaiRoute = GuitarClassesNaviMumbaiRouteImport.update({
+  id: '/guitar-classes-navi-mumbai',
+  path: '/guitar-classes-navi-mumbai',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GuitarRoute = GuitarRouteImport.update({
   id: '/guitar',
   path: '/guitar',
@@ -70,6 +138,12 @@ const GalleryRoute = GalleryRouteImport.update({
   path: '/gallery',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FluteMusicClassesCoursesOnlineRoute =
+  FluteMusicClassesCoursesOnlineRouteImport.update({
+    id: '/flute-music-classes-courses-online',
+    path: '/flute-music-classes-courses-online',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const FaqsRoute = FaqsRouteImport.update({
   id: '/faqs',
   path: '/faqs',
@@ -85,6 +159,12 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ClassicalMusicSingingClassesNaviMumbaiRoute =
+  ClassicalMusicSingingClassesNaviMumbaiRouteImport.update({
+    id: '/classical-music-singing-classes-navi-mumbai',
+    path: '/classical-music-singing-classes-navi-mumbai',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const CertificatesRoute = CertificatesRouteImport.update({
   id: '/certificates',
   path: '/certificates',
@@ -105,15 +185,27 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/certificates': typeof CertificatesRoute
+  '/classical-music-singing-classes-navi-mumbai': typeof ClassicalMusicSingingClassesNaviMumbaiRoute
   '/contact': typeof ContactRoute
   '/courses': typeof CoursesRoute
   '/faqs': typeof FaqsRoute
+  '/flute-music-classes-courses-online': typeof FluteMusicClassesCoursesOnlineRoute
   '/gallery': typeof GalleryRoute
   '/guitar': typeof GuitarRoute
+  '/guitar-classes-navi-mumbai': typeof GuitarClassesNaviMumbaiRoute
   '/guru-poornima-2025': typeof GuruPoornima2025Route
   '/hindustani-classical': typeof HindustaniClassicalRoute
   '/offlinecourses': typeof OfflinecoursesRoute
+  '/online-carnatic-music-classes-courses': typeof OnlineCarnaticMusicClassesCoursesRoute
+  '/online-classical-hindustani-music-classes-courses': typeof OnlineClassicalHindustaniMusicClassesCoursesRoute
+  '/online-music-classes': typeof OnlineMusicClassesRoute
+  '/online-piano-classes-courses': typeof OnlinePianoClassesCoursesRoute
+  '/online-singing-classes': typeof OnlineSingingClassesRoute
+  '/online-tabla-dholak-classes-courses': typeof OnlineTablaDholakClassesCoursesRoute
+  '/online-violin-classes-courses-carnatic': typeof OnlineViolinClassesCoursesCarnaticRoute
+  '/online-vocal-western-music-classes-courses': typeof OnlineVocalWesternMusicClassesCoursesRoute
   '/onlinecourses': typeof OnlinecoursesRoute
+  '/piano-classes-navi-mumbai': typeof PianoClassesNaviMumbaiRoute
   '/register': typeof RegisterRoute
   '/tabla': typeof TablaRoute
   '/thank-you': typeof ThankYouRoute
@@ -122,15 +214,27 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/certificates': typeof CertificatesRoute
+  '/classical-music-singing-classes-navi-mumbai': typeof ClassicalMusicSingingClassesNaviMumbaiRoute
   '/contact': typeof ContactRoute
   '/courses': typeof CoursesRoute
   '/faqs': typeof FaqsRoute
+  '/flute-music-classes-courses-online': typeof FluteMusicClassesCoursesOnlineRoute
   '/gallery': typeof GalleryRoute
   '/guitar': typeof GuitarRoute
+  '/guitar-classes-navi-mumbai': typeof GuitarClassesNaviMumbaiRoute
   '/guru-poornima-2025': typeof GuruPoornima2025Route
   '/hindustani-classical': typeof HindustaniClassicalRoute
   '/offlinecourses': typeof OfflinecoursesRoute
+  '/online-carnatic-music-classes-courses': typeof OnlineCarnaticMusicClassesCoursesRoute
+  '/online-classical-hindustani-music-classes-courses': typeof OnlineClassicalHindustaniMusicClassesCoursesRoute
+  '/online-music-classes': typeof OnlineMusicClassesRoute
+  '/online-piano-classes-courses': typeof OnlinePianoClassesCoursesRoute
+  '/online-singing-classes': typeof OnlineSingingClassesRoute
+  '/online-tabla-dholak-classes-courses': typeof OnlineTablaDholakClassesCoursesRoute
+  '/online-violin-classes-courses-carnatic': typeof OnlineViolinClassesCoursesCarnaticRoute
+  '/online-vocal-western-music-classes-courses': typeof OnlineVocalWesternMusicClassesCoursesRoute
   '/onlinecourses': typeof OnlinecoursesRoute
+  '/piano-classes-navi-mumbai': typeof PianoClassesNaviMumbaiRoute
   '/register': typeof RegisterRoute
   '/tabla': typeof TablaRoute
   '/thank-you': typeof ThankYouRoute
@@ -140,15 +244,27 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/certificates': typeof CertificatesRoute
+  '/classical-music-singing-classes-navi-mumbai': typeof ClassicalMusicSingingClassesNaviMumbaiRoute
   '/contact': typeof ContactRoute
   '/courses': typeof CoursesRoute
   '/faqs': typeof FaqsRoute
+  '/flute-music-classes-courses-online': typeof FluteMusicClassesCoursesOnlineRoute
   '/gallery': typeof GalleryRoute
   '/guitar': typeof GuitarRoute
+  '/guitar-classes-navi-mumbai': typeof GuitarClassesNaviMumbaiRoute
   '/guru-poornima-2025': typeof GuruPoornima2025Route
   '/hindustani-classical': typeof HindustaniClassicalRoute
   '/offlinecourses': typeof OfflinecoursesRoute
+  '/online-carnatic-music-classes-courses': typeof OnlineCarnaticMusicClassesCoursesRoute
+  '/online-classical-hindustani-music-classes-courses': typeof OnlineClassicalHindustaniMusicClassesCoursesRoute
+  '/online-music-classes': typeof OnlineMusicClassesRoute
+  '/online-piano-classes-courses': typeof OnlinePianoClassesCoursesRoute
+  '/online-singing-classes': typeof OnlineSingingClassesRoute
+  '/online-tabla-dholak-classes-courses': typeof OnlineTablaDholakClassesCoursesRoute
+  '/online-violin-classes-courses-carnatic': typeof OnlineViolinClassesCoursesCarnaticRoute
+  '/online-vocal-western-music-classes-courses': typeof OnlineVocalWesternMusicClassesCoursesRoute
   '/onlinecourses': typeof OnlinecoursesRoute
+  '/piano-classes-navi-mumbai': typeof PianoClassesNaviMumbaiRoute
   '/register': typeof RegisterRoute
   '/tabla': typeof TablaRoute
   '/thank-you': typeof ThankYouRoute
@@ -159,15 +275,27 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/certificates'
+    | '/classical-music-singing-classes-navi-mumbai'
     | '/contact'
     | '/courses'
     | '/faqs'
+    | '/flute-music-classes-courses-online'
     | '/gallery'
     | '/guitar'
+    | '/guitar-classes-navi-mumbai'
     | '/guru-poornima-2025'
     | '/hindustani-classical'
     | '/offlinecourses'
+    | '/online-carnatic-music-classes-courses'
+    | '/online-classical-hindustani-music-classes-courses'
+    | '/online-music-classes'
+    | '/online-piano-classes-courses'
+    | '/online-singing-classes'
+    | '/online-tabla-dholak-classes-courses'
+    | '/online-violin-classes-courses-carnatic'
+    | '/online-vocal-western-music-classes-courses'
     | '/onlinecourses'
+    | '/piano-classes-navi-mumbai'
     | '/register'
     | '/tabla'
     | '/thank-you'
@@ -176,15 +304,27 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/certificates'
+    | '/classical-music-singing-classes-navi-mumbai'
     | '/contact'
     | '/courses'
     | '/faqs'
+    | '/flute-music-classes-courses-online'
     | '/gallery'
     | '/guitar'
+    | '/guitar-classes-navi-mumbai'
     | '/guru-poornima-2025'
     | '/hindustani-classical'
     | '/offlinecourses'
+    | '/online-carnatic-music-classes-courses'
+    | '/online-classical-hindustani-music-classes-courses'
+    | '/online-music-classes'
+    | '/online-piano-classes-courses'
+    | '/online-singing-classes'
+    | '/online-tabla-dholak-classes-courses'
+    | '/online-violin-classes-courses-carnatic'
+    | '/online-vocal-western-music-classes-courses'
     | '/onlinecourses'
+    | '/piano-classes-navi-mumbai'
     | '/register'
     | '/tabla'
     | '/thank-you'
@@ -193,15 +333,27 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/certificates'
+    | '/classical-music-singing-classes-navi-mumbai'
     | '/contact'
     | '/courses'
     | '/faqs'
+    | '/flute-music-classes-courses-online'
     | '/gallery'
     | '/guitar'
+    | '/guitar-classes-navi-mumbai'
     | '/guru-poornima-2025'
     | '/hindustani-classical'
     | '/offlinecourses'
+    | '/online-carnatic-music-classes-courses'
+    | '/online-classical-hindustani-music-classes-courses'
+    | '/online-music-classes'
+    | '/online-piano-classes-courses'
+    | '/online-singing-classes'
+    | '/online-tabla-dholak-classes-courses'
+    | '/online-violin-classes-courses-carnatic'
+    | '/online-vocal-western-music-classes-courses'
     | '/onlinecourses'
+    | '/piano-classes-navi-mumbai'
     | '/register'
     | '/tabla'
     | '/thank-you'
@@ -211,15 +363,27 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   CertificatesRoute: typeof CertificatesRoute
+  ClassicalMusicSingingClassesNaviMumbaiRoute: typeof ClassicalMusicSingingClassesNaviMumbaiRoute
   ContactRoute: typeof ContactRoute
   CoursesRoute: typeof CoursesRoute
   FaqsRoute: typeof FaqsRoute
+  FluteMusicClassesCoursesOnlineRoute: typeof FluteMusicClassesCoursesOnlineRoute
   GalleryRoute: typeof GalleryRoute
   GuitarRoute: typeof GuitarRoute
+  GuitarClassesNaviMumbaiRoute: typeof GuitarClassesNaviMumbaiRoute
   GuruPoornima2025Route: typeof GuruPoornima2025Route
   HindustaniClassicalRoute: typeof HindustaniClassicalRoute
   OfflinecoursesRoute: typeof OfflinecoursesRoute
+  OnlineCarnaticMusicClassesCoursesRoute: typeof OnlineCarnaticMusicClassesCoursesRoute
+  OnlineClassicalHindustaniMusicClassesCoursesRoute: typeof OnlineClassicalHindustaniMusicClassesCoursesRoute
+  OnlineMusicClassesRoute: typeof OnlineMusicClassesRoute
+  OnlinePianoClassesCoursesRoute: typeof OnlinePianoClassesCoursesRoute
+  OnlineSingingClassesRoute: typeof OnlineSingingClassesRoute
+  OnlineTablaDholakClassesCoursesRoute: typeof OnlineTablaDholakClassesCoursesRoute
+  OnlineViolinClassesCoursesCarnaticRoute: typeof OnlineViolinClassesCoursesCarnaticRoute
+  OnlineVocalWesternMusicClassesCoursesRoute: typeof OnlineVocalWesternMusicClassesCoursesRoute
   OnlinecoursesRoute: typeof OnlinecoursesRoute
+  PianoClassesNaviMumbaiRoute: typeof PianoClassesNaviMumbaiRoute
   RegisterRoute: typeof RegisterRoute
   TablaRoute: typeof TablaRoute
   ThankYouRoute: typeof ThankYouRoute
@@ -248,11 +412,74 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RegisterRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/piano-classes-navi-mumbai': {
+      id: '/piano-classes-navi-mumbai'
+      path: '/piano-classes-navi-mumbai'
+      fullPath: '/piano-classes-navi-mumbai'
+      preLoaderRoute: typeof PianoClassesNaviMumbaiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/onlinecourses': {
       id: '/onlinecourses'
       path: '/onlinecourses'
       fullPath: '/onlinecourses'
       preLoaderRoute: typeof OnlinecoursesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/online-vocal-western-music-classes-courses': {
+      id: '/online-vocal-western-music-classes-courses'
+      path: '/online-vocal-western-music-classes-courses'
+      fullPath: '/online-vocal-western-music-classes-courses'
+      preLoaderRoute: typeof OnlineVocalWesternMusicClassesCoursesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/online-violin-classes-courses-carnatic': {
+      id: '/online-violin-classes-courses-carnatic'
+      path: '/online-violin-classes-courses-carnatic'
+      fullPath: '/online-violin-classes-courses-carnatic'
+      preLoaderRoute: typeof OnlineViolinClassesCoursesCarnaticRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/online-tabla-dholak-classes-courses': {
+      id: '/online-tabla-dholak-classes-courses'
+      path: '/online-tabla-dholak-classes-courses'
+      fullPath: '/online-tabla-dholak-classes-courses'
+      preLoaderRoute: typeof OnlineTablaDholakClassesCoursesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/online-singing-classes': {
+      id: '/online-singing-classes'
+      path: '/online-singing-classes'
+      fullPath: '/online-singing-classes'
+      preLoaderRoute: typeof OnlineSingingClassesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/online-piano-classes-courses': {
+      id: '/online-piano-classes-courses'
+      path: '/online-piano-classes-courses'
+      fullPath: '/online-piano-classes-courses'
+      preLoaderRoute: typeof OnlinePianoClassesCoursesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/online-music-classes': {
+      id: '/online-music-classes'
+      path: '/online-music-classes'
+      fullPath: '/online-music-classes'
+      preLoaderRoute: typeof OnlineMusicClassesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/online-classical-hindustani-music-classes-courses': {
+      id: '/online-classical-hindustani-music-classes-courses'
+      path: '/online-classical-hindustani-music-classes-courses'
+      fullPath: '/online-classical-hindustani-music-classes-courses'
+      preLoaderRoute: typeof OnlineClassicalHindustaniMusicClassesCoursesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/online-carnatic-music-classes-courses': {
+      id: '/online-carnatic-music-classes-courses'
+      path: '/online-carnatic-music-classes-courses'
+      fullPath: '/online-carnatic-music-classes-courses'
+      preLoaderRoute: typeof OnlineCarnaticMusicClassesCoursesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/offlinecourses': {
@@ -276,6 +503,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GuruPoornima2025RouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/guitar-classes-navi-mumbai': {
+      id: '/guitar-classes-navi-mumbai'
+      path: '/guitar-classes-navi-mumbai'
+      fullPath: '/guitar-classes-navi-mumbai'
+      preLoaderRoute: typeof GuitarClassesNaviMumbaiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/guitar': {
       id: '/guitar'
       path: '/guitar'
@@ -288,6 +522,13 @@ declare module '@tanstack/react-router' {
       path: '/gallery'
       fullPath: '/gallery'
       preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/flute-music-classes-courses-online': {
+      id: '/flute-music-classes-courses-online'
+      path: '/flute-music-classes-courses-online'
+      fullPath: '/flute-music-classes-courses-online'
+      preLoaderRoute: typeof FluteMusicClassesCoursesOnlineRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/faqs': {
@@ -309,6 +550,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/classical-music-singing-classes-navi-mumbai': {
+      id: '/classical-music-singing-classes-navi-mumbai'
+      path: '/classical-music-singing-classes-navi-mumbai'
+      fullPath: '/classical-music-singing-classes-navi-mumbai'
+      preLoaderRoute: typeof ClassicalMusicSingingClassesNaviMumbaiRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/certificates': {
@@ -339,15 +587,32 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   CertificatesRoute: CertificatesRoute,
+  ClassicalMusicSingingClassesNaviMumbaiRoute:
+    ClassicalMusicSingingClassesNaviMumbaiRoute,
   ContactRoute: ContactRoute,
   CoursesRoute: CoursesRoute,
   FaqsRoute: FaqsRoute,
+  FluteMusicClassesCoursesOnlineRoute: FluteMusicClassesCoursesOnlineRoute,
   GalleryRoute: GalleryRoute,
   GuitarRoute: GuitarRoute,
+  GuitarClassesNaviMumbaiRoute: GuitarClassesNaviMumbaiRoute,
   GuruPoornima2025Route: GuruPoornima2025Route,
   HindustaniClassicalRoute: HindustaniClassicalRoute,
   OfflinecoursesRoute: OfflinecoursesRoute,
+  OnlineCarnaticMusicClassesCoursesRoute:
+    OnlineCarnaticMusicClassesCoursesRoute,
+  OnlineClassicalHindustaniMusicClassesCoursesRoute:
+    OnlineClassicalHindustaniMusicClassesCoursesRoute,
+  OnlineMusicClassesRoute: OnlineMusicClassesRoute,
+  OnlinePianoClassesCoursesRoute: OnlinePianoClassesCoursesRoute,
+  OnlineSingingClassesRoute: OnlineSingingClassesRoute,
+  OnlineTablaDholakClassesCoursesRoute: OnlineTablaDholakClassesCoursesRoute,
+  OnlineViolinClassesCoursesCarnaticRoute:
+    OnlineViolinClassesCoursesCarnaticRoute,
+  OnlineVocalWesternMusicClassesCoursesRoute:
+    OnlineVocalWesternMusicClassesCoursesRoute,
   OnlinecoursesRoute: OnlinecoursesRoute,
+  PianoClassesNaviMumbaiRoute: PianoClassesNaviMumbaiRoute,
   RegisterRoute: RegisterRoute,
   TablaRoute: TablaRoute,
   ThankYouRoute: ThankYouRoute,

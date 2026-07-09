@@ -1,11 +1,16 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "@tanstack/react-router";
 import { z } from "zod";
-import { Loader2, Send } from "lucide-react";
+import { Loader2, Send, ShieldCheck, PhoneCall } from "lucide-react";
+import {
+  RecaptchaVerifier,
+  signInWithPhoneNumber,
+  type ConfirmationResult,
+} from "firebase/auth";
+import { auth } from "@/lib/firebase";
 import { INSTRUMENTS } from "./data";
 
 const SHEETS_URL = "https://script.google.com/macros/s/AKfycbybwjpLBZq6R8eXapduoXL-Ih7ujzLQCOGknBXWeGT4PtsTCvh8FwPxsvbPOBMwflcU4w/exec";
-
 
 const schema = z.object({
   name: z.string().trim().min(2, "Please enter your name").max(80),
@@ -21,23 +26,27 @@ const COURSE_OPTIONS = [
   ),
   "Not sure yet",
 ];
-// Helper: Exponential Backoff Retry for robustness against network or GAS timeouts
+
 async function fetchWithRetry(url: string, options: RequestInit, retries = 3): Promise<any> {
   for (let i = 0; i < retries; i++) {
     try {
       const res = await fetch(url, options);
-      // Fallback in case Google Apps Script returns raw text instead of JSON
       const json = await res.json().catch(() => ({ status: "success" }));
-
       if (json.status === "error") throw new Error(json.message);
       return json;
-
     } catch (err) {
-      if (i === retries - 1) throw err; // Throw on the final failed attempt
-      // Wait 1s, then 2s, then 4s...
-      await new Promise(resolve => setTimeout(resolve, 1000 * Math.pow(2, i)));
+      if (i === retries - 1) throw err;
+      await new Promise((resolve) => setTimeout(resolve, 1000 * Math.pow(2, i)));
     }
   }
+}
+
+// Normalizes to E.164 for Firebase. Assumes India (+91) if no country code given.
+function toE164(raw: string): string {
+  const digits = raw.replace(/[^\d+]/g, "");
+  if (digits.startsWith("+")) return digits;
+  if (digits.length === 10) return `+91${digits}`;
+  return `+${digits}`;
 }
 
 type Props = {
@@ -61,6 +70,24 @@ export function EnquiryForm({
     defaultCourse ? [defaultCourse] : []
   );
 
+  // --- OTP state ---
+  const [phoneValue, setPhoneValue] = useState("");
+  const [otpValue, setOtpValue] = useState("");
+  const [otpSent, setOtpSent] = useState(false);
+  const [sendingOtp, setSendingOtp] = useState(false);
+  const [verifyingOtp, setVerifyingOtp] = useState(false);
+  const [phoneVerified, setPhoneVerified] = useState(false);
+  const [otpError, setOtpError] = useState<string | null>(null);
+  const [confirmationResult, setConfirmationResult] = useState<ConfirmationResult | null>(null);
+  const recaptchaRef = useRef<RecaptchaVerifier | null>(null);
+  const recaptchaContainerId = useRef(`recaptcha-${Math.random().toString(36).slice(2)}`);
+
+  useEffect(() => {
+    return () => {
+      recaptchaRef.current?.clear();
+    };
+  }, []);
+
   const toggleCourse = (course: string) => {
     setSelectedCourses((prev) =>
       prev.includes(course)
@@ -69,16 +96,80 @@ export function EnquiryForm({
     );
   };
 
+  // Reset verification if the user edits the phone number after verifying
+  function handlePhoneChange(v: string) {
+    setPhoneValue(v);
+    if (phoneVerified || otpSent) {
+      setPhoneVerified(false);
+      setOtpSent(false);
+      setOtpValue("");
+      setConfirmationResult(null);
+      setOtpError(null);
+    }
+  }
+
+  async function sendOtp() {
+    setOtpError(null);
+
+    if (!/^[0-9 +\-()]{7,20}$/.test(phoneValue.trim())) {
+      setOtpError("Enter a valid phone number first");
+      return;
+    }
+
+    setSendingOtp(true);
+    try {
+      if (!recaptchaRef.current) {
+        recaptchaRef.current = new RecaptchaVerifier(auth, recaptchaContainerId.current, {
+          size: "invisible",
+        });
+      }
+      const formatted = toE164(phoneValue);
+      const result = await signInWithPhoneNumber(auth, formatted, recaptchaRef.current);
+      setConfirmationResult(result);
+      setOtpSent(true);
+    } catch (err: any) {
+      console.error("OTP send error:", err);
+      setOtpError(
+        err?.code === "auth/invalid-phone-number"
+          ? "That phone number looks invalid."
+          : "Couldn't send OTP. Please check the number and try again."
+      );
+      recaptchaRef.current?.clear();
+      recaptchaRef.current = null;
+    } finally {
+      setSendingOtp(false);
+    }
+  }
+
+  async function verifyOtp() {
+    if (!confirmationResult) return;
+    setOtpError(null);
+    setVerifyingOtp(true);
+    try {
+      await confirmationResult.confirm(otpValue.trim());
+      setPhoneVerified(true);
+    } catch (err) {
+      setOtpError("Incorrect OTP. Please try again.");
+    } finally {
+      setVerifyingOtp(false);
+    }
+  }
+
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setSubmitError(null);
+
+    if (!phoneVerified) {
+      setSubmitError("Please verify your phone number with the OTP before submitting.");
+      return;
+    }
 
     const form = e.currentTarget;
     const fd = new FormData(form);
 
     const raw = {
       name: String(fd.get("name") || ""),
-      phone: String(fd.get("phone") || ""),
+      phone: phoneValue,
       email: String(fd.get("email") || ""),
       course: selectedCourses,
       message: String(fd.get("message") || ""),
@@ -103,6 +194,7 @@ export function EnquiryForm({
     const payload = {
       ...parsed.data,
       course: coursesString,
+      phoneVerified: true,
       page: typeof window !== "undefined" ? window.location.pathname : "",
       submittedAt: new Date().toISOString(),
     };
@@ -110,7 +202,6 @@ export function EnquiryForm({
     try {
       await fetchWithRetry(SHEETS_URL, {
         method: "POST",
-        // Using text/plain prevents CORS preflight issues with GAS
         headers: { "Content-Type": "text/plain;charset=utf-8" },
         body: JSON.stringify(payload),
       });
@@ -141,6 +232,9 @@ export function EnquiryForm({
       </h3>
       <p className="text-sm text-[#78716C] mt-2">{subtitle}</p>
 
+      {/* Invisible reCAPTCHA anchor required by Firebase */}
+      <div id={recaptchaContainerId.current} />
+
       <form onSubmit={onSubmit} className="mt-6 grid gap-4" noValidate>
         <div className="grid sm:grid-cols-2 gap-4">
           <div>
@@ -148,10 +242,67 @@ export function EnquiryForm({
             <input name="name" className={`${input} mt-1`} placeholder="Your full name" />
             {errors.name && <p className="text-xs text-[#F43F5E] mt-1">{errors.name}</p>}
           </div>
+
           <div>
             <label className="font-mono text-[11px] tracking-wider text-[#78716C]">PHONE *</label>
-            <input name="phone" className={`${input} mt-1`} placeholder="+91 ..." />
+            <div className="flex gap-2 mt-1">
+              <input
+                name="phone"
+                value={phoneValue}
+                onChange={(e) => handlePhoneChange(e.target.value)}
+                disabled={phoneVerified}
+                className={`${input} ${phoneVerified ? "opacity-70" : ""}`}
+                placeholder="+91 ..."
+              />
+              {!phoneVerified && (
+                <button
+                  type="button"
+                  onClick={sendOtp}
+                  disabled={sendingOtp || !phoneValue.trim()}
+                  className="shrink-0 px-4 rounded-xl border border-[#F59E0B] text-[#F59E0B] text-[13px] font-medium hover:bg-[#F59E0B]/10 transition-colors disabled:opacity-50 whitespace-nowrap"
+                >
+                  {sendingOtp ? (
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                  ) : otpSent ? (
+                    "Resend"
+                  ) : (
+                    "Send OTP"
+                  )}
+                </button>
+              )}
+              {phoneVerified && (
+                <span className="shrink-0 inline-flex items-center gap-1 px-3 rounded-xl bg-emerald-50 text-emerald-600 text-[12px] font-medium">
+                  <ShieldCheck className="w-4 h-4" /> Verified
+                </span>
+              )}
+            </div>
             {errors.phone && <p className="text-xs text-[#F43F5E] mt-1">{errors.phone}</p>}
+
+            {otpSent && !phoneVerified && (
+              <div className="flex gap-2 mt-2">
+                <input
+                  value={otpValue}
+                  onChange={(e) => setOtpValue(e.target.value.replace(/\D/g, "").slice(0, 6))}
+                  inputMode="numeric"
+                  placeholder="Enter 6-digit OTP"
+                  className={`${input} !py-2.5`}
+                />
+                <button
+                  type="button"
+                  onClick={verifyOtp}
+                  disabled={verifyingOtp || otpValue.length < 4}
+                  className="shrink-0 px-4 rounded-xl bg-[#1C0A00] text-white text-[13px] font-medium disabled:opacity-50 whitespace-nowrap"
+                >
+                  {verifyingOtp ? <Loader2 className="w-4 h-4 animate-spin" /> : "Verify"}
+                </button>
+              </div>
+            )}
+            {otpError && <p className="text-xs text-[#F43F5E] mt-1">{otpError}</p>}
+            {otpSent && !phoneVerified && !otpError && (
+              <p className="text-[11px] text-[#a8a29e] mt-1 flex items-center gap-1">
+                <PhoneCall className="w-3 h-3" /> OTP sent — enter it above to verify.
+              </p>
+            )}
           </div>
         </div>
 
@@ -206,11 +357,11 @@ export function EnquiryForm({
 
         <button
           type="submit"
-          disabled={submitting}
+          disabled={submitting || !phoneVerified}
           className="mt-2 inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-[#F59E0B] text-[#1C0A00] font-semibold hover:bg-[#d97706] hover:text-white transition-colors shadow-lg shadow-amber-500/30 disabled:opacity-60"
         >
           {submitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
-          {submitting ? "Sending..." : "Send enquiry"}
+          {submitting ? "Sending..." : phoneVerified ? "Send enquiry" : "Verify phone to continue"}
         </button>
 
         <p className="text-[11px] text-[#a8a29e] font-mono mt-1">
