@@ -7,6 +7,7 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
+import { Analytics } from "@vercel/analytics/react";
 
 import { Navbar } from "@/components/varjay/Navbar";
 import { Footer } from "@/components/varjay/Footer";
@@ -121,6 +122,7 @@ function RootComponent() {
         <Footer />
         <Floating />
       </div>
+      <Analytics />
     </QueryClientProvider>
   );
 }
