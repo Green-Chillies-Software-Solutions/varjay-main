@@ -108,7 +108,7 @@ const SECTIONS = [
   },
 ];
 
-export const Route = createFileRoute("/online-flute-music-classes-courses")({
+export const Route = createFileRoute("/flute-music-classes-courses-online")({
   head: () => ({
     meta: [
       {

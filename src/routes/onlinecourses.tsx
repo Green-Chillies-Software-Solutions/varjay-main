@@ -76,7 +76,7 @@ const ONLINE_INSTRUMENTS = [
     name: "Dholak",
     style: "Indian Classical",
     color: "#F43F5E",
-    img: "https://www.carvedculture.in/cdn/shop/articles/Indian-Dholak_Drum-The-Complete-Guide_68f25b2e-b994-460f-8768-2da4673398ac.jpg?v=1774273778&width=900",
+    img: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Dholak_dhol_drum%2C_one_of_many_percussion_instruments_of_South_Asia.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     faculty: [
       {
         name: "Guru Arvind",

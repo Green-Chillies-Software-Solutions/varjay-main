@@ -76,9 +76,9 @@ const GUITAR_TIMINGS = [
 ];
 
 const HINDUSTANI_TIMINGS = [
-   "Tuesday - 6.00 pm to 9.00 pm",
-   "Friday - 6.00 pm to 9.00 pm",
-   "Sunday - 11.00 am to 1.00 pm"
+  "Tuesday - 6.00 pm to 9.00 pm",
+  "Friday - 6.00 pm to 9.00 pm",
+  "Sunday - 11.00 am to 1.00 pm"
 ];
 
 
@@ -310,7 +310,7 @@ function TablaDholakSection() {
           style={{ boxShadow: `0 12px 40px rgba(244,129,58,0.14)`, aspectRatio: "4/3" }}
         >
           <img
-            src="https://www.carvedculture.in/cdn/shop/articles/Indian-Dholak_Drum-The-Complete-Guide_68f25b2e-b994-460f-8768-2da4673398ac.jpg?v=1774273778&width=900"
+            src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Dholak_dhol_drum%2C_one_of_many_percussion_instruments_of_South_Asia.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
             alt="Dholak"
             className="absolute inset-0 w-full h-full object-cover"
             loading="lazy"

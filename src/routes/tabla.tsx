@@ -76,7 +76,7 @@ export const Route = createFileRoute("/tabla")({
       { property: "og:image", content: "https://varjaymusic.com/wp-content/uploads/2024/07/tabla.jpg" },
       { name: "robots", content: "index, follow" },
     ],
-    links: [{ rel: "canonical", href: "https://varjaymusic.com/tabla"}],
+    links: [{ rel: "canonical", href: "https://varjaymusic.com/tabla" }],
     scripts: [
       ldJson(
         courseSchema({
@@ -246,7 +246,7 @@ function Page() {
           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="relative">
             <div className="absolute inset-0 blur-3xl opacity-10 rounded-3xl" style={{ background: `linear-gradient(to bottom right, ${SAFFRON}, ${TURMERIC})` }} />
             <img
-              src="https://www.carvedculture.in/cdn/shop/articles/Indian-Dholak_Drum-The-Complete-Guide_68f25b2e-b994-460f-8768-2da4673398ac.jpg?v=1774273778&width=900"
+              src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Dholak_dhol_drum%2C_one_of_many_percussion_instruments_of_South_Asia.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
               alt="Dholak"
               className="rounded-3xl w-full object-cover relative z-10"
               style={{ border: "1px solid #E7E5E4", boxShadow: `0 12px 40px rgba(244,129,58,0.14)`, maxHeight: "420px", objectFit: "cover" }}

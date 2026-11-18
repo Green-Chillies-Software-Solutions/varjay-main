@@ -106,7 +106,7 @@ const SECTIONS = [
   },
 ];
 
-export const Route = createFileRoute("/online-music-classes")({
+export const Route = createFileRoute("/online-singing-classes")({
   head: () => ({
     meta: [
       {
